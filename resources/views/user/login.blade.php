@@ -8,10 +8,11 @@
     <title>Masuk</title>
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    {{-- css formDaftar --}}
-    <link rel="stylesheet" href="formDaftarUser/style.css">
+    {{-- css formLogin --}}
+    <link rel="stylesheet" href="formLoginUserrUser/style.css">
     {{-- google fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -24,7 +25,7 @@
                 </div>
                 <div class="col-sm-1"></div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-4 my-auto">
 
                     {{-- <div class="px-5 ms-xl-4">
                         <span class="h1 fw-bold">DAFTAR</span>
@@ -71,8 +72,12 @@
         </div>
     </section>
 
+    <div id="preloader"></div>
+
     {{-- Bootstrap --}}
     <script src="/css/bootstrap.min.js"></script>
+
+    <script src=" assetsUser/js/main.js"></script>
 </body>
 
 </html>

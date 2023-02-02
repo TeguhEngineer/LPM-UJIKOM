@@ -15,4 +15,9 @@ class AdminController extends Controller
     {
         return view('admin.daftar');
     }
+
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
 }

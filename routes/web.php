@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\TanggapanCOntroller;
+use App\Http\Controllers\DatamasyarakatController;
+use App\Http\Controllers\DatapetugasController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,24 +34,20 @@ Route::get('/daftar', function () {
 
 Route::get('/administrator',[AdminController::class,'index'])->name('login');
 Route::get('/administratorDaftar',[AdminController::class,'daftar'])->name('daftar');
+Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
+
+Route::resource('/pengaduan',PengaduanController::class);
+Route::resource('/tanggapan',TanggapanController::class);
+Route::resource('/datamasyarakat',DatamasyarakatController::class);
+Route::resource('/datapetugas',DatapetugasController::class);
+Route::resource('/laporan',LaporanCOntroller::class);
 
 
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
-Route::get('/pengaduan', function () {
-    return view('admin.pengaduan');
-});
-Route::get('/tanggapan', function () {
-    return view('admin.tanggapan');
-});
-Route::get('/datamasyarakat', function () {
-    return view('admin.datamasyarakat');
-});
-Route::get('/datapetugas', function () {
-    return view('admin.datapetugas');
-});
+
+
+
+
 Route::get('/laporan', function () {
     return view('admin.laporan');
 });

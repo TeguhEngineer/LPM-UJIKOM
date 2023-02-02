@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Arsha Bootstrap Template - Index</title>
+    <title>LPM | Dinas Lingkungan Hidup</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -292,9 +292,9 @@
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="name">Nama Pelapor</label>
-                                    <input type="text" name="name" class="form-control" id="name"
-                                        required />
+                                    <label for="name">Email</label>
+                                    <input type="text" name="name" class="form-control"
+                                        value="teguh@gmail.com" id="name" disabled required />
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="name">Tanggal</label>
@@ -303,11 +303,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="name">Kategori Laporan</label>
+                                <label for="name">Jenis Pengaduan</label>
                                 <input type="text" class="form-control" name="subject" id="subject" required />
                             </div>
                             <div class="form-group">
-                                <label for="name">Isi Laporan</label>
+                                <label for="name">Isi Pengaduan</label>
                                 <textarea class="form-control" name="message" rows="10" required></textarea>
                             </div>
                             <div class="form-group">
@@ -324,8 +324,7 @@
                     </div>
                 </div>
                 <div class="section-title mt-4">
-                    <p class="text-danger">* Pastikan laporan anda valid, jangan melaporkan kejadian atau peristiwa
-                        hoax!</p>
+                    <p class="text-danger">* Pastikan laporan anda valid, jangan melaporkan pengaduan palsu/hoax!</p>
                 </div>
             </div>
         </section>
