@@ -121,17 +121,12 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <p class="mb-1 float-end">
-                                <a href="#" class="text-decoration-underline text-secondary">Lupa password ?</a>
+                            <p class="mb-1 float-end mt-2">
+                                <a href="#" class="text-decoration-underline text-secondary">Lupa password
+                                    ?</a>
                             </p>
                         </div>
-                        <div class="col-12 mt-2">
-                            <p class="mb-0">
-                                <a href="/administratorDaftar" class="text-center text-decoration-underline">Belum punya
-                                    akun?
-                                    daftar disini!</a>
-                            </p>
-                        </div>
+
                     </div>
 
                 </form>

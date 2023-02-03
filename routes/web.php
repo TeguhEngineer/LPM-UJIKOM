@@ -33,14 +33,13 @@ Route::get('/daftar', function () {
 // ADMIN
 
 Route::get('/administrator',[AdminController::class,'index'])->name('login');
-Route::get('/administratorDaftar',[AdminController::class,'daftar'])->name('daftar');
 Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
 
 Route::resource('/pengaduan',PengaduanController::class);
 Route::resource('/tanggapan',TanggapanController::class);
 Route::resource('/datamasyarakat',DatamasyarakatController::class);
 Route::resource('/datapetugas',DatapetugasController::class);
-Route::resource('/laporan',LaporanCOntroller::class);
+Route::resource('/laporan',LaporanController::class);
 
 
 

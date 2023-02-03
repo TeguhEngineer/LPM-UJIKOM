@@ -48,15 +48,21 @@
                                             <th>Status</th>
                                         </tr>
                                     </thead>
+
                                     <tbody>
-                                        <tr>
-                                            <td>00001</td>
-                                            <td>2023-01-22</td>
-                                            <td>Pencemaran Air</td>
-                                            <td>Terdapat salah satu sungai tempat pembuangan limbah pabrik</td>
-                                            <td><span class="badge rounded-pill text-bg-success">selesai</span></td>
-                                        </tr>
+                                        {{-- @foreach ($pengaduan as $item)
+                                            <tr>
+                                                <td><b>{{ $loop->iteration }}</b></td>
+                                                <td>{{ $item->created_at }}</td>
+                                                <td>{{ $item->jenis_pengaduan }}</td>
+                                                <td>{{ $item->isi_laporan }}</td>
+                                                <td><span
+                                                        class="badge rounded-pill text-bg-success">{{ $item->status }}</span>
+                                                </td>
+                                            </tr>
+                                        @endforeach --}}
                                     </tbody>
+
                                 </table>
                             </div>
                         </div>

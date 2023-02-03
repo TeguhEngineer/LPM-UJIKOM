@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class DatapetugasController extends Controller
 {
@@ -13,7 +14,17 @@ class DatapetugasController extends Controller
      */
     public function index()
     {
-        return view('admin.datapetugas');
+        $petugas = User::where('role','admin')->orWhere('role','petugas');
+
+        if(request('search')) {
+            $petugas->where('id', 'like', '%' . request('search') . '%')
+            ->orWhere('nama', 'like', '%' . request('search') . '%')
+            ->orWhere('username', 'like', '%' . request('search') . '%')
+            ->orWhere('email', 'like', '%' . request('search') . '%');
+        }
+        return view('admin.datapetugas',[
+            'datapetugas'           =>$petugas->get()
+        ]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class DatamasyarakatController extends Controller
 {
@@ -11,9 +12,23 @@ class DatamasyarakatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.datamasyarakat');
+        
+        $masyarakat = User::where('role','masyarakat');
+
+    
+
+        if(request('search')) {
+            $masyarakat->where('id', 'like', '%' . request('search') . '%')
+            ->orWhere('nama', 'like', '%' . request('search') . '%')
+            ->orWhere('nik', 'like', '%' . request('search') . '%')
+            ->orWhere('alamat', 'like', '%' . request('search') . '%');
+        }
+        return view('admin.datamasyarakat',[
+            'datamasyarakat'      =>$masyarakat->get(),
+            'masyarakat'           =>User::where('id',$request->masyarakat_id)->get()
+        ]);
     }
 
     /**
@@ -45,7 +60,9 @@ class DatamasyarakatController extends Controller
      */
     public function show($id)
     {
-        //
+        // return view('admin.datamasyarakat',[
+        //     'masyarakat'        =>User::all()
+        // ]) ;
     }
 
     /**

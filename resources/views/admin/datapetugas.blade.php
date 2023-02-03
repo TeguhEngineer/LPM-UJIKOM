@@ -23,21 +23,24 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                {{-- <button class="btn btn-primary btn-sm">Tambah data petugas</button> --}}
+
                                 <a href="">
                                     <h3 class="card-title text-primary"><i class="fas fa-user-plus"></i> Tambah data petugas
                                     </h3>
                                 </a>
                                 <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 200px;">
-                                        <input type="text" name="table_search" class="form-control float-right"
-                                            placeholder="Search">
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                            </button>
+                                    <form action="/datapetugas" method="GET">
+                                        <div class="input-group input-group-sm" style="width: 200px;">
+                                            <input type="text" type="search" name="search"
+                                                class="form-control float-right" placeholder="Search"
+                                                value="{{ request('search') }}">
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-default">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
 
@@ -48,182 +51,31 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Username</th>
-                                            <th>Telepon</th>
+                                            <th>Email</th>
                                             <th>Role</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Nama</td>
-                                            <td>Username</td>
-                                            <td>Telepon</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-person-lines-fill"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Nama</td>
-                                            <td>Username</td>
-                                            <td>Telepon</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-person-lines-fill"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Nama</td>
-                                            <td>Username</td>
-                                            <td>Telepon</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-person-lines-fill"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Nama</td>
-                                            <td>Username</td>
-                                            <td>Telepon</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-person-lines-fill"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Nama</td>
-                                            <td>Username</td>
-                                            <td>Telepon</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-person-lines-fill"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Nama</td>
-                                            <td>Username</td>
-                                            <td>Telepon</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-person-lines-fill"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Nama</td>
-                                            <td>Username</td>
-                                            <td>Telepon</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-person-lines-fill"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Nama</td>
-                                            <td>Username</td>
-                                            <td>Telepon</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-person-lines-fill"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Nama</td>
-                                            <td>Username</td>
-                                            <td>Telepon</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-person-lines-fill"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Nama</td>
-                                            <td>Username</td>
-                                            <td>Telepon</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-person-lines-fill"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        @foreach ($datapetugas as $item)
+                                            <tr>
+                                                <td><b>{{ $loop->iteration }}</b></td>
+                                                <td>{{ $item->nama }}</td>
+                                                <td>{{ $item->username }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->role }}</td>
+                                                <td>
+                                                    <a href="">
+                                                        <button class="btn btn-warning py-0 px-1"><i
+                                                                class="bi bi-pencil-square"></i></button>
+                                                    </a>
+                                                    <a href="">
+                                                        <button class="btn btn-danger py-0 px-1"><i
+                                                                class="bi bi-trash3"></i></button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

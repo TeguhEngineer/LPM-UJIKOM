@@ -15,7 +15,8 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item ">
-                    <a href="/dashboard" class="nav-link" id="sidebar-menu">
+                    <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}"
+                        id="sidebar-menu">
                         <i class="nav-icon fas ">
                             <i class="bi bi-speedometer2"></i>
                         </i>
@@ -26,7 +27,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/pengaduan" class="nav-link" id="sidebar-menu">
+                    <a href="/pengaduan" class="nav-link {{ Request::is('pengaduan') ? 'active' : '' }}"
+                        id="sidebar-menu">
                         <i class="nav-icon fas">
                             <i class="bi bi-megaphone"></i>
                         </i>
@@ -37,7 +39,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/tanggapan" class="nav-link" id="sidebar-menu">
+                    <a href="/tanggapan" class="nav-link {{ Request::is('tanggapan') ? 'active' : '' }}"
+                        id="sidebar-menu">
                         <i class="nav-icon fas">
                             <i class="bi bi-chat-left-text"></i>
                         </i>
@@ -47,8 +50,9 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/datamasyarakat" class="nav-link" id="sidebar-menu">
+                <li class="nav-item ">
+                    <a href="/datamasyarakat" class="nav-link {{ Request::is('datamasyarakat') ? 'active' : '' }}"
+                        id="sidebar-menu">
                         <i class="nav-icon fas">
                             <i class="bi bi-people"></i>
                         </i>
@@ -58,8 +62,9 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/datapetugas" class="nav-link" id="sidebar-menu">
+                <li class="nav-item ">
+                    <a href="/datapetugas" class="nav-link {{ Request::is('datapetugas') ? 'active' : '' }}"
+                        id="sidebar-menu">
                         <i class="nav-icon fas">
                             <i class="bi bi-person"></i>
                         </i>
@@ -70,7 +75,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/laporan" class="nav-link" id="sidebar-menu">
+                    <a href="/laporan" class="nav-link {{ Request::is('laporan') ? 'active' : '' }}" id="sidebar-menu">
                         <i class="nav-icon fas">
                             <i class="bi bi-journal-text"></i>
                         </i>

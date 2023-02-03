@@ -30,10 +30,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         {{-- Loading --}}
-        <div class="preloader flex-column justify-content-center align-items-center">
+        {{-- <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
                 width="60">
-        </div>
+        </div> --}}
         {{-- /loading --}}
 
         <!-- Navbar -->
