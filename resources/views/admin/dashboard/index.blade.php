@@ -11,7 +11,6 @@
                             <li class="breadcrumb-item active" aria-current="page">Library</li>
                         </ol>
                     </div><!-- /.col -->
-
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>

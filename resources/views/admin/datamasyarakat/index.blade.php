@@ -8,7 +8,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Data Masyarakat</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -21,10 +21,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
+
                         <div class="card">
                             <div class="card-header">
-                                <a href="">
-                                    <h3 class="card-title text-primary"><i class="fas fa-user-plus"></i> Tambah data
+                                <a href="/datamasyarakat/create">
+                                    <h3 class="card-title text-primary"><i class="bi bi-plus-lg"></i> Tambah data
                                         masyarakat
                                     </h3>
                                 </a>
@@ -70,9 +71,8 @@
                                                             @csrf
                                                             <input type="hidden" name="masyarakat_id"
                                                                 value="{{ $item->id }}">
-                                                            <button type="submit"
-                                                                class="btn btn-primary py-0 px-1"data-bs-toggle="offcanvas"
-                                                                data-bs-target="#offcanvasRight"
+                                                            <button type="submit" class="btn btn-primary py-0 px-1"
+                                                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                                                                 aria-controls="offcanvasRight"><i
                                                                     class="bi bi-person-lines-fill"></i></button>
                                                         </form>

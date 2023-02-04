@@ -14,7 +14,7 @@ class DatapetugasController extends Controller
      */
     public function index()
     {
-        $petugas = User::where('role','admin')->orWhere('role','petugas');
+        $petugas = User::where('role','petugas');
 
         if(request('search')) {
             $petugas->where('id', 'like', '%' . request('search') . '%')
@@ -22,7 +22,7 @@ class DatapetugasController extends Controller
             ->orWhere('username', 'like', '%' . request('search') . '%')
             ->orWhere('email', 'like', '%' . request('search') . '%');
         }
-        return view('admin.datapetugas',[
+        return view('admin.datapetugas.index',[
             'datapetugas'           =>$petugas->get()
         ]);
     }
@@ -34,7 +34,7 @@ class DatapetugasController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.datapetugas.tambahpetugas');
     }
 
     /**
@@ -45,7 +45,24 @@ class DatapetugasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'nama'      => 'required|max:255',
+            'jk'        => 'required',
+            'username'  => 'required|min:3|max:50|unique:users',
+            'password'  => 'required|min:5|max:255',
+            'email'     => 'required|email:dns|unique:users',
+            'role'      => 'required'
+            
+        ]);
+        User::create([
+            'nama'         =>$request->nama,
+            'jk'           =>$request->jk,
+            'username'     =>$request->username,
+            'password'     =>bcrypt($request->password),
+            'email'        =>$request->email,
+            'role'         =>$request->role
+        ]);
+        return redirect('/datapetugas/create')->with('informasi','Data berhasil ditambahkan!');
     }
 
     /**

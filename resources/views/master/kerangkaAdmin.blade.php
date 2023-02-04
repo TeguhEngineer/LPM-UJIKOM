@@ -12,6 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
@@ -20,9 +21,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
     <!-- JQVMap -->
-    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css" />
+    <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css" />
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
     {{-- Style css --}}
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -30,10 +31,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         {{-- Loading --}}
-        {{-- <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
                 width="60">
-        </div> --}}
+        </div>
         {{-- /loading --}}
 
         <!-- Navbar -->
@@ -72,11 +73,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             ubah.classList.toggle("dark-mode");
         }
     </script>
+
     <!-- jQuery -->
     <script src="/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
+
     <script src="/dist/js/adminlte.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"

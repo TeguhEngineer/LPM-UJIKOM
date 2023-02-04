@@ -13,7 +13,7 @@ class TanggapanController extends Controller
      */
     public function index()
     {
-        return view('admin.tanggapan');
+        return view('admin.tanggapan.index');
     }
 
     /**

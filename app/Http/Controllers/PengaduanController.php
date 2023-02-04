@@ -13,7 +13,7 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-        return view('admin.pengaduan');
+        return view('admin.pengaduan.index');
     }
 
     /**

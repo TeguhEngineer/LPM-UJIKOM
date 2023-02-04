@@ -26,64 +26,102 @@
 
                 <div class="col-sm-4">
 
-                    {{-- <div class="px-5 ms-xl-4">
-                        <span class="h1 fw-bold">DAFTAR</span>
-                    </div> --}}
-
                     <div class="d-flex align-items-center h-custom-2 mt-0 pt-5 pt-xl-0 mt-xl-n5">
 
-                        <form style="width: 100%;">
-
+                        <form action="/daftar" method="POST" style="width: 100%;">
+                            @csrf
                             <h3 class="fw-bold mb-3 pb-3 text-center" style="letter-spacing: 1px;">DAFTAR</h3>
-
                             <div class="form-outline mb-2">
-                                {{-- <label class="form-label" for="form2Example18">Nama</label> --}}
-                                <input type="text" id="form2Example18" class="form-control" placeholder="Nama" />
+                                <input type="text" name="nama"
+                                    class="form-control @error('nama') is-invalid @enderror " placeholder="Nama"
+                                    required value="{{ old('nama') }}" />
+                                @error('nama')
+                                    <div class="invalid-feedback">
+                                        Mohon isi kolom nama dengan benar
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-outline mb-2">
-                                {{-- <label class="form-label" for="form2Example19">NIK</label> --}}
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select @error('jk') is-invalid @enderror"
+                                    aria-label="Default select example" name="jk" required
+                                    value="{{ old('jk') }}">
                                     <option selected disabled>Jenis kelamin</option>
                                     <option value="laki-laki">Laki - laki</option>
                                     <option value="perempuan">Perempuan</option>
                                 </select>
+                                @error('jk')
+                                    <div class="invalid-feedback">
+                                        Mohon pilih jenis kelamin
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-outline mb-2">
-                                {{-- <label class="form-label" for="form2Example28">Password</label> --}}
-                                <input type="text" id="form2Example28" class="form-control "
-                                    placeholder="Username" />
+                                <input type="text" class="form-control @error('username') is-invalid @enderror"
+                                    name="username" placeholder="Username" required value="{{ old('username') }}" />
+                                @error('username')
+                                    <div class="invalid-feedback">
+                                        Mohon isi kolom username
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-outline mb-2">
-                                {{-- <label class="form-label" for="form2Example28">Password</label> --}}
-                                <input type="password" id="form2Example28" class="form-control "
-                                    placeholder="Password" />
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                    name="password" placeholder="Password" required value="{{ old('password') }}" />
+                                @error('password')
+                                    <div class="invalid-feedback">
+                                        Mohon isi minimal 5 karakter
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-outline mb-2">
-                                {{-- <label class="form-label" for="form2Example28">Password</label> --}}
-                                <input type="email" id="form2Example28" class="form-control " placeholder="Email" />
+                                <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                    placeholder="Email" name="email" required value="{{ old('email') }}" />
+                                @error('email')
+                                    <div class="invalid-feedback">
+                                        Mohon isi kolom email dengan benar
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-outline mb-2">
-                                {{-- <label class="form-label" for="form2Example28">Password</label> --}}
-                                <input type="number" id="form2Example28" class="form-control "
-                                    placeholder="No.telepon" />
+                                <input type="number" class="form-control @error('telepon') is-invalid @enderror"
+                                    name="telepon" placeholder="No.telepon" required value="{{ old('telepon') }}" />
+                                @error('telepon')
+                                    <div class="invalid-feedback">
+                                        Mohon isi nomor telepon dengan benar
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-outline mb-2">
-                                {{-- <label class="form-label" for="form2Example28">Password</label> --}}
-                                <input type="text" id="form2Example28" class="form-control " placeholder="NIK" />
+                                <input type="text" class="form-control @error('nik') is-invalid @enderror"
+                                    placeholder="NIK" name="nik" required value="{{ old('nik') }}" />
+                                @error('nik')
+                                    <div class="invalid-feedback">
+                                        Mohon isi NIK dengan benar
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-outline mb-3">
-                                {{-- <label class="form-label" for="form2Example28">Password</label> --}}
-                                <input type="text" id="form2Example28" class="form-control " placeholder="Alamat" />
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror"
+                                    placeholder="Alamat" name="alamat" required value="{{ old('alamat') }}" />
+                                @error('alamat')
+                                    <div class="invalid-feedback">
+                                        Mohon isi alamat anda
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-outline mb-3">
+                                <input type="hidden" class="form-control @error('masyarakat') is-invalid @enderror"
+                                    value="masyarakat" placeholder="Level" name="role" />
                             </div>
 
                             <div class="pt-1 mb-2 ">
                                 <button class="btn btn-info btn-sm form-control text-white"
-                                    type="button">Daftar</button>
+                                    type="submit">Daftar</button>
                             </div>
 
                             <p class="small mb-5 pb-lg-2 float-end"><a class="text-muted" href="#!">Lupa
                                     password?</a></p>
-                            <p class="mt-5">Sudah punya akun? <a href="#!" class="link-info">Masuk
+                            <p class="mt-5">Sudah punya akun? <a href="/login" class="link-info">Masuk
                                     disini!</a>
                             </p>
 

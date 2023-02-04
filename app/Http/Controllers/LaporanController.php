@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pengaduan;
 
 
 
@@ -18,9 +17,7 @@ class LaporanController extends Controller
     {
         // $laporan = Pengaduan::where('status','proses')->orWhere('status','selesai');
         
-        // return view('admin.laporan',[
-        //     'pengaduan'       =>$laporan->get()
-        // ]);
+        return view('admin.laporan.index');
     }
 
     /**

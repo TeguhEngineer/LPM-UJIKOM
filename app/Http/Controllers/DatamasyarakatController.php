@@ -25,7 +25,7 @@ class DatamasyarakatController extends Controller
             ->orWhere('nik', 'like', '%' . request('search') . '%')
             ->orWhere('alamat', 'like', '%' . request('search') . '%');
         }
-        return view('admin.datamasyarakat',[
+        return view('admin.datamasyarakat.index',[
             'datamasyarakat'      =>$masyarakat->get(),
             'masyarakat'           =>User::where('id',$request->masyarakat_id)->get()
         ]);
@@ -38,7 +38,7 @@ class DatamasyarakatController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.datamasyarakat.tambahmasyarakat');
     }
 
     /**
@@ -49,7 +49,28 @@ class DatamasyarakatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'nama'      => 'required|max:255',
+            'jk'        => 'required',
+            'username'  => 'required|min:3|max:50|unique:users',
+            'password'  => 'required|min:5|max:255',
+            'email'     => 'required|email:dns|unique:users',
+            'telepon'   => 'required|max:13',
+            'nik'       => 'required|max:16|unique:users',
+            'alamat'    => 'required|max:255'
+        ]);
+        
+        User::create([
+            'nama'         =>$request->nama,
+            'jk'           =>$request->jk,
+            'username'     =>$request->username,
+            'password'     =>bcrypt($request->password),
+            'email'        =>$request->email,
+            'telepon'      =>$request->telepon,
+            'nik'          =>$request->nik,
+            'alamat'       =>$request->alamat
+        ]);
+        return redirect('/datamasyarakat/create')->with('informasi','Data berhasil ditambahkan!');
     }
 
     /**
