@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Redirect;
 
 class DatamasyarakatController extends Controller
 {
@@ -49,7 +50,7 @@ class DatamasyarakatController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $validateData = $request->validate([
             'nama'      => 'required|max:255',
             'jk'        => 'required',
             'username'  => 'required|min:3|max:50|unique:users',
@@ -59,17 +60,8 @@ class DatamasyarakatController extends Controller
             'nik'       => 'required|max:16|unique:users',
             'alamat'    => 'required|max:255'
         ]);
-        
-        User::create([
-            'nama'         =>$request->nama,
-            'jk'           =>$request->jk,
-            'username'     =>$request->username,
-            'password'     =>bcrypt($request->password),
-            'email'        =>$request->email,
-            'telepon'      =>$request->telepon,
-            'nik'          =>$request->nik,
-            'alamat'       =>$request->alamat
-        ]);
+        $validateData['password'] = bcrypt($validateData['password']);
+        User::create($validateData);
         return redirect('/datamasyarakat/create')->with('informasi','Data berhasil ditambahkan!');
     }
 
@@ -81,9 +73,9 @@ class DatamasyarakatController extends Controller
      */
     public function show($id)
     {
-        // return view('admin.datamasyarakat',[
-        //     'masyarakat'        =>User::all()
-        // ]) ;
+        return view('admin.datamasyarakat.detailmasyarakat',[
+            'showmasyarakat'        =>User::where('id',$id)->first()
+        ]) ;
     }
 
     /**
@@ -94,7 +86,9 @@ class DatamasyarakatController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.datamasyarakat.detailmasyarakat',[
+            'showmasyarakat'        =>User::where('id',$id)->first()
+        ]) ;
     }
 
     /**
@@ -106,7 +100,17 @@ class DatamasyarakatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ubahdata = [
+            'nama'         =>$request->nama,
+            'jk'           =>$request->jk,
+            'username'     =>$request->username,
+            'email'        =>$request->email,
+            'telepon'      =>$request->telepon,
+            'nik'          =>$request->nik,
+            'alamat'       =>$request->alamat
+        ];
+        User::where('id',$id)->update($ubahdata);
+        return Redirect::back()->with('informasi','Data berhasil diubah');
     }
 
     /**
@@ -117,6 +121,7 @@ class DatamasyarakatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id',$id)->delete();
+        return redirect('/datamasyarakat')->with('informasi','Data Masyarakat berhasil dihapus');
     }
 }

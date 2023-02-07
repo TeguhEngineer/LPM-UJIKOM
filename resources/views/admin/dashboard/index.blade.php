@@ -24,13 +24,13 @@
 
                         <div class="small-box bg-info shadow">
                             <div class="inner">
-                                <h3>150</h3>
+                                <h3>{{ $countPengaduan }}</h3>
                                 <p>Pengaduan</p>
                             </div>
                             <div class="icon ">
                                 <i class="fas fa-bullhorn"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
+                            <a href="/pengaduan" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -38,13 +38,13 @@
 
                         <div class="small-box bg-success shadow">
                             <div class="inner">
-                                <h3>150</h3>
+                                <h3>{{ $countTanggapan }}</h3>
                                 <p>Tanggapan</p>
                             </div>
                             <div class="icon ">
                                 <i class="fas fa-comment"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
+                            <a href="/tanggapan" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -52,14 +52,14 @@
 
                         <div class="small-box bg-warning shadow">
                             <div class="inner">
-                                <h3>150</h3>
+                                <h3>{{ $countMasyarakat }}</h3>
                                 <p>Data Masyarakat</p>
                             </div>
                             <div class="icon">
 
                                 <i class="fas fa-users"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
+                            <a href="/datamasyarakat" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -67,13 +67,13 @@
 
                         <div class="small-box bg-warning shadow">
                             <div class="inner">
-                                <h3>150</h3>
+                                <h3>{{ $countPetugas }}</h3>
                                 <p>Data Petugas</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
+                            <a href="/datapetugas" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

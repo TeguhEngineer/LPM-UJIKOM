@@ -6,6 +6,7 @@ use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\TanggapanCOntroller;
 use App\Http\Controllers\DatamasyarakatController;
 use App\Http\Controllers\DatapetugasController;
+use App\Http\Controllers\ubahPasswordAdmin;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\UserController;
 
@@ -24,14 +25,17 @@ Route::get('/',[UserController::class,'index'])->name('index');
 Route::get('/daftar',[UserController::class,'daftar'])->name('daftar');
 Route::post('/daftar',[UserController::class,'store'])->name('store');
 Route::get('/login',[UserController::class,'login'])->name('login');
+Route::post('/login',[UserController::class,'autentikasi'])->name('autentikasi');
 
 
 // ADMIN
 Route::get('/administrator',[AdminController::class,'index'])->name('login');
-Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
+Route::post('/administrator',[AdminController::class,'autentikasi'])->name('autentikasi');
 
+Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
 Route::resource('/pengaduan',PengaduanController::class);
 Route::resource('/tanggapan',TanggapanController::class);
 Route::resource('/datamasyarakat',DatamasyarakatController::class);
 Route::resource('/datapetugas',DatapetugasController::class);
+Route::resource('/ubahpassword',ubahPasswordAdmin::class);
 Route::resource('/laporan',LaporanController::class);

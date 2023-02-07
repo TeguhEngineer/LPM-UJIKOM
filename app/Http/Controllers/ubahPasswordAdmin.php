@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Redirect;
 
-class DatapetugasController extends Controller
+class ubahPasswordAdmin extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +15,8 @@ class DatapetugasController extends Controller
      */
     public function index()
     {
-        $petugas = User::where('role','petugas');
-
-        if(request('search')) {
-            $petugas->where('id', 'like', '%' . request('search') . '%')
-            ->orWhere('nama', 'like', '%' . request('search') . '%')
-            ->orWhere('username', 'like', '%' . request('search') . '%')
-            ->orWhere('email', 'like', '%' . request('search') . '%');
-        }
         return view('admin.datapetugas.index',[
-            'datapetugas'           =>$petugas->get()
+            'petugasshow'      =>User::where('role','petugas')
         ]);
     }
 
@@ -35,7 +27,7 @@ class DatapetugasController extends Controller
      */
     public function create()
     {
-        return view('admin.datapetugas.tambahpetugas');
+        //
     }
 
     /**
@@ -46,18 +38,7 @@ class DatapetugasController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData  = $request->validate([
-            'nama'      => 'required|max:255',
-            'jk'        => 'required',
-            'username'  => 'required|min:3|max:50|unique:users',
-            'password'  => 'required|min:5|max:255',
-            'email'     => 'required|email|unique:users',
-            'role'      => 'required'
-            
-        ]);
-        $validateData['password'] = bcrypt($validateData['password']);
-        User::create($validateData);
-        return redirect('/datapetugas/create')->with('informasi','Data berhasil ditambahkan!');
+        //
     }
 
     /**
@@ -79,8 +60,8 @@ class DatapetugasController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.datapetugas.detailpetugas',[
-            'showpetugas'        =>User::where('id',$id)->first()
+        return view('admin.datapetugas.ubahpassword',[
+            'petugasshow'        =>User::where('id',$id)->first()
         ]);
     }
 
@@ -94,11 +75,12 @@ class DatapetugasController extends Controller
     public function update(Request $request, $id)
     {
         $ubahdata = [
-            'nama'         =>$request->nama,
-            'jk'           =>$request->jk,
-            'username'     =>$request->username,
-            'email'        =>$request->email,
-            'role'         =>$request->role
+            'password'     =>bcrypt($request->password),
+            // 'nama'         =>$request->nama,
+            // 'jk'           =>$request->jk,
+            // 'username'     =>$request->username,
+            // 'email'        =>$request->email,
+            // 'role'         =>$request->role
         ];
         User::where('id',$id)->update($ubahdata);
         return Redirect::back()->with('informasi','Data berhasil diubah');
@@ -112,7 +94,6 @@ class DatapetugasController extends Controller
      */
     public function destroy($id)
     {
-        User::where('id',$id)->delete();
-        return redirect('/datapetugas')->with('informasi','Data Petugas berhasil dihapus');
+        //
     }
 }

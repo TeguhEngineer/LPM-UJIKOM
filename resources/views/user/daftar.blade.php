@@ -110,8 +110,8 @@
                                 @enderror
                             </div>
                             <div class="form-outline mb-3">
-                                <input type="hidden" class="form-control @error('masyarakat') is-invalid @enderror"
-                                    value="masyarakat" placeholder="Level" name="role" />
+                                <input type="hidden" class="form-control " value="masyarakat" placeholder="Level"
+                                    name="role" />
                             </div>
 
                             <div class="pt-1 mb-2 ">

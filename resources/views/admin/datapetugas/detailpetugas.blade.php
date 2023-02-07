@@ -1,7 +1,6 @@
 @extends('master.kerangkaAdmin')
 @section('container')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -9,25 +8,58 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item" aria-current="page"><a href="/datapetugas"
                                     class="text-decoration-none text-secondary">Data petugas</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="">Tambah Data Petugas</a>
-                            </li>
+                            <li class="breadcrumb-item"><a href=""> Detail data Petugas</a></li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
-        <!-- /.content-header -->
 
-        {{-- Isi content --}}
+        {{-- ISI CONTENT --}}
         <div class="content">
             <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-sm-8">
-                        <div class="card card-info">
-                            <div class="card-header">
-                                <h3 class="card-title"><i class="bi bi-person"></i> Tambah data petugas</h3>
+                <div class="row">
+                    {{-- <div class="col-sm-6">
+                        <div class="card card-primary card-outline">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
+                                    <img class="profile-user-img img-fluid img-circle"
+                                        src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                                </div>
+                                <h3 class="profile-username text-center">{{ $showmasyarakat->nama }}</h3>
+                                <p class="text-muted text-center">{{ $showmasyarakat->role }}</p>
+                                <ul class="list-group list-group-unbordered mb-3">
+                                    <li class="list-group-item">
+                                        <b>NIK</b> <a class="float-right">{{ $showmasyarakat->nik }}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Username</b> <a class="float-right">{{ $showmasyarakat->username }}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Jenis Kelamin</b> <a class="float-right">{{ $showmasyarakat->jk }}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Email</b> <a class="float-right">{{ $showmasyarakat->email }}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>No Telepon</b> <a class="float-right">{{ $showmasyarakat->telepon }}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Alamat</b> <a class="float-right">{{ $showmasyarakat->alamat }}</a>
+                                    </li>
+                                </ul>
                             </div>
-                            <form action="/datapetugas" method="POST" class="form-horizontal">
+
+                        </div>
+                    </div> --}}
+                    <div class="col-sm-6">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title"><i class="bi bi-person"></i> Edit data petugas</h3>
+                            </div>
+
+                            <form action="/datapetugas/{{ $showpetugas->id }}" method="POST" class="form-horizontal">
+                                @method('PUT')
                                 @csrf
                                 <div class="card-body">
                                     @if (session()->has('informasi'))
@@ -43,12 +75,13 @@
                                                 aria-label="Close"></button>
                                         </div>
                                     @endif
+
                                     <div class="form-group row">
                                         <label for="inputNama" class="col-sm-2 col-form-label">Nama</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                                 id="inputNama" name="nama" placeholder="Nama" required
-                                                value="{{ old('nama') }}">
+                                                value="{{ $showpetugas->nama }}">
                                             @error('nama')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -56,12 +89,14 @@
                                             @enderror
                                         </div>
                                     </div>
+
                                     <div class="form-group row">
-                                        <label for="inputJK" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                                        <label for="inputJK" class="col-sm-2 col-form-label">JK</label>
                                         <div class="col-sm-10">
                                             <select class="form-control @error('jk') is-invalid @enderror" id="inputJK"
                                                 name="jk" required>
-                                                <option selected disabled>-- Pilih Jenis Kelamin --</option>
+                                                <option>{{ $showpetugas->jk }}</option>
+                                                <option disabled>-- Pilih Jenis Kelamin --</option>
                                                 <option value="laki-laki">Laki-laki</option>
                                                 <option value="perempuan">Perempuan</option>
                                             </select>
@@ -73,12 +108,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
+                                        <label for="inputUsername" class="col-sm-2 col-form-label">Userame</label>
                                         <div class="col-sm-10">
                                             <input type="text"
                                                 class="form-control @error('username') is-invalid @enderror" name="username"
                                                 id="inputUsername" placeholder="Username" required
-                                                value="{{ old('username') }}">
+                                                value="{{ $showpetugas->username }}">
                                             @error('username')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -86,26 +121,13 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                                        <div class="col-sm-10">
-                                            <input type="password"
-                                                class="form-control @error('password') is-invalid @enderror" name="password"
-                                                id="inputPassword" placeholder="Password" required
-                                                value="{{ old('password') }}">
-                                            @error('password')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
+
                                     <div class="form-group row">
                                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                         <div class="col-sm-10">
                                             <input type="email" class="form-control @error('email') is-invalid @enderror"
                                                 name="email" id="inputEmail" placeholder="Email" required
-                                                value="{{ old('email') }}">
+                                                value="{{ $showpetugas->email }}">
                                             @error('email')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -114,12 +136,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-
-                                        <label for="inputLevel" class="col-sm-2 col-form-label">Level</label>
+                                        <label for="inputRole" class="col-sm-2 col-form-label">Level</label>
                                         <div class="col-sm-10">
-                                            <select class="form-control @error('role') is-invalid @enderror" name="role"
-                                                required>
-                                                <option selected disabled>-- Pilih Level --</option>
+                                            <select class="form-control @error('role') is-invalid @enderror" id="inputRole"
+                                                name="role" required>
+                                                <option>{{ $showpetugas->role }}</option>
+                                                <option disabled>-- Pilih Level --</option>
                                                 <option value="admin">Admin</option>
                                                 <option value="petugas">Petugas</option>
                                             </select>
@@ -129,14 +151,11 @@
                                                 </div>
                                             @enderror
                                         </div>
-
                                     </div>
+
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" name="simpan" class="btn btn-info">Simpan</button>
-                                    <a href="/datapetugas">
-                                        <button type="button" class="btn btn-default float-right">Batal</button>
-                                    </a>
+                                    <button type="submit" name="simpan" class="btn btn-primary btn-block">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -144,7 +163,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 @endsection

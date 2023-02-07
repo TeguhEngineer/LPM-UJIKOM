@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Stmt\Echo_;
+use session;
 
 use App\Models\User;
 
@@ -40,6 +42,27 @@ class UserController extends Controller
     public function login()
     {
         return view('user.login');
+    }
+    public function autentikasi(Request $request)
+    {
+        $credentials = $request->validate([
+            'username'     => 'required',
+            'password'     => 'required'
+        ]);
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            // return redirect()->intended('/dashboard');
+            $role = auth ()->user()->role;
+            if ($role == "masyarakat") {
+                return redirect()->intended('/');
+            } else {
+                return redirect()->intended('/login');
+            }
+                
+        } else {
+            return back()->with('loginError','Masuk gagal!');
+             
+        }    
     }
 
 }

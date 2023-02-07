@@ -21,7 +21,18 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-
+                        @if (session()->has('informasi'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                </svg>
+                                {{ session('informasi') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                         <div class="card">
                             <div class="card-header">
                                 <a href="/datamasyarakat/create">
@@ -67,19 +78,19 @@
                                                     <td>{{ $item->jk }}</td>
                                                     <td>{{ $item->telepon }}</td>
                                                     <td>
-                                                        <form action="/datamasyarakat" method="GET" class="d-inline">
-                                                            @csrf
-                                                            <input type="hidden" name="masyarakat_id"
-                                                                value="{{ $item->id }}">
-                                                            <button type="submit" class="btn btn-primary py-0 px-1"
-                                                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                                                aria-controls="offcanvasRight"><i
+                                                        <form action="/datamasyarakat/{{ $item->id }}/edit"
+                                                            class="d-inline" role="button">
+                                                            <button type="submit" class="btn btn-primary py-0 px-1"><i
                                                                     class="bi bi-person-lines-fill"></i></button>
                                                         </form>
-                                                        <a href="">
-                                                            <button class="btn btn-danger py-0 px-1"><i
+                                                        <form action="/datamasyarakat/{{ $item->id }}" method="POST"
+                                                            class="d-inline">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button class="btn btn-danger py-0 px-1" type="submit"
+                                                                onclick="return confirm('Apakah kamu yakin ? data akan dihapus secara permanen!')"><i
                                                                     class="bi bi-trash3"></i></button>
-                                                        </a>
+                                                        </form>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -102,38 +113,6 @@
             </div>
         </div>
         {{-- Tutup content --}}
-
-        {{-- Body Offcanvas --}}
-        @if ($masyarakat->count() > 0)
-            <div class="offcanvas offcanvas-end show" tabindex="-1" id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-                    <a href="/datamasyarakat" type="button" class="btn-close"></a>
-                </div>
-
-                <div class="offcanvas-body mx-auto">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img src="dist/img/AdminLTELogo.png" alt="Logo cafe" class="brand-image img-circle elevation-3"
-                                style="opacity: .8">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-10">
-                            @foreach ($masyarakat as $item)
-                                NIK : {{ $item->nik }}
-                                Nama : {{ $item->nama }}
-                                Username : {{ $item->username }}
-                            @endforeach
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        @endif
-        {{-- /ofcanvas --}}
     </div>
 
 @endsection
