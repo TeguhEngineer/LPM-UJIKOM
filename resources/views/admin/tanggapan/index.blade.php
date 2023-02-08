@@ -44,7 +44,7 @@
                                             <th>No</th>
                                             <th>Pelapor</th>
                                             <th>Tanggal</th>
-                                            <th>Petugas</th>
+
                                             <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -54,7 +54,7 @@
                                             <td>1</td>
                                             <td>teguh@gmail.com</td>
                                             <td>11-7-2014</td>
-                                            <td>Teguh Afriansyah</td>
+
                                             <td><span class="badge rounded-pill text-bg-success">Selesai</span></td>
                                             <td>
                                                 <a href="">

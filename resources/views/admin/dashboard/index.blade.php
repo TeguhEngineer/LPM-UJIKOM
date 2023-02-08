@@ -79,9 +79,110 @@
                     </div>
 
                 </div>
-            </div>
-        </div>
-        {{-- Tutup content --}}
 
+                {{-- Tabs --}}
+                <div class="row mt-3">
+                    <div class="col-12 col-lg-12">
+                        <div class="card card-secondary card-outline card-outline-tabs shadow">
+                            <div class="card-header p-0 border-bottom-0">
+                                <h2 class="text-center fw-bold py-2">PROGRES PENGADUAN</h2>
+                                <ul class="nav nav-tabs nav-fill" id="custom-tabs-four-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active text-primary" id="custom-tabs-four-home-tab"
+                                            data-toggle="pill" href="#custom-tabs-four-home" role="tab"
+                                            aria-controls="custom-tabs-four-home" aria-selected="true">Ditinjau (10)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-warning" id="custom-tabs-four-profile-tab"
+                                            data-toggle="pill" href="#custom-tabs-four-profile" role="tab"
+                                            aria-controls="custom-tabs-four-profile" aria-selected="false">Diproses (10)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-success" id="custom-tabs-four-messages-tab"
+                                            data-toggle="pill" href="#custom-tabs-four-messages" role="tab"
+                                            aria-controls="custom-tabs-four-messages" aria-selected="false">Selesai (10)</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content" id="custom-tabs-four-tabContent">
+                                    <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel"
+                                        aria-labelledby="custom-tabs-four-home-tab">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+
+                                                    <th scope="col">Tanggal</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Pengaduan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-group-divider">
+                                                <tr>
+
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel"
+                                        aria-labelledby="custom-tabs-four-profile-tab">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+
+                                                    <th scope="col">Tanggal</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Pengaduan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-group-divider">
+                                                <tr>
+
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel"
+                                        aria-labelledby="custom-tabs-four-messages-tab">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+
+                                                    <th scope="col">Tanggal</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Pengaduan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-group-divider">
+                                                <tr>
+
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- /Tabs --}}
+        </div>
+    </div>
     </div>
 @endsection

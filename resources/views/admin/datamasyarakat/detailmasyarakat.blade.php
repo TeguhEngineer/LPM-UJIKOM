@@ -6,9 +6,19 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item" aria-current="page"><a href="/datamasyarakat"
-                                    class="text-decoration-none text-secondary">Data masyarakat</a></li>
-                            <li class="breadcrumb-item"><a href=""> Detail data Masyarakat</a></li>
+                            @if ($showmasyarakat->role == 'admin')
+                                <li class="breadcrumb-item" aria-current="page"><a href="/datapetugas"
+                                        class="text-decoration-none text-secondary">Data Admin</a></li>
+                                <li class="breadcrumb-item"><a href=""> Detail data Admin</a></li>
+                            @elseif ($showmasyarakat->role == 'petugas')
+                                <li class="breadcrumb-item" aria-current="page"><a href="/datapetugas"
+                                        class="text-decoration-none text-secondary">Data Petugas</a></li>
+                                <li class="breadcrumb-item"><a href=""> Detail data Petugas</a></li>
+                            @elseif ($showmasyarakat->role == 'masyarakat')
+                                <li class="breadcrumb-item" aria-current="page"><a href="/datamasyarakat"
+                                        class="text-decoration-none text-secondary">Data Masyarakat</a></li>
+                                <li class="breadcrumb-item"><a href=""> Detail data Masyarakat</a></li>
+                            @endif
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -19,43 +29,119 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">
                                 <div class="text-center">
-                                    <img class="profile-user-img img-fluid img-circle"
-                                        src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                                    @if ($showmasyarakat->role == 'admin')
+                                        <img class="profile-user-img img-fluid img-circle" src="/dist/img/admin.png"
+                                            alt="User profile picture">
+                                    @elseif ($showmasyarakat->role == 'petugas')
+                                        <img class="profile-user-img img-fluid img-circle" src="/dist/img/petugas.png"
+                                            alt="User profile picture">
+                                    @elseif ($showmasyarakat->role == 'masyarakat')
+                                        <img class="profile-user-img img-fluid img-circle" src="/dist/img/user.png"
+                                            alt="User profile picture">
+                                    @endif
                                 </div>
                                 <h3 class="profile-username text-center">{{ $showmasyarakat->nama }}</h3>
                                 <p class="text-muted text-center">{{ $showmasyarakat->role }}</p>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
-                                        <b>NIK</b> <a class="float-right">{{ $showmasyarakat->nik }}</a>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <b>NIK</b>
+                                            </div>
+                                            <div class="col-2 text-end">
+                                                :
+                                            </div>
+                                            <div class="col-6">
+                                                <a class="float-left">{{ $showmasyarakat->nik }}</a>
+                                            </div>
+                                        </div>
+
                                     </li>
                                     <li class="list-group-item">
-                                        <b>Username</b> <a class="float-right">{{ $showmasyarakat->username }}</a>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <b>Username</b>
+                                            </div>
+                                            <div class="col-2 text-end">
+                                                :
+                                            </div>
+                                            <div class="col-6">
+                                                <a class="float-left">{{ $showmasyarakat->username }}</a>
+                                            </div>
+                                        </div>
                                     </li>
                                     <li class="list-group-item">
-                                        <b>Jenis Kelamin</b> <a class="float-right">{{ $showmasyarakat->jk }}</a>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <b>Jenis Kelamin</b>
+                                            </div>
+                                            <div class="col-2 text-end">
+                                                :
+                                            </div>
+                                            <div class="col-6">
+                                                <a class="float-left">{{ $showmasyarakat->jk }}</a>
+                                            </div>
+                                        </div>
                                     </li>
                                     <li class="list-group-item">
-                                        <b>Email</b> <a class="float-right">{{ $showmasyarakat->email }}</a>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <b>Email</b>
+                                            </div>
+                                            <div class="col-2 text-end">
+                                                :
+                                            </div>
+                                            <div class="col-6">
+                                                <a class="float-left">{{ $showmasyarakat->email }}</a>
+                                            </div>
+                                        </div>
                                     </li>
                                     <li class="list-group-item">
-                                        <b>No Telepon</b> <a class="float-right">{{ $showmasyarakat->telepon }}</a>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <b>No Telepon</b>
+                                            </div>
+                                            <div class="col-2 text-end">
+                                                :
+                                            </div>
+                                            <div class="col-6">
+                                                <a class="float-left">{{ $showmasyarakat->telepon }}</a>
+                                            </div>
+                                        </div>
                                     </li>
                                     <li class="list-group-item">
-                                        <b>Alamat</b> <a class="float-right">{{ $showmasyarakat->alamat }}</a>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <b>Alamat</b>
+                                            </div>
+                                            <div class="col-2 text-end">
+                                                :
+                                            </div>
+                                            <div class="col-6">
+                                                <a class="float-left">{{ $showmasyarakat->alamat }}</a>
+                                            </div>
+                                        </div>
+
                                     </li>
                                 </ul>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-7">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title"><i class="bi bi-people"></i> Edit data masyarakat</h3>
+                                @if ($showmasyarakat->role == 'admin')
+                                    <h3 class="card-title"><i class="bi bi-person"></i> Edit data admin</h3>
+                                @elseif ($showmasyarakat->role == 'petugas')
+                                    <h3 class="card-title"><i class="bi bi-person"></i> Edit data petugas</h3>
+                                @elseif ($showmasyarakat->role == 'masyarakat')
+                                    <h3 class="card-title"><i class="bi bi-person"></i> Edit data masyarakat</h3>
+                                @endif
                             </div>
 
                             <form action="/datamasyarakat/{{ $showmasyarakat->id }}" method="POST" class="form-horizontal">
@@ -123,8 +209,8 @@
                                         <label for="inputUsername" class="col-sm-2 col-form-label">Userame</label>
                                         <div class="col-sm-10">
                                             <input type="text"
-                                                class="form-control @error('username') is-invalid @enderror" name="username"
-                                                id="inputUsername" placeholder="Username" required
+                                                class="form-control @error('username') is-invalid @enderror"
+                                                name="username" id="inputUsername" placeholder="Username" required
                                                 value="{{ $showmasyarakat->username }}">
                                             @error('username')
                                                 <div class="invalid-feedback">

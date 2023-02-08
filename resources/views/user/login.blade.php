@@ -19,9 +19,9 @@
     <section class="vh-100">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-6 px-0 d-none d-sm-block">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp"
-                        alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+                <div class="col-sm-6 px-0 d-none d-sm-block border">
+                    <img src="/dist/img/logindanregister.png" alt="Login image" class="w-100 vh-100"
+                        style="object-fit: contain; object-position: left; width: 100%;">
                 </div>
                 <div class="col-sm-1"></div>
 

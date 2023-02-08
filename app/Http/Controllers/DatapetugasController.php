@@ -15,7 +15,7 @@ class DatapetugasController extends Controller
      */
     public function index()
     {
-        $petugas = User::where('role','petugas');
+        $petugas = User::where('role','petugas')->orWhere('role','admin');
 
         if(request('search')) {
             $petugas->where('id', 'like', '%' . request('search') . '%')

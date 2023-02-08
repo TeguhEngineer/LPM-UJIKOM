@@ -11,6 +11,6 @@ class Gambar extends Model
     protected $fillable=['gambar'];
 
     public function pengaduan() {
-        return $this->belongsTo(Pengaduan::class,'gambar_id', 'id');
+        return $this->hasMany(Pengaduan::class,'gambar_id', 'id');
     }
 }

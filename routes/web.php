@@ -8,6 +8,7 @@ use App\Http\Controllers\DatamasyarakatController;
 use App\Http\Controllers\DatapetugasController;
 use App\Http\Controllers\ubahPasswordAdmin;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\CetakLaporan;
 use App\Http\Controllers\UserController;
 
 /*
@@ -38,4 +39,5 @@ Route::resource('/tanggapan',TanggapanController::class);
 Route::resource('/datamasyarakat',DatamasyarakatController::class);
 Route::resource('/datapetugas',DatapetugasController::class);
 Route::resource('/ubahpassword',ubahPasswordAdmin::class);
-Route::resource('/laporan',LaporanController::class);
+Route::get('/laporan',[CetakLaporan::class,'index'])->name('laporan');
+Route::get('/cetaklaporan',[CetakLaporan::class,'printlaporan'])->name('printlaporan');

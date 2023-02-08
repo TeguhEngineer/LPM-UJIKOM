@@ -21,7 +21,7 @@
                         <i class="nav-icon fas ">
                             <i class="bi bi-speedometer2"></i>
                         </i>
-                        <p class="">
+                        <p class="nav-active">
                             Dashboard
                             <span class="right badge badge-danger">New</span>
                         </p>

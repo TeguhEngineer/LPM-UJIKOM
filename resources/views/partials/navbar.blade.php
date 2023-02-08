@@ -88,14 +88,14 @@
     <div class="row">
         <div class="col-sm-12 text-center mt-4">
             <a>
-                <img src="dist/img/AdminLTELogo.png" alt="Logo cafe" class="brand-image img-circle elevation-3"
-                    style="opacity: .8">
+                <img src="/dist/img/AdminLTELogo.png" alt="Logo Admin" class=" img-circle elevation-3"
+                    style="opacity: .8" height="100" width="100">
             </a>
         </div>
     </div>
     <div class="row mt-4">
         <div class="col-sm-12 text-center">
-            <h4 class="fw-bold">Teguh Afriansyah</h4>
+            <h4 class="fw-bold">{{ auth()->user()->nama }}</h4>
         </div>
     </div>
     {{-- <div class="row justify-content-center">
@@ -114,7 +114,7 @@
     <nav>
         <ul class="nav nav-pills nav-sidebar flex-column">
             <li class="nav-item mx-3">
-                <a href="/dashboard" class="nav-link" id="sidebar-kanan">
+                <a href="/datapetugas/{{ auth()->user()->id }}/edit" class="nav-link" id="sidebar-kanan">
                     <i class="nav-icon fas ">
                         <i class="bi bi-pencil-square"></i>
                     </i>
@@ -124,7 +124,7 @@
                 </a>
             </li>
             <li class="nav-item mx-3">
-                <a href="/dashboard" class="nav-link" id="sidebar-kanan">
+                <a href="/ubahpassword/{{ auth()->user()->id }}/edit" class="nav-link" id="sidebar-kanan">
                     <i class="nav-icon fas ">
                         <i class="bi bi-key"></i>
                     </i>

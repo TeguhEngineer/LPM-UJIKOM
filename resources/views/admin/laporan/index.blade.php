@@ -25,15 +25,17 @@
                             <div class="card-header">
                                 <h3 class="card-title">Tabel Laporan Pengaduan</h3>
                                 <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 200px;">
-                                        <input type="text" name="table_search" class="form-control float-right"
-                                            placeholder="Search">
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                            </button>
+                                    <form action="/laporan" method="GET">
+                                        <div class="input-group input-group-sm" style="width: 200px;">
+                                            <input type="search" name="search" value="{{ request('search') }}"
+                                                class="form-control float-right" placeholder="Search">
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-default">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
 
@@ -50,17 +52,28 @@
                                     </thead>
 
                                     <tbody>
-                                        {{-- @foreach ($pengaduan as $item)
+                                        @foreach ($laporan as $item)
                                             <tr>
                                                 <td><b>{{ $loop->iteration }}</b></td>
                                                 <td>{{ $item->created_at }}</td>
-                                                <td>{{ $item->jenis_pengaduan }}</td>
+                                                <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
                                                 <td>{{ $item->isi_laporan }}</td>
-                                                <td><span
-                                                        class="badge rounded-pill text-bg-success">{{ $item->status }}</span>
+                                                <td>
+                                                    @if ($item->status == 'ditinjau')
+                                                        <span class="badge rounded-pill text-bg-primary py-2  fw-bold"
+                                                            style="width: 70px;">{{ $item->status }}</span>
+                                                    @elseif ($item->status == 'proses')
+                                                        <span
+                                                            class="badge rounded-pill text-bg-warning py-2  fw-bold text-light"
+                                                            style="width: 70px;">{{ $item->status }}</span>
+                                                    @elseif ($item->status == 'selesai')
+                                                        <span class="badge rounded-pill text-bg-success py-2 fw-bold"
+                                                            style="width: 70px;">{{ $item->status }}</span>
+                                                    @endif
+
                                                 </td>
                                             </tr>
-                                        @endforeach --}}
+                                        @endforeach
                                     </tbody>
 
                                 </table>
@@ -73,9 +86,9 @@
                 </div>
                 <div class="row text-center">
                     <div class="col-sm-12">
-                        <a href="">
-                            <button class="btn btn-danger my-0 btn-sm" style="width: 100px"><i
-                                    class="bi bi-file-earmark-pdf"></i> Print PDF</button>
+                        <a href="/cetaklaporan" target="_blank">
+                            <button class="btn btn-danger my-0 btn-sm" style="width: 120px"><i class="bi bi-printer"></i>
+                                Cetak Laporan</button>
                         </a>
                     </div>
                 </div>

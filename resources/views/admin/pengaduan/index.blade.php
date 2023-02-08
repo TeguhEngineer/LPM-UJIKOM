@@ -43,6 +43,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Gambar</th>
+                                            <th>Jenis Pengaduan</th>
                                             <th>Email</th>
                                             <th>Tanggal</th>
                                             <th>Status</th>
@@ -53,6 +54,7 @@
                                         <tr>
                                             <td>183</td>
                                             <td>John Doe</td>
+                                            <td>Pencemaran Air</td>
                                             <td>teguh@gmail.com</td>
                                             <td><span class="tag tag-success">2023-01-22</span></td>
                                             <td><span class="badge rounded-pill text-bg-success">selesai</span></td>

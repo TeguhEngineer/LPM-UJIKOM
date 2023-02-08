@@ -11,12 +11,12 @@ class Pengaduan extends Model
     protected $guarded = ['id'];
 
     public function gambarpengaduan() {
-        return $this->hasMany(Gambar::class,'gambar_id','id');
+        return $this->belongsTo(Gambar::class,'gambar_id','id');
     }
 
     
     public function jenis_pengaduan() {
-        return $this->belongsTo(Jenis_pengaduan::class,'jenis_pengaduan_id', 'id');
+        return $this->belongsTo(Jenis_pengaduan::class,'jenispengaduan_id', 'id');
     }
 
     public function tanggapan() {
