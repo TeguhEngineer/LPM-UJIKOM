@@ -3,11 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PengaduanController;
-use App\Http\Controllers\TanggapanCOntroller;
+use App\Http\Controllers\TanggapanController;
+use App\Http\Controllers\viewTanggapanController;
 use App\Http\Controllers\DatamasyarakatController;
 use App\Http\Controllers\DatapetugasController;
 use App\Http\Controllers\ubahPasswordAdmin;
-use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\CetakLaporan;
 use App\Http\Controllers\UserController;
 
@@ -27,6 +27,7 @@ Route::get('/daftar',[UserController::class,'daftar'])->name('daftar');
 Route::post('/daftar',[UserController::class,'store'])->name('store');
 Route::get('/login',[UserController::class,'login'])->name('login');
 Route::post('/login',[UserController::class,'autentikasi'])->name('autentikasi');
+Route::get('/logout',[AdminController::class,'logout'])->name('logout')->middleware('auth');
 
 
 // ADMIN

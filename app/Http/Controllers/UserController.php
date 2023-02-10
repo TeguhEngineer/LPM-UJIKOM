@@ -28,7 +28,7 @@ class UserController extends Controller
             'jk'        => 'required',
             'username'  => 'required|min:3|max:50|unique:users',
             'password'  => 'required|min:5|max:255',
-            'email'     => 'required|email:dns|unique:users',
+            'email'     => 'required|email|unique:users',
             'telepon'   => 'required|max:13',
             'nik'       => 'required|max:16|unique:users',
             'alamat'    => 'required|max:255',
@@ -36,7 +36,7 @@ class UserController extends Controller
         ]);
         $validateData['password'] = bcrypt($validateData['password']);
         User::create($validateData);
-        return redirect('/login')->with('informasi','Akun berhasil dibuat, silahkan masuk disini!');
+        return redirect('/login')->with('informasi','Akun berhasil terdaftar, silahkan masuk disini!');
     }
 
     public function login()

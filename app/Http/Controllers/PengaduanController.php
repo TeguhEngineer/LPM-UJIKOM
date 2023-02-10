@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pengaduan;
+use Redirect;
 
 class PengaduanController extends Controller
 {
@@ -12,8 +14,11 @@ class PengaduanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.pengaduan.index');
+    {   
+        $laporan = Pengaduan::where('status','ditinjau');
+        return view('admin.pengaduan.index',[
+            'pengaduan'            =>$laporan->get()
+        ]);
     }
 
     /**
@@ -46,6 +51,8 @@ class PengaduanController extends Controller
     public function show($id)
     {
         //
+        
+        
     }
 
     /**
@@ -56,7 +63,9 @@ class PengaduanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.pengaduan.detailpengaduan',[
+            'isipengaduan'              =>Pengaduan::where('id',$id)->first()
+        ]);
     }
 
     /**
@@ -68,7 +77,11 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ubahdata = [
+            'status'         =>$request->status,
+        ];
+        Pengaduan::where('id',$id)->update($ubahdata);
+        return redirect('/pengaduan')->with('informasi','Data berhasil diubah');
     }
 
     /**

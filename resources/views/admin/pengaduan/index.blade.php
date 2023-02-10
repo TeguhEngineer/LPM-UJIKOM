@@ -42,7 +42,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Gambar</th>
+
                                             <th>Jenis Pengaduan</th>
                                             <th>Email</th>
                                             <th>Tanggal</th>
@@ -51,24 +51,38 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>183</td>
-                                            <td>John Doe</td>
-                                            <td>Pencemaran Air</td>
-                                            <td>teguh@gmail.com</td>
-                                            <td><span class="tag tag-success">2023-01-22</span></td>
-                                            <td><span class="badge rounded-pill text-bg-success">selesai</span></td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-eye"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        @foreach ($pengaduan as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+
+                                                <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
+                                                <td>{{ $item->users->email }}</td>
+                                                <td>{{ $item->created_at }}</td>
+                                                <td>
+                                                    @if ($item->status == 'ditinjau')
+                                                        <span class="badge rounded-pill text-bg-primary py-2  fw-bold"
+                                                            style="width: 70px;">{{ $item->status }}</span>
+                                                    @elseif ($item->status == 'proses')
+                                                        <span
+                                                            class="badge rounded-pill text-bg-warning py-2  fw-bold text-light"
+                                                            style="width: 70px;">{{ $item->status }}</span>
+                                                    @elseif ($item->status == 'selesai')
+                                                        <span class="badge rounded-pill text-bg-success py-2 fw-bold"
+                                                            style="width: 70px;">{{ $item->status }}</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a href="/pengaduan/{{ $item->id }}/edit">
+                                                        <button class="btn btn-primary py-0 px-1"><i
+                                                                class="bi bi-eye"></i></button>
+                                                    </a>
+                                                    <a href="">
+                                                        <button class="btn btn-danger py-0 px-1"><i
+                                                                class="bi bi-trash3"></i></button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

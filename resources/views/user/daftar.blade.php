@@ -37,7 +37,7 @@
                                     required value="{{ old('nama') }}" />
                                 @error('nama')
                                     <div class="invalid-feedback">
-                                        Mohon isi kolom nama dengan benar
+                                        {{ $message }}
                                     </div>
                                 @enderror
                             </div>
@@ -51,7 +51,7 @@
                                 </select>
                                 @error('jk')
                                     <div class="invalid-feedback">
-                                        Mohon pilih jenis kelamin
+                                        {{ $message }}
                                     </div>
                                 @enderror
                             </div>
@@ -60,7 +60,7 @@
                                     name="username" placeholder="Username" required value="{{ old('username') }}" />
                                 @error('username')
                                     <div class="invalid-feedback">
-                                        Mohon isi kolom username
+                                        {{ $message }}
                                     </div>
                                 @enderror
                             </div>
@@ -69,7 +69,7 @@
                                     name="password" placeholder="Password" required value="{{ old('password') }}" />
                                 @error('password')
                                     <div class="invalid-feedback">
-                                        Mohon isi minimal 5 karakter
+                                        {{ $message }}
                                     </div>
                                 @enderror
                             </div>
@@ -78,7 +78,7 @@
                                     placeholder="Email" name="email" required value="{{ old('email') }}" />
                                 @error('email')
                                     <div class="invalid-feedback">
-                                        Mohon isi kolom email dengan benar
+                                        {{ $message }}
                                     </div>
                                 @enderror
                             </div>
@@ -87,7 +87,7 @@
                                     name="telepon" placeholder="No.telepon" required value="{{ old('telepon') }}" />
                                 @error('telepon')
                                     <div class="invalid-feedback">
-                                        Mohon isi nomor telepon dengan benar
+                                        {{ $message }}
                                     </div>
                                 @enderror
                             </div>
@@ -96,7 +96,7 @@
                                     placeholder="NIK" name="nik" required value="{{ old('nik') }}" />
                                 @error('nik')
                                     <div class="invalid-feedback">
-                                        Mohon isi NIK dengan benar
+                                        {{ $message }}
                                     </div>
                                 @enderror
                             </div>
@@ -105,7 +105,7 @@
                                     placeholder="Alamat" name="alamat" required value="{{ old('alamat') }}" />
                                 @error('alamat')
                                     <div class="invalid-feedback">
-                                        Mohon isi alamat anda
+                                        {{ $message }}
                                     </div>
                                 @enderror
                             </div>

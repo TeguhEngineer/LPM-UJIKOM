@@ -98,7 +98,7 @@
                 <form action="/administrator" method="POST">
                     @csrf
                     @if (session()->has('loginError'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
                                 <path

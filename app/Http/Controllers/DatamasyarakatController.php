@@ -17,9 +17,6 @@ class DatamasyarakatController extends Controller
     {
         
         $masyarakat = User::where('role','masyarakat');
-
-    
-
         if(request('search')) {
             $masyarakat->where('id', 'like', '%' . request('search') . '%')
             ->orWhere('nama', 'like', '%' . request('search') . '%')

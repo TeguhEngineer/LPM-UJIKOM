@@ -23,7 +23,7 @@
                         </i>
                         <p class="nav-active">
                             Dashboard
-                            <span class="right badge badge-danger">New</span>
+
                         </p>
                     </a>
                 </li>
@@ -35,7 +35,7 @@
                         </i>
                         <p class="nav-active">
                             Pengaduan
-                            <span class="right badge badge-danger">New</span>
+
                         </p>
                     </a>
                 </li>
@@ -47,7 +47,7 @@
                         </i>
                         <p class="nav-active">
                             Tanggapan
-                            <span class="right badge badge-danger">New</span>
+
                         </p>
                     </a>
                 </li>
@@ -59,7 +59,7 @@
                         </i>
                         <p class="nav-active">
                             Data Masyarakat
-                            <span class="right badge badge-danger">New</span>
+
                         </p>
                     </a>
                 </li>
@@ -71,7 +71,7 @@
                         </i>
                         <p class="nav-active">
                             Data Petugas
-                            <span class="right badge badge-danger">New</span>
+
                         </p>
                     </a>
                 </li>
@@ -82,7 +82,7 @@
                         </i>
                         <p class="nav-active">
                             Laporan
-                            <span class="right badge badge-danger">New</span>
+
                         </p>
                     </a>
                 </li>

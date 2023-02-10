@@ -134,11 +134,11 @@
                 </a>
             </li>
             <li class="nav-item mx-3">
-                <a href="/dashboard" class="nav-link" id="sidebar-kanan">
+                <a href="{{ Route('logout') }}" class="nav-link" id="sidebar-kanan">
                     <i class="nav-icon fas ">
                         <i class="bi bi-box-arrow-right"></i>
                     </i>
-                    <p class="">
+                    <p>
                         Keluar
 
                     </p>

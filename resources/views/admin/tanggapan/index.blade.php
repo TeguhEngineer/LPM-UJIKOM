@@ -43,30 +43,53 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Pelapor</th>
-                                            <th>Tanggal</th>
+                                            <th>Tanggal Pengaduan</th>
 
+                                            {{-- <th>Tanggal Ditanggapi</th> --}}
                                             <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>teguh@gmail.com</td>
-                                            <td>11-7-2014</td>
+                                        @foreach ($cekpengaduan as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->users->email }}</td>
+                                                <td>{{ $item->created_at }}</td>
 
-                                            <td><span class="badge rounded-pill text-bg-success">Selesai</span></td>
-                                            <td>
-                                                <a href="">
-                                                    <button class="btn btn-primary py-0 px-1"><i
-                                                            class="bi bi-chat-left-text"></i></button>
-                                                </a>
-                                                <a href="">
-                                                    <button class="btn btn-danger py-0 px-1"><i
-                                                            class="bi bi-trash3"></i></button>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                                {{-- <td>{{ $item->tanggapan->created_at }}</td> --}}
+                                                <td>
+                                                    @if ($item->status == 'ditinjau')
+                                                        <span class="badge rounded-pill text-bg-primary py-2  fw-bold"
+                                                            style="width: 70px;">{{ $item->status }}</span>
+                                                    @elseif ($item->status == 'proses')
+                                                        <span
+                                                            class="badge rounded-pill text-bg-warning py-2  fw-bold text-light"
+                                                            style="width: 70px;">{{ $item->status }}</span>
+                                                    @elseif ($item->status == 'selesai')
+                                                        <span class="badge rounded-pill text-bg-success py-2 fw-bold"
+                                                            style="width: 70px;">{{ $item->status }}</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if ($item->status == 'proses')
+                                                        <a href="/tanggapan/{{ $item->id }}/edit">
+                                                            <button class="btn btn-primary py-0 px-1"><i
+                                                                    class="bi bi-chat-left-text"></i></button>
+                                                        </a>
+                                                    @elseif ($item->status == 'selesai')
+                                                        <a href="/tanggapan/{{ $item->id }}">
+                                                            <button class="btn btn-primary py-0 px-1"><i
+                                                                    class="bi bi-card-checklist"></i></button>
+                                                        </a>
+                                                    @endif
+                                                    <a href="">
+                                                        <button class="btn btn-danger py-0 px-1"><i
+                                                                class="bi bi-trash3"></i></button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

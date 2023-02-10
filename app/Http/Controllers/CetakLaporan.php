@@ -9,7 +9,7 @@ class CetakLaporan extends Controller
 {   
     public function index()
     {
-        $pengaduan = Pengaduan::latest();
+        $pengaduan = Pengaduan::latest()->first();
         if (request('search')) {
             $pengaduan->where('id','like','%'.request('search') . '%')
             ->orWhere('jenispengaduan_id','like','%'.request('search') . '%')

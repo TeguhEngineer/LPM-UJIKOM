@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tanggapan;
+use App\Models\Pengaduan;
+use App\Models\User;
 
 class TanggapanController extends Controller
 {
@@ -13,7 +16,13 @@ class TanggapanController extends Controller
      */
     public function index()
     {
-        return view('admin.tanggapan.index');
+        $pengadu = Pengaduan::where('status','proses')->orWhere('status','selesai');
+        return view('admin.tanggapan.index',[
+            'cekpengaduan'               =>$pengadu->get(),
+            'lihattanggapan'             =>Tanggapan::get()
+        ]);
+
+        
     }
 
     /**
@@ -34,7 +43,15 @@ class TanggapanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'pengaduan_id'  =>  'required',
+            'users_id'      =>  'required',
+            'isi_tanggapan' => 'required',
+            'created_at'    => 'required'
+        ]);
+       
+        Tanggapan::create($validateData);
+        return back()->with('informasi','Berhasil ditanggapi');
     }
 
     /**
@@ -45,7 +62,9 @@ class TanggapanController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.tanggapan.lihattanggapan',[
+            'lihattanggapan'        =>Tanggapan::where('pengaduan_id',$id)->first(),
+        ]);
     }
 
     /**
@@ -56,7 +75,10 @@ class TanggapanController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        return view('admin.tanggapan.isitanggapan',[
+            'isitanggapan'        =>Pengaduan::where('id',$id)->first(),
+        ]);
     }
 
     /**
