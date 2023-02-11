@@ -23,11 +23,13 @@ use App\Http\Controllers\UserController;
 */
 // USER
 Route::get('/',[UserController::class,'index'])->name('index');
+Route::get('/user',[UserController::class,'indexuser'])->name('indexuser');
 Route::get('/daftar',[UserController::class,'daftar'])->name('daftar');
 Route::post('/daftar',[UserController::class,'store'])->name('store');
 Route::get('/login',[UserController::class,'login'])->name('login');
 Route::post('/login',[UserController::class,'autentikasi'])->name('autentikasi');
 Route::get('/logout',[AdminController::class,'logout'])->name('logout')->middleware('auth');
+Route::post('/',[UserController::class,'pengaduan'])->name('pengaduan');
 
 
 // ADMIN

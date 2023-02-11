@@ -290,20 +290,24 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-7">
                         <div class="card card-primary card-outline">
-                            <form>
-
+                            <form action="/" method="POST">
+                                @csrf
+                                <input type="hidden" name="status" value="ditinjau">
+                                <input type="hidden" name="users_id" value="{{ auth()->user()->id }}">
                                 <div class="card-body shadow">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="text" class="form-control" disabled>
+                                                <input type="text" name="email"
+                                                    value="{{ auth()->user()->email }}" class="form-control" disabled>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Tanggal</label>
-                                                <input type="datetime-local" class="form-control "
+                                                <input type="datetime-local" name="created_at"
+                                                    class="form-control @error('created_at') is-invalid @enderror"
                                                     placeholder="Enter ...">
                                             </div>
                                         </div>
@@ -312,13 +316,14 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <label for="select">Jenis pengaduan</label>
-                                            <select id="select" class="form-select"
+                                            <select id="select" name="jenispengaduan_id"
+                                                class="form-select @error('jenispengaduan_id') is-invalid @enderror"
                                                 aria-label="Default select example">
                                                 <option selected disabled>-- Pilih jenis pengaduan --</option>
-
-                                                <option>
-                                                </option>
-
+                                                @foreach ($kategori as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->jenis_pengaduan }}
+                                                    </option>
+                                                @endforeach
 
                                             </select>
                                         </div>
@@ -327,18 +332,20 @@
                                         <div class="col-sm-12">
                                             <label for="exampleFormControlTextarea1" class="form-label">Isi
                                                 Pengaduan</label>
-                                            <textarea class="form-control " id="exampleFormControlTextarea1" rows="6"></textarea>
+                                            <textarea class="form-control @error('isi_laporan') is-invalid @enderror" name="isi_laporan"
+                                                id="exampleFormControlTextarea1" rows="6"></textarea>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-sm-12">
                                             <label for="formFile" class="form-label">Lampirkan gambar</label>
-                                            <input class="form-control" type="file" id="formFile">
+                                            <input class="form-control" name="gambar_id" type="text"
+                                                id="formFile">
                                         </div>
                                     </div>
                                     <div class="row mt-4 justify-content-center">
                                         <div class="col-sm-5">
-                                            <button type="button"
+                                            <button type="submit"
                                                 class="btn btn-outline-primary btn-block rounded-pill">Kirim</button>
                                         </div>
                                     </div>

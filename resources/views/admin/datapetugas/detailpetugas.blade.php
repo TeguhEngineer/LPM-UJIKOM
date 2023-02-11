@@ -157,7 +157,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputUsername" class="col-sm-2 col-form-label">Userame</label>
+                                        <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
                                         <div class="col-sm-10">
                                             <input type="text"
                                                 class="form-control @error('username') is-invalid @enderror"

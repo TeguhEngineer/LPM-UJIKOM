@@ -19,7 +19,7 @@ class TanggapanController extends Controller
         $pengadu = Pengaduan::where('status','proses')->orWhere('status','selesai');
         return view('admin.tanggapan.index',[
             'cekpengaduan'               =>$pengadu->get(),
-            'lihattanggapan'             =>Tanggapan::get()
+            // 'lihattanggapan'             =>Tanggapan::get()
         ]);
 
         
@@ -49,9 +49,10 @@ class TanggapanController extends Controller
             'isi_tanggapan' => 'required',
             'created_at'    => 'required'
         ]);
-       
+        $status = ['status'=> $request->status];
         Tanggapan::create($validateData);
-        return back()->with('informasi','Berhasil ditanggapi');
+        Pengaduan::where('id',$request->pengaduan_id)->update($status);
+        return redirect('/tanggapan')->with('informasi','Berhasil ditanggapi');
     }
 
     /**
@@ -101,6 +102,7 @@ class TanggapanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tanggapan::where('id',$id)->delete();
+        return redirect('/tanggapan')->with('informasi','Data Pengaduan berhasil dihapus');
     }
 }

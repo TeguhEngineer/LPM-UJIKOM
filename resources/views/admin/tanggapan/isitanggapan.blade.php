@@ -55,11 +55,11 @@
 
                             <div class="card-footer card-comments">
                                 <form action="/tanggapan" method="POST" class="form-horizontal">
-
                                     @csrf
                                     <div class="col-sm-12">
                                         <input type="hidden" name="users_id" value="{{ auth()->user()->id }}">
                                         <input type="hidden" name="pengaduan_id" value="{{ $isitanggapan->id }}">
+                                        <input type="hidden" name="status" value="selesai">
 
                                         <div class="form-group">
                                             @if (session()->has('informasi'))

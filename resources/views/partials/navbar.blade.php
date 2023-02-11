@@ -88,8 +88,15 @@
     <div class="row">
         <div class="col-sm-12 text-center mt-4">
             <a>
-                <img src="/dist/img/AdminLTELogo.png" alt="Logo Admin" class=" img-circle elevation-3"
-                    style="opacity: .8" height="100" width="100">
+
+                @if (auth()->user()->role == 'admin')
+                    <img src="/dist/img/admin.png" alt="Profile" class=" img-circle elevation-3" style="opacity: .8"
+                        height="100" width="100">
+                @elseif (auth()->user()->role == 'petugas')
+                    <img src="/dist/img/petugas.png" alt="Profile" class=" img-circle elevation-3" style="opacity: .8"
+                        height="100" width="100">
+                @endif
+
             </a>
         </div>
     </div>
@@ -98,19 +105,7 @@
             <h4 class="fw-bold">{{ auth()->user()->nama }}</h4>
         </div>
     </div>
-    {{-- <div class="row justify-content-center">
-        <div class="col-sm-10">
-            <a href="">
-                <button class="btn btn-outline-primary btn-sm form-control rounded-3 mt-3">Ubah data</button>
-            </a>
-            <a href="">
-                <button class="btn btn-outline-warning btn-sm form-control rounded-3 mt-3">Ubah Password</button>
-            </a>
-            <a href="">
-                <button class="btn btn-outline-danger btn-sm form-control rounded-3 mt-3">Keluar</button>
-            </a>
-        </div>
-    </div> --}}
+
     <nav>
         <ul class="nav nav-pills nav-sidebar flex-column">
             <li class="nav-item mx-3">
@@ -134,7 +129,8 @@
                 </a>
             </li>
             <li class="nav-item mx-3">
-                <a href="{{ Route('logout') }}" class="nav-link" id="sidebar-kanan">
+
+                <a role="button" class="nav-link" id="sidebar-kanan" data-toggle="modal" data-target="#modal-default">
                     <i class="nav-icon fas ">
                         <i class="bi bi-box-arrow-right"></i>
                     </i>
@@ -145,5 +141,8 @@
                 </a>
             </li>
         </ul>
+
     </nav>
+
+
 </aside>

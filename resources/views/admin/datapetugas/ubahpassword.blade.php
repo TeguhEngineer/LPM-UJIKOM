@@ -45,18 +45,27 @@
                                     @endif
 
                                     <div class="form-group row">
-                                        <label for="inputUsername" class="col-sm-2 col-form-label">Password lama</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputUsername"
-                                                value="{{ $petugasshow->password }}" disabled>
+                                        <label for="inputPassword" class="col-sm-4 col-form-label">Password baru</label>
+                                        <div class="col-sm-8">
+                                            <input type="text"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                id="inputPassword" name="password" placeholder="Pasword baru" autofocus
+                                                required>
+                                            @error('password')
+                                                <div class="invalid-feedback">
+                                                    Password tidak cocok
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputUsername" class="col-sm-2 col-form-label">Password baru</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputPassword" class="col-sm-4 col-form-label">Konfirmasi
+                                            password</label>
+                                        <div class="col-sm-8">
                                             <input type="password"
-                                                class="form-control @error('password') is-invalid @enderror" name="password"
-                                                id="inputUsername" placeholder="Password" required autofocus>
+                                                class="form-control @error('password_confirmation') is-invalid @enderror"
+                                                name="password_confirmation" id="inputPassword" placeholder="Konfirmasi"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="form-group row">

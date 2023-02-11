@@ -74,16 +74,17 @@ class ubahPasswordAdmin extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ubahdata = [
-            'password'     =>bcrypt($request->password),
-            // 'nama'         =>$request->nama,
-            // 'jk'           =>$request->jk,
-            // 'username'     =>$request->username,
-            // 'email'        =>$request->email,
-            // 'role'         =>$request->role
-        ];
-        User::where('id',$id)->update($ubahdata);
+        $ubahData  = $request->validate([
+            
+            'password'  => 'required|confirmed'
+            
+        ]);
+        $ubahData['password'] = bcrypt($ubahData['password']);
+        User::where('id',$id)->update($ubahData);
         return Redirect::back()->with('informasi','Data berhasil diubah');
+       
+        
+        
     }
 
     /**

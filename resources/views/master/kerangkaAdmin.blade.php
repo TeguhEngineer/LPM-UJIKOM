@@ -36,6 +36,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         {{-- /loading --}}
 
+        {{-- Modal --}}
+        <div class="modal fade" id="modal-default">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Informasi</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Apakah anda yakin ingin keluar ?</p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                        <a href=" {{ Route('logout') }}">
+                            <button type="button" class="btn btn-primary">Keluar</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {{-- Tutup modal --}}
+
         <!-- Navbar -->
         @include('partials.navbar')
         <!-- /Navbar -->

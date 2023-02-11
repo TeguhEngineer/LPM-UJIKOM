@@ -1,10 +1,14 @@
 <aside id="sidebar-kiri" class="main-sidebar elevation-4 border-none bg-light">
     <!-- Brand Logo -->
     <a class="brand-link border-bottom">
-        <img src="/dist/img/AdminLTELogo.png" alt="Logo cafe" class="brand-image img-circle elevation-3"
-            style="opacity: .8">
+
+        @if (auth()->user()->role == 'admin')
+            <img src="/dist/img/admin.png" alt="Profile" class="brand-image img-circle elevation-3" style="opacity: .8">
+        @elseif (auth()->user()->role == 'petugas')
+            <img src="/dist/img/petugas.png" alt="Profile" class="brand-image img-circle elevation-3" style="opacity: .8">
+        @endif
         <span class="brand-text fw-bold mx-2 text-primary">ADMIN
-            {{-- <hr class="p-0 mb-0 border border-white border-2 opacity-50"> --}}
+
         </span>
     </a>
 
@@ -31,10 +35,10 @@
                     <a href="/pengaduan" class="nav-link {{ Request::is('pengaduan*') ? 'active' : '' }}"
                         id="sidebar-menu">
                         <i class="nav-icon fas">
-                            <i class="bi bi-megaphone"></i>
+                            <i class="bi bi-envelope"></i>
                         </i>
                         <p class="nav-active">
-                            Pengaduan
+                            Kotak Masuk
 
                         </p>
                     </a>
@@ -43,10 +47,10 @@
                     <a href="/tanggapan" class="nav-link {{ Request::is('tanggapan*') ? 'active' : '' }}"
                         id="sidebar-menu">
                         <i class="nav-icon fas">
-                            <i class="bi bi-chat-left-text"></i>
+                            <i class="bi bi-chat-square-text"></i>
                         </i>
                         <p class="nav-active">
-                            Tanggapan
+                            Tindaklanjut
 
                         </p>
                     </a>
