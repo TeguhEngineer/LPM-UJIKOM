@@ -51,7 +51,7 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
+                    <li><a class="nav-link scrollto " href="#hero">History</a></li>
                     <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
                     <li><a class="nav-link scrollto" href="#services">Proses</a></li>
                     <li><a class="getstarted scrollto" href="/login">Masuk/Daftar</a></li>
@@ -290,7 +290,7 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-7">
                         <div class="card card-primary card-outline">
-                            <form action="/" method="POST">
+                            <form action="/user" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="status" value="ditinjau">
                                 <input type="hidden" name="users_id" value="{{ auth()->user()->id }}">
@@ -301,14 +301,19 @@
                                                 <label>Email</label>
                                                 <input type="text" name="email"
                                                     value="{{ auth()->user()->email }}" class="form-control" disabled>
+
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Tanggal</label>
                                                 <input type="datetime-local" name="created_at"
-                                                    class="form-control @error('created_at') is-invalid @enderror"
-                                                    placeholder="Enter ...">
+                                                    class="form-control @error('created_at') is-invalid @enderror">
+                                                @error('created_at')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -324,6 +329,11 @@
                                                     <option value="{{ $item->id }}">{{ $item->jenis_pengaduan }}
                                                     </option>
                                                 @endforeach
+                                                @error('jenispengaduan_id')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
 
                                             </select>
                                         </div>
@@ -334,13 +344,21 @@
                                                 Pengaduan</label>
                                             <textarea class="form-control @error('isi_laporan') is-invalid @enderror" name="isi_laporan"
                                                 id="exampleFormControlTextarea1" rows="6"></textarea>
+                                            @error('isi_laporan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
+
+                                    {{-- Form Gambar --}}
+
                                     <div class="row mt-3">
                                         <div class="col-sm-12">
                                             <label for="formFile" class="form-label">Lampirkan gambar</label>
-                                            <input class="form-control" name="gambar_id" type="text"
-                                                id="formFile">
+                                            <input class="form-control" name="files" type="file" id="formFile"
+                                                accept="image/*" multiple>
                                         </div>
                                     </div>
                                     <div class="row mt-4 justify-content-center">

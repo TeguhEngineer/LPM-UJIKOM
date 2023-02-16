@@ -6,9 +6,8 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item" aria-current="page"><a href="/datapetugas"
-                                    class="text-decoration-none text-secondary">Data petugas</a></li>
-                            <li class="breadcrumb-item"><a href=""> Detail data Petugas</a></li>
+
+                            <li class="breadcrumb-item"><a href=""> Ubah Password</a></li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->

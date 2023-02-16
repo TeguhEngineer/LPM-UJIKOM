@@ -18,7 +18,7 @@ class CreatePengaduans extends Migration
             $table->foreignId('users_id');
             $table->foreignId('jenispengaduan_id');
             $table->text('isi_laporan');
-            $table->foreignId('gambar_id');
+            // $table->foreignId('gambar_id');
             $table->enum('status',['ditinjau','proses','selesai'])->nullable();
             $table->timestamps();
         });

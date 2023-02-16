@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Gambar extends Model
 {
     use HasFactory;
-    protected $fillable=['gambar'];
+    protected $guarded=['id'];
 
     public function pengaduan() {
-        return $this->hasMany(Pengaduan::class,'gambar_id', 'id');
+        return $this->belongsTo(Pengaduan::class,'pengaduan_id', 'id');
     }
 }

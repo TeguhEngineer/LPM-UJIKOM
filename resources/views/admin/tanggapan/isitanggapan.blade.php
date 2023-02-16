@@ -47,10 +47,38 @@
                             </div>
 
                             <div class="card-body">
-                                <img class="img-fluid pad" src="/dist/img/photo2.png" alt="Photo">
-                                <p>{{ $isitanggapan->isi_laporan }}</p>
-                                <span
-                                    class="float-right text-muted fw-bold">~{{ $isitanggapan->jenis_pengaduan->jenis_pengaduan }}</span>
+                                <div class="row justify-content-center">
+                                    <div class="col-sm-12 text-center">
+                                        <img src="/galleryPengaduan/{{ $gambarpengaduan->gambar }}" class=""
+                                            alt="" style="max-height: 300px;">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-sm-4 fw-bold">
+                                        Jenis Pengaduan
+                                    </div>
+                                    <div class="col-sm-1 fw-bold">
+                                        :
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <p>{{ $isitanggapan->jenis_pengaduan->jenis_pengaduan }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 fw-bold">
+                                        Isi Pengaduan
+                                    </div>
+                                    <div class="col-sm-1 fw-bold">
+                                        :
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <p>{{ $isitanggapan->isi_laporan }}</p>
+                                    </div>
+                                </div>
+
+
+                                {{-- <span
+                                    class="float-right text-muted fw-bold">~{{ $isitanggapan->jenis_pengaduan->jenis_pengaduan }}</span> --}}
                             </div>
 
                             <div class="card-footer card-comments">

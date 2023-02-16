@@ -90,6 +90,18 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/profile/{{ auth()->user()->id }}/edit"
+                        class="nav-link {{ Request::is('profile*') ? 'active' : '' }}" id="sidebar-menu">
+                        <i class="nav-icon fas">
+                            <i class="bi bi-person-circle"></i>
+                        </i>
+                        <p class="nav-active">
+                            Profile
+
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

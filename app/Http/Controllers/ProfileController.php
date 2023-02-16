@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pengaduan;
-use App\Models\Gambar;
+use App\Models\User;
 use Redirect;
 
-class PengaduanController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,18 +14,8 @@ class PengaduanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $laporan = Pengaduan::where('status','ditinjau');
-
-        if(request('search')) {
-            $laporan->where('id', 'like', '%' . request('search') . '%')
-            ->orWhere('users_id', 'like', '%' . request('search') . '%')
-            ->orWhere('status', 'like', '%' . request('search') . '%')
-            ->orWhere('created_at', 'like', '%' . request('search') . '%');
-        }
-        return view('admin.pengaduan.index',[
-            'pengaduan'            =>$laporan->get()
-        ]);
+    {
+        return view('admin.profile.index');
     }
 
     /**
@@ -59,7 +48,6 @@ class PengaduanController extends Controller
     public function show($id)
     {
         //
-        
     }
 
     /**
@@ -70,9 +58,8 @@ class PengaduanController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.pengaduan.detailpengaduan',[
-            'isipengaduan'              =>Pengaduan::where('id',$id)->first(),
-            'gambar'              =>Gambar::where('pengaduan_id', $id)->first()
+        return view('admin.profile.index',[
+            'profile'        =>User::where('id',$id)->first()
         ]);
     }
 
@@ -86,10 +73,15 @@ class PengaduanController extends Controller
     public function update(Request $request, $id)
     {
         $ubahdata = [
-            'status'         =>$request->status,
+            'nama'         =>$request->nama,
+            'jk'           =>$request->jk,
+            'username'     =>$request->username,
+            'email'        =>$request->email,
+            'role'         =>$request->role,
+           
         ];
-        Pengaduan::where('id',$id)->update($ubahdata);
-        return redirect('/pengaduan')->with('informasi','Status pengaduan berhasil diubah');
+        User::where('id',$id)->update($ubahdata);
+        return Redirect::back()->with('informasi','Data berhasil diubah');
     }
 
     /**
@@ -100,7 +92,6 @@ class PengaduanController extends Controller
      */
     public function destroy($id)
     {
-        Pengaduan::where('id',$id)->delete();
-        return redirect('/pengaduan')->with('informasi','Data Pengaduan berhasil dihapus');
+        //
     }
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\DatamasyarakatController;
 use App\Http\Controllers\DatapetugasController;
 use App\Http\Controllers\ubahPasswordAdmin;
 use App\Http\Controllers\CetakLaporan;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -24,6 +25,7 @@ use App\Http\Controllers\UserController;
 // USER
 Route::get('/',[UserController::class,'index'])->name('index');
 Route::get('/user',[UserController::class,'indexuser'])->name('indexuser');
+Route::post('/user',[UserController::class,'pengaduan'])->name('pengaduan');
 Route::get('/daftar',[UserController::class,'daftar'])->name('daftar');
 Route::post('/daftar',[UserController::class,'store'])->name('store');
 Route::get('/login',[UserController::class,'login'])->name('login');
@@ -44,3 +46,4 @@ Route::resource('/datapetugas',DatapetugasController::class);
 Route::resource('/ubahpassword',ubahPasswordAdmin::class);
 Route::get('/laporan',[CetakLaporan::class,'index'])->name('laporan');
 Route::get('/cetaklaporan',[CetakLaporan::class,'printlaporan'])->name('printlaporan');
+Route::resource('/profile',ProfileController::class);

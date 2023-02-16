@@ -43,12 +43,26 @@ class AdminController extends Controller
         $countMasyarakat = User::where('role','masyarakat')->count();
         $countPetugas = User::where('role','petugas')->count();
         $countPengaduan = Pengaduan::all()->count();
+        $countPengaduanDitinjau = Pengaduan::where('status','ditinjau')->count();
+        $countPengaduanDiproses = Pengaduan::where('status','proses')->count();
+        $countPengaduanSelesai = Pengaduan::where('status','selesai')->count();
         $countTanggapan = Tanggapan::all()->count();
+
+        $tinjau = Pengaduan::where('status','ditinjau');
+        $diproses = Pengaduan::where('status','proses');
+        $selesai = Tanggapan::all();
         return view('admin.dashboard.index',[
             'countMasyarakat' => $countMasyarakat,
             'countPetugas'    => $countPetugas,
             'countPengaduan'  => $countPengaduan,
-            'countTanggapan'  => $countTanggapan
+            'countPengaduanditinjau'  => $countPengaduanDitinjau,
+            'countPengaduandiproses'  => $countPengaduanDiproses,
+            'countPengaduanselesai'  => $countPengaduanSelesai,
+            'countTanggapan'  => $countTanggapan,
+
+            'ditinjau'         =>$tinjau->get(),
+            'diproses'         =>$diproses->get(),
+            'pengaduanselesai' =>$selesai
         ]);
     }
 

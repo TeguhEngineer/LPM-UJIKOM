@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tanggapan;
 use App\Models\Pengaduan;
+use App\Models\Gambar;
 use App\Models\User;
 
 class TanggapanController extends Controller
@@ -17,9 +18,16 @@ class TanggapanController extends Controller
     public function index()
     {
         $pengadu = Pengaduan::where('status','proses')->orWhere('status','selesai');
+
+        if(request('search')) {
+            $pengadu->where('id', 'like', '%' . request('search') . '%')
+            // ->orWhere('users_id', 'like', '%' . request('search') . '%')
+            ->orWhere('status','proses', 'like', '%' . request('search') . '%')
+            ->orWhere('created_at','selesai', 'like', '%' . request('search') . '%');
+        }
         return view('admin.tanggapan.index',[
             'cekpengaduan'               =>$pengadu->get(),
-            // 'lihattanggapan'             =>Tanggapan::get()
+            
         ]);
 
         
@@ -65,6 +73,8 @@ class TanggapanController extends Controller
     {
         return view('admin.tanggapan.lihattanggapan',[
             'lihattanggapan'        =>Tanggapan::where('pengaduan_id',$id)->first(),
+            'lihatpengadu'        =>Pengaduan::where('id',$id)->first(),
+            'lihatgambar'        =>Gambar::where('pengaduan_id',$id)->first()
         ]);
     }
 
@@ -79,6 +89,7 @@ class TanggapanController extends Controller
         
         return view('admin.tanggapan.isitanggapan',[
             'isitanggapan'        =>Pengaduan::where('id',$id)->first(),
+            'gambarpengaduan'        =>Gambar::where('pengaduan_id',$id)->first(),
         ]);
     }
 
@@ -102,7 +113,7 @@ class TanggapanController extends Controller
      */
     public function destroy($id)
     {
-        Tanggapan::where('id',$id)->delete();
+        Pengaduan::where('id',$id)->delete();
         return redirect('/tanggapan')->with('informasi','Data Pengaduan berhasil dihapus');
     }
 }

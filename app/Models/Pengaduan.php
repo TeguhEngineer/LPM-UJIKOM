@@ -11,7 +11,7 @@ class Pengaduan extends Model
     protected $guarded = ['id'];
 
     public function gambarpengaduan() {
-        return $this->belongsTo(Gambar::class,'gambar_id','id');
+        return $this->hasMany(Gambar::class,'pengaduan_id','id');
     }
 
     

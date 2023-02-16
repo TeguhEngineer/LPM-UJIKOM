@@ -339,7 +339,8 @@
                                     <div class="row mt-4 justify-content-center">
                                         <div class="col-sm-5">
                                             <button type="button"
-                                                class="btn btn-outline-primary btn-block rounded-pill">Kirim</button>
+                                                class="btn btn-outline-primary btn-block rounded-pill "
+                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">Kirim</button>
                                         </div>
                                     </div>
                                 </div>
@@ -356,6 +357,32 @@
     </main>
     <!-- End #main -->
 
+    <!-- Modal -->
+    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 " id="staticBackdropLabel"><i
+                            class="bi bi-exclamation-triangle-fill"></i> Perhatian</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Harap masuk akun/daftar untuk mengirim pengaduan!
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a href="/login">
+                        <button type="button" class="btn btn-outline-primary">Masuk</button>
+                    </a>
+                    <a href="/daftar">
+                        <button type="button" class="btn btn-outline-warning">Daftar</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- End Modal --}}
+
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container footer-bottom clearfix">
@@ -363,11 +390,8 @@
                 &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
+                Designed by <a href="https://bootstrapmade.com/">Teguh Afriansyah</a>
             </div>
         </div>
     </footer>

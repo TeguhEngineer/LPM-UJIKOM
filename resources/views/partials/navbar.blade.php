@@ -109,25 +109,16 @@
     <nav>
         <ul class="nav nav-pills nav-sidebar flex-column">
             <li class="nav-item mx-3">
-                <a href="/datapetugas/{{ auth()->user()->id }}/edit" class="nav-link" id="sidebar-kanan">
+                <a href="/profile/{{ auth()->user()->id }}/edit" class="nav-link" id="sidebar-kanan">
                     <i class="nav-icon fas ">
                         <i class="bi bi-pencil-square"></i>
                     </i>
                     <p class="">
-                        Ubah data admin
+                        Lihat Profile
                     </p>
                 </a>
             </li>
-            <li class="nav-item mx-3">
-                <a href="/ubahpassword/{{ auth()->user()->id }}/edit" class="nav-link" id="sidebar-kanan">
-                    <i class="nav-icon fas ">
-                        <i class="bi bi-key"></i>
-                    </i>
-                    <p class="">
-                        Ubah password
-                    </p>
-                </a>
-            </li>
+
             <li class="nav-item mx-3">
 
                 <a role="button" class="nav-link" id="sidebar-kanan" data-toggle="modal" data-target="#modal-default">

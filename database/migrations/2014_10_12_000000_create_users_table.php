@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('telepon',13)->nullable();
             $table->text('alamat')->nullable();
             $table->enum('role',['admin','petugas','masyarakat'])->default('masyarakat');
+            $table->text('foto')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

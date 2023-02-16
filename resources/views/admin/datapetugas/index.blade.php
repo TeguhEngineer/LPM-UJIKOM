@@ -106,7 +106,7 @@
                                 @else
                                     <div class="mt-5">
                                         <div class="col-md-12 text-center mt-5 opacity-50">
-                                            <img src="/imgAdmin/datatidakditemukan.png" alt="">
+                                            <img src="/dist/img/datatidakditemukan.png" alt="">
                                         </div>
                                     </div>
                                 @endif

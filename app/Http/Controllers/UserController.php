@@ -9,6 +9,7 @@ use session;
 
 use App\Models\User;
 use App\Models\Pengaduan;
+use App\Models\Gambar;
 use App\Models\Jenis_pengaduan;
 
 
@@ -16,14 +17,13 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('user.index',[
-            'kategori'          =>Jenis_pengaduan::all()
-        ]);
+        return view('user.index');
     }
     public function indexuser()
     {
         return view('user.indexuser',[
-            'kategori'          =>Jenis_pengaduan::all()
+            'kategori'          =>Jenis_pengaduan::all(),
+            // 'pengaduan'         =>Pengaduan::where('id')->get()
         ]);
     }
 
@@ -84,14 +84,31 @@ class UserController extends Controller
             'users_id'          => 'required',
             'jenispengaduan_id' => 'required',
             'isi_laporan'       => 'required',
-            'gambar_id'         => 'required',
+            // 'gambar_id'         => 'required',
             'status'            => 'required',
             'created_at'        => 'required'
            
         ]);
-       
         Pengaduan::create($validateData);
+
+        $gambar = Pengaduan::latest()->first();
+        
+        $files = $request->file('files');
+        if ($request->hasfile('files')) {
+            $extension                  =$files->getClientOriginalExtension();
+            $filenamesimpan             ='galleryPengaduan' . time().'.'. $extension;
+            $files->move('galleryPengaduan', $filenamesimpan);
+            for ($i=0; $i < 3; $i++) { 
+                Gambar::create([
+                    'pengaduan_id'    =>$gambar->id,
+                    'gambar'        =>$filenamesimpan
+                ]);
+            }
+        }
+       
         return redirect('/user')->with('informasi','Pengaduan anda berhasil dikirim');
     }
+
+    
 
 }

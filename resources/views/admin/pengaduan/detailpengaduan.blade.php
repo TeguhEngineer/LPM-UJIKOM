@@ -7,8 +7,9 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Pengaduan Masuk</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="/pengaduan"
+                                    class="text-decoration-none text-secondary">Pengaduan Masuk</a></li>
+                            <li class="breadcrumb-item"><a href=""> Konfirmasi Pengaduan</a></li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -22,6 +23,7 @@
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
                     <div class="col-sm-12">
+
                         <div class="card h-100">
                             <div class="card-body">
                                 <div class="row">
@@ -121,7 +123,7 @@
                                                         <label>Ditinjau</label>
                                                     </option>
                                                     <option value="proses">Diproses</option>
-                                                    <option value="selesai">Selesai</option>
+
                                                 </select>
                                                 <button class="btn btn-outline-primary btn-sm mt-1 btn-block">Ubah</button>
                                             </div>
@@ -129,8 +131,11 @@
                                     </div>
                                 </div>
                             </div>
-                            {{ $isipengaduan->gambarpengaduan->gambar }}
-                            <img src="/dist/img/photo1.png" alt="...">
+                            {{-- {{ $isipengaduan->gambarpengaduan->gambar }} --}}
+
+                            <img src="/galleryPengaduan/{{ $gambar->gambar }}" alt="" style="max-width: 350px;">
+
+
                             <div class="card-footer">
                                 <small class="text-muted">{{ $isipengaduan->created_at }}</small>
                             </div>
@@ -139,17 +144,7 @@
                     </div>
 
                 </div>
-                {{-- <form action="/pengaduan/{{ $isipengaduan->id }}" method="POST" class="form-horizontal">
-                    @method('PUT')
-                    @csrf
-                    <select class="form-control" name="status">
-                        <option>{{ $isipengaduan->status }}</option>
-                        <option disabled>-- Pilih Jenis Kelamin --</option>
-                        <option value="proses">Proses</option>
-                        <option value="selesai">Selesai</option>
-                    </select>
-                    <button type="submit" class="btn btn-primary">Ubah</button>
-                </form> --}}
+
             </div>
 
 
