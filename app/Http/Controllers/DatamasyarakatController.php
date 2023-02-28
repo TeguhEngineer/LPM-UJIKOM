@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Redirect;
+
 
 class DatamasyarakatController extends Controller
 {
@@ -107,7 +107,7 @@ class DatamasyarakatController extends Controller
             'alamat'       =>$request->alamat
         ];
         User::where('id',$id)->update($ubahdata);
-        return Redirect::back()->with('informasi','Data berhasil diubah');
+        return back()->with('informasi','Data berhasil diubah');
     }
 
     /**

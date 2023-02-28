@@ -11,7 +11,8 @@
     {{-- css formLogin --}}
     <link rel="stylesheet" href="formLoginUser/style.css">
     {{-- google fonts --}}
-    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;500;700&display=swap" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet"> --}}
 
 </head>
 
@@ -19,7 +20,7 @@
     <section class="vh-100">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-6 px-0 d-none d-sm-block border">
+                <div class="col-sm-6 px-0 d-none d-sm-block">
                     <img src="/dist/img/logindanregister.png" alt="Login image" class="w-100 vh-100"
                         style="object-fit: contain; object-position: left; width: 100%;">
                 </div>
@@ -89,13 +90,13 @@
                             </div>
 
                             <div class="pt-1 mb-2">
-                                <button class="btn btn-info btn-sm form-control text-white fw-bold"
+                                <button class="btn btn-info  form-control text-white fw-bold"
                                     type="submit">Masuk</button>
                             </div>
 
 
-                            <p class="small mb-5 pb-lg-2 float-end"><a class="text-muted" href="#!">Lupa
-                                    password?</a></p>
+                            {{-- <p class="small mb-5 pb-lg-2 float-end"><a class="text-muted" href="#!">Lupa
+                                    password?</a></p> --}}
                             <p class="mt-5">Belum punya akun? <a href="/daftar" class="link-info">Daftar
                                     disini!</a>
                             </p>

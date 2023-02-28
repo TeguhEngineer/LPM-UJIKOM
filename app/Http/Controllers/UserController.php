@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Echo_;
 use session;
 
+
 use App\Models\User;
 use App\Models\Pengaduan;
 use App\Models\Gambar;
@@ -17,13 +18,21 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('user.index');
+        $countPengaduan = Pengaduan::all()->count();
+        return view('user.index',[
+            'countPengaduan'    =>$countPengaduan
+        ]);
     }
-    public function indexuser()
+    public function indexuser(Request $request)
     {
+       $countPengaduan = Pengaduan::all()->count();
+
         return view('user.indexuser',[
+            'countPengaduan'  => $countPengaduan,
             'kategori'          =>Jenis_pengaduan::all(),
-            // 'pengaduan'         =>Pengaduan::where('id')->get()
+            'riwayat'         =>Pengaduan::where('users_id',auth()->user()->id)->get(),
+            
+            // 'lihatdetail'   =>Pengaduan::where('id')->get()
         ]);
     }
 
@@ -84,9 +93,9 @@ class UserController extends Controller
             'users_id'          => 'required',
             'jenispengaduan_id' => 'required',
             'isi_laporan'       => 'required',
-            // 'gambar_id'         => 'required',
+           
             'status'            => 'required',
-            'created_at'        => 'required'
+            'tanggal_pengaduan'        => 'required'
            
         ]);
         Pengaduan::create($validateData);
@@ -94,20 +103,47 @@ class UserController extends Controller
         $gambar = Pengaduan::latest()->first();
         
         $files = $request->file('files');
-        if ($request->hasfile('files')) {
-            $extension                  =$files->getClientOriginalExtension();
-            $filenamesimpan             ='galleryPengaduan' . time().'.'. $extension;
-            $files->move('galleryPengaduan', $filenamesimpan);
-            for ($i=0; $i < 3; $i++) { 
-                Gambar::create([
-                    'pengaduan_id'    =>$gambar->id,
-                    'gambar'        =>$filenamesimpan
-                ]);
+
+        foreach ($files as $multifiles ) {
+            if ($request->hasfile('files')) {
+                $name                       = hexdec(uniqid());
+                $extension                  = strtolower($multifiles->getClientOriginalExtension());
+                $filenamesimpan             = $name.'.'. $extension;
+                $multifiles->move('galleryPengaduan', $filenamesimpan);
+                    Gambar::create([
+                        'pengaduan_id'    =>$gambar->id,
+                        'gambar'        =>$filenamesimpan
+                    ]); 
             }
         }
-       
+        
         return redirect('/user')->with('informasi','Pengaduan anda berhasil dikirim');
     }
+
+    public function logout()
+    {
+        Auth::logout(); 
+        return redirect('/');
+    }
+
+    // public function show(Request $request,$id)
+    // {
+    //     $getpengaduan = Pengaduan::with('jenis_pengaduan')->where('id',$id)->first();
+    //     // $gettanggapan = Tanggapan::where('pengaduan_id',$id)->first();
+    //     return response()->json(['pengaduan'=>$getpengaduan]);
+        
+        
+    // }
+    // public function showtanggapan(Request $request,$id)
+    // {
+    //     // $getpengaduan = Pengaduan::with('jenis_pengaduan')->where('id',$id)->first();
+    //     $gettanggapan = Tanggapan::with('pengaduan')->where('id',$id)->first();
+    //     return response()->json(['tanggapan'=>$gettanggapan]);
+        
+        
+    // }
+
+    
 
     
 

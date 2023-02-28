@@ -7,7 +7,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Data Petugas / Admin</a></li>
+                            <li class="breadcrumb-item"><a href="#">Data Petugas</a></li>
 
                         </ol>
                     </div><!-- /.col -->

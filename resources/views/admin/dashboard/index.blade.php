@@ -8,7 +8,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+                          
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -20,7 +20,7 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-6 ">
+                    <div class="col-sm-3 col-6 ">
 
                         <div class="small-box bg-info shadow">
                             <div class="inner">
@@ -34,7 +34,7 @@
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-6">
+                    <div class="col-sm-3 col-6">
 
                         <div class="small-box bg-success shadow">
                             <div class="inner">
@@ -48,7 +48,7 @@
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-6">
+                    <div class="col-sm-3 col-6">
 
                         <div class="small-box bg-warning shadow">
                             <div class="inner">
@@ -63,7 +63,7 @@
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-6">
+                    <div class="col-sm-3 col-6">
 
                         <div class="small-box bg-warning shadow">
                             <div class="inner">
@@ -112,7 +112,7 @@
                                 <div class="tab-content" id="custom-tabs-four-tabContent">
                                     <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel"
                                         aria-labelledby="custom-tabs-four-home-tab">
-                                        <table class="table">
+                                        <table class="table table-hover">
                                             <thead>
                                                 <tr>
 
@@ -127,7 +127,7 @@
                                                     <tr>
 
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $tinjau->created_at }}</td>
+                                                        <td>{{ $tinjau->tanggal_pengaduan }}</td>
                                                         <td>{{ $tinjau->users->email }}</td>
                                                         <td>{{ $tinjau->jenis_pengaduan->jenis_pengaduan }}</td>
                                                     </tr>
@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel"
                                         aria-labelledby="custom-tabs-four-profile-tab">
-                                        <table class="table">
+                                        <table class="table table-hover">
                                             <thead>
                                                 <tr>
 
@@ -152,7 +152,7 @@
                                                 @foreach ($diproses as $proses)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $proses->created_at }}</td>
+                                                        <td>{{ $proses->tanggal_pengaduan }}</td>
                                                         <td>{{ $proses->users->email }}</td>
                                                         <td>{{ $proses->jenis_pengaduan->jenis_pengaduan }}</td>
                                                     </tr>
@@ -163,7 +163,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel"
                                         aria-labelledby="custom-tabs-four-messages-tab">
-                                        <table class="table">
+                                        <table class="table table-hover">
                                             <thead>
                                                 <tr>
 
@@ -171,19 +171,17 @@
                                                     <th scope="col">Tanggal Pengaduan</th>
                                                     <th scope="col">Tanggal Tanggapan</th>
                                                     <th scope="col">Email</th>
-                                                    <th scope="col">Jenis Pengaduan</th>
+                                                  
                                                 </tr>
                                             </thead>
                                             <tbody class="table-group-divider">
                                                 @foreach ($pengaduanselesai as $selesai)
                                                     <tr>
-
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $selesai->pengaduan->created_at }}</td>
-                                                        <td>{{ $selesai->created_at }}</td>
+                                                        <td>{{ $selesai->pengaduan->tanggal_pengaduan }}</td>
+                                                        <td>{{ $selesai->tanggal_tanggapan }}</td>
                                                         <td>{{ $selesai->pengaduan->users->email }}</td>
-                                                        <td>{{ $selesai->pengaduan->jenis_pengaduan->jenis_pengaduan }}
-                                                        </td>
+                                                    
                                                     </tr>
                                                 @endforeach
 

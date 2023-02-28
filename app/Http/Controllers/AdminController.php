@@ -29,7 +29,7 @@ class AdminController extends Controller
             if ($role == "admin") {
                 return redirect()->intended('/dashboard');
             } elseif ($role == "petugas") {
-                return redirect()->intended('/dashboard');
+                return redirect()->intended('/pengaduan');
             } else {
                 return redirect()->intended('/administrator');
             }

@@ -11,7 +11,7 @@
     {{-- css formDaftar --}}
     <link rel="stylesheet" href="formDaftarUser/style.css">
     {{-- google fonts --}}
-    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -26,7 +26,7 @@
 
                 <div class="col-sm-4">
 
-                    <div class="d-flex align-items-center h-custom-2 mt-0 pt-5 pt-xl-0 mt-xl-n5">
+                    <div class="d-flex align-items-center h-custom-2 mt-2 pt-5 pt-xl-0 mt-xl-n5">
 
                         <form action="/daftar" method="POST" style="width: 100%;">
                             @csrf
@@ -115,12 +115,12 @@
                             </div>
 
                             <div class="pt-1 mb-2 ">
-                                <button class="btn btn-info btn-sm form-control text-white"
+                                <button class="btn btn-info form-control text-white"
                                     type="submit">Daftar</button>
                             </div>
 
-                            <p class="small mb-5 pb-lg-2 float-end"><a class="text-muted" href="#!">Lupa
-                                    password?</a></p>
+                            {{-- <p class="small mb-5 pb-lg-2 float-end"><a class="text-muted" href="#!">Lupa
+                                    password?</a></p> --}}
                             <p class="mt-5">Sudah punya akun? <a href="/login" class="link-info">Masuk
                                     disini!</a>
                             </p>

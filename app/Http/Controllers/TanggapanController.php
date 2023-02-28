@@ -21,9 +21,9 @@ class TanggapanController extends Controller
 
         if(request('search')) {
             $pengadu->where('id', 'like', '%' . request('search') . '%')
-            // ->orWhere('users_id', 'like', '%' . request('search') . '%')
-            ->orWhere('status','proses', 'like', '%' . request('search') . '%')
-            ->orWhere('created_at','selesai', 'like', '%' . request('search') . '%');
+            ->orWhere('users_id', 'like', '%' . request('search') . '%')
+            ->orWhere('status', 'like', '%' . request('search') . '%')
+            ->orWhere('tanggal_pengaduan','selesai', 'like', '%' . request('search') . '%');
         }
         return view('admin.tanggapan.index',[
             'cekpengaduan'               =>$pengadu->get(),
@@ -55,7 +55,7 @@ class TanggapanController extends Controller
             'pengaduan_id'  =>  'required',
             'users_id'      =>  'required',
             'isi_tanggapan' => 'required',
-            'created_at'    => 'required'
+            'tanggal_tanggapan'    => 'required'
         ]);
         $status = ['status'=> $request->status];
         Tanggapan::create($validateData);
@@ -74,7 +74,7 @@ class TanggapanController extends Controller
         return view('admin.tanggapan.lihattanggapan',[
             'lihattanggapan'        =>Tanggapan::where('pengaduan_id',$id)->first(),
             'lihatpengadu'        =>Pengaduan::where('id',$id)->first(),
-            'lihatgambar'        =>Gambar::where('pengaduan_id',$id)->first()
+            'lihatgambar'        =>Gambar::where('pengaduan_id',$id)->get()
         ]);
     }
 
@@ -89,7 +89,7 @@ class TanggapanController extends Controller
         
         return view('admin.tanggapan.isitanggapan',[
             'isitanggapan'        =>Pengaduan::where('id',$id)->first(),
-            'gambarpengaduan'        =>Gambar::where('pengaduan_id',$id)->first(),
+            'gambarpengaduan'        =>Gambar::where('pengaduan_id',$id)->get(),
         ]);
     }
 

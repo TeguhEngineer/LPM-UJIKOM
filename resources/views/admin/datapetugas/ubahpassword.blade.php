@@ -46,7 +46,7 @@
                                     <div class="form-group row">
                                         <label for="inputPassword" class="col-sm-4 col-form-label">Password baru</label>
                                         <div class="col-sm-8">
-                                            <input type="text"
+                                            <input type="password"
                                                 class="form-control @error('password') is-invalid @enderror"
                                                 id="inputPassword" name="password" placeholder="Pasword baru" autofocus
                                                 required>
@@ -67,13 +67,10 @@
                                                 required>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-
-                                        <div class="col-sm-10">
-                                            <input type="hidden" class="form-control " name="id"
-                                                placeholder="Password" value="{{ $petugasshow->id }}">
-                                        </div>
-                                    </div>
+                                  
+                                    <input type="hidden" class="form-control " name="id"
+                                        placeholder="Password" value="{{ $petugasshow->id }}">
+                                      
 
                                 </div>
                                 <div class="card-footer">

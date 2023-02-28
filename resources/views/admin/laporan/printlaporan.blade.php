@@ -26,14 +26,23 @@
         </thead>
 
         <tbody>
-            @foreach ($print as $item)
+            @foreach ($laporan as $item)
                 <tr>
-                    <td class="text-center"><b>{{ $loop->iteration }}</b></td>
-                    <td>{{ $item->created_at }}</td>
-                    <td>{{ $item->jenis_pengaduan }}</td>
+                    <td><b>{{ $loop->iteration }}</b></td>
+                    <td>{{ $item->tanggal_pengaduan }}</td>
+                    <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
                     <td>{{ $item->isi_laporan }}</td>
-                    <td>
-                        {{ $item->status }}
+                    <td class="text-center">
+                        @if ($item->status == 'ditinjau')
+                            <span class="badge rounded-pill text-bg-primary py-2  fw-bold"
+                                style="width: 70px;">{{ $item->status }}</span>
+                        @elseif ($item->status == 'proses')
+                            <span class="badge rounded-pill text-bg-warning py-2  fw-bold text-light"
+                                style="width: 70px;">{{ $item->status }}</span>
+                        @elseif ($item->status == 'selesai')
+                            <span class="badge rounded-pill text-bg-success py-2 fw-bold"
+                                style="width: 70px;">{{ $item->status }}</span>
+                        @endif
 
                     </td>
                 </tr>

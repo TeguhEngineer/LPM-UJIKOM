@@ -2,15 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\TanggapanController;
-use App\Http\Controllers\viewTanggapanController;
 use App\Http\Controllers\DatamasyarakatController;
 use App\Http\Controllers\DatapetugasController;
 use App\Http\Controllers\ubahPasswordAdmin;
-use App\Http\Controllers\CetakLaporan;
+use App\Http\Controllers\ubahPasswordUser;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileUserController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DetailUser;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,26 +27,39 @@ use App\Http\Controllers\UserController;
 */
 // USER
 Route::get('/',[UserController::class,'index'])->name('index');
-Route::get('/user',[UserController::class,'indexuser'])->name('indexuser');
-Route::post('/user',[UserController::class,'pengaduan'])->name('pengaduan');
-Route::get('/daftar',[UserController::class,'daftar'])->name('daftar');
+Route::get('/daftar',[UserController::class,'daftar'])->middleware('guest');
 Route::post('/daftar',[UserController::class,'store'])->name('store');
 Route::get('/login',[UserController::class,'login'])->name('login');
 Route::post('/login',[UserController::class,'autentikasi'])->name('autentikasi');
-Route::get('/logout',[AdminController::class,'logout'])->name('logout')->middleware('auth');
-Route::post('/',[UserController::class,'pengaduan'])->name('pengaduan');
+
+Route::group(['middleware' => ['auth', 'cekLevel:masyarakat']], function() {
+    Route::get('/user',[UserController::class,'indexuser'])->name('indexuser');
+    Route::post('/user',[UserController::class,'pengaduan'])->name('pengaduan');
+    Route::resource('/profile-user',ProfileUserController::class);
+    Route::resource('/ubah-password',ubahPasswordUser::class);
+    Route::get('/keluar',[UserController::class,'logout'])->name('logout');
+    Route::resource('/detail',DetailUser::class);
+});
+// Route::get('/pengaduangetdetail/{id}',[UserController::class, 'show']);
+// Route::get('/tanggapangetdetail/{id}',[UserController::class, 'showtanggapan']);
+
+
 
 
 // ADMIN
-Route::get('/administrator',[AdminController::class,'index'])->name('login');
+Route::get('/administrator',[AdminController::class,'index']);
 Route::post('/administrator',[AdminController::class,'autentikasi'])->name('autentikasi');
 
-Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
-Route::resource('/pengaduan',PengaduanController::class);
-Route::resource('/tanggapan',TanggapanController::class);
-Route::resource('/datamasyarakat',DatamasyarakatController::class);
-Route::resource('/datapetugas',DatapetugasController::class);
-Route::resource('/ubahpassword',ubahPasswordAdmin::class);
-Route::get('/laporan',[CetakLaporan::class,'index'])->name('laporan');
-Route::get('/cetaklaporan',[CetakLaporan::class,'printlaporan'])->name('printlaporan');
-Route::resource('/profile',ProfileController::class);
+Route::group(['middleware' => ['auth','cekLevel:admin,petugas']], function() {
+    Route::get('/logout',[AdminController::class,'logout'])->name('logout');
+    Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
+    Route::resource('/kategori',KategoriController::class);
+    Route::resource('/pengaduan',PengaduanController::class);
+    Route::resource('/tanggapan',TanggapanController::class);
+    Route::resource('/datamasyarakat',DatamasyarakatController::class);
+    Route::resource('/datapetugas',DatapetugasController::class);
+    Route::resource('/ubahpassword',ubahPasswordAdmin::class);
+    Route::resource('/laporan',LaporanController::class);
+    Route::get('/cetaklaporan',[LaporanController::class,'printlaporan']);
+    Route::resource('/profile',ProfileController::class);
+});

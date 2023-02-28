@@ -1,68 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-
-    <title>LPM | Dinas Lingkungan Hidup</title>
-    <meta content="" name="description" />
-    <meta content="" name="keywords" />
-
-    {{-- Bootstrap --}}
-    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <!-- Favicons -->
-    <link href=" /assetsUser/img/favicon.png" rel="icon" />
-    <link href=" /assetsUser/img/apple-touch-icon.png" rel="apple-touch-icon" />
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet" />
-
-    <!-- Vendor CSS Files -->
-    <link href=" /assetsUser/vendor/aos/aos.css" rel="stylesheet" />
-    <link href=" /assetsUser/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href=" /assetsUser/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-    <link href=" /assetsUser/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
-    <link href=" /assetsUser/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-    <link href=" /assetsUser/vendor/remixicon/remixicon.css" rel="stylesheet" />
-    <link href=" /assetsUser/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
-    <!-- Template Main CSS File -->
-    <link href=" /assetsUser/css/style.css" rel="stylesheet" />
-
-    <!-- =======================================================
-  * Template Name: Arsha - v4.10.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top">
-        <div class="container d-flex align-items-center">
-            <h1 class="logo me-auto fw-bold"><a href="index.html">L P M</a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo me-auto"><img src=" /assetsUser/img/logo.png" alt="" class="img-fluid"></a>-->
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto " href="#hero">History</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Proses</a></li>
-                    <li><a class="getstarted scrollto" href="/login">Masuk/Daftar</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar -->
-        </div>
-    </header>
-    <!-- End Header -->
-
+@extends('master.kerangkaUser')
+@section('container')
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
         <div class="container">
@@ -89,14 +26,17 @@
         <section id="clients" class="clients section-bg">
             <div class="container">
                 <div class="row" data-aos="zoom-in">
-                    <div class="col-lg-12 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                        {{-- <img src=" /assetsUser/img/clients/client-1.png" class="img-fluid" alt="" /> --}}
-                        <h3>JUMLAH LAPORAN</h3>
-                    </div>
-                    <div class="col-lg-12 col-md-4 col-6 d-flex align-items-center justify-content-center fw-bold">
-                        <h1>120</h1>
+                    <div class="col-lg-12 d-flex align-items-center justify-content-center ">
+
+                        <h3 class="fw-bold">JUMLAH LAPORAN</h3>
                     </div>
                 </div>
+                <div class="row" data-aos="zoom-in">
+                    <div class="col-lg-12 d-flex align-items-center justify-content-center ">
+                        <h1 class="fw-bold">{{ $countPengaduan }}</h1>
+                    </div>
+                </div>
+                
             </div>
         </section>
         <!-- End Cliens Section -->
@@ -118,18 +58,7 @@
                         </p>
                         <a href="#" class="btn-learn-more">Lapor Sekarang!</a>
                     </div>
-                    {{-- <div class="col-lg-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        <ul>
-                            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat</li>
-                            <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in
-                                voluptate velit</li>
-                            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat</li>
-                        </ul>
-                    </div> --}}
+
 
                 </div>
             </div>
@@ -189,12 +118,10 @@
         <section id="faq" class="faq">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>Frequently Asked Questions</h2>
+                    <h2>Pertanyaan ?</h2>
                     <p>
-                        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
-                        sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                        ea. Quia fugiat sit in iste
-                        officiis commodi quidem hic quas.
+                        Website ini ditujukan untuk memudahkan masyarakat dalam melaporkan kerusakan alam, agar lebih mudah tanpa perlu mengunjungi kantor pusat kami.
+
                     </p>
                 </div>
 
@@ -202,79 +129,36 @@
                     <ul>
                         <li data-aos="fade-up" data-aos-delay="100">
                             <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non
-                                consectetur a erat nam at lectus urna duis? <i
-                                    class="bx bx-chevron-down icon-show"></i><i
+                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Bagaimana cara saya lapor? <i class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                                <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet
-                                    non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor
-                                    purus non.</p>
+                                <p>Masyarakat dapat membuat akun terlebih dahulu untuk bisa melaporkan agar jelas identitas pelapor</p>
                             </div>
                         </li>
 
                         <li data-aos="fade-up" data-aos-delay="200">
                             <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Feugiat
-                                scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i
+                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Jika sudah punya akun, bagaimana cara melapor? <i class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                                 <p>
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                    velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend
-                                    donec pretium. Est pellentesque elit ullamcorper
-                                    dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                                    Masyarakat dapat mengisi form laporan yang berada di halaman web dengan disertai minimal 1 bukti foto jika memang benar terdapat kerusakan alam/lingkungan
                                 </p>
                             </div>
                         </li>
 
                         <li data-aos="fade-up" data-aos-delay="300">
                             <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Dolor sit
-                                amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i
+                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Bagaimana saya tahu jika laporan saya sudah ditanggapi?<i class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                                 <p>
-                                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                    pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit.
-                                    Rutrum tellus pellentesque eu tincidunt. Lectus urna
-                                    duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio
-                                    morbi quis
+                                    Masyarakat dapat mengecek riwayat laporan yang berada di halaman web
                                 </p>
                             </div>
                         </li>
 
-                        <li data-aos="fade-up" data-aos-delay="400">
-                            <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Tempus quam
-                                pellentesque nec nam aliquam sem et tortor consequat? <i
-                                    class="bx bx-chevron-down icon-show"></i><i
-                                    class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in
-                                    est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl
-                                    suscipit adipiscing bibendum est. Purus gravida quis
-                                    blandit turpis cursus in.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up" data-aos-delay="500">
-                            <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Tortor vitae
-                                purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i
-                                    class="bx bx-chevron-down icon-show"></i><i
-                                    class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo
-                                    integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc
-                                    eget lorem dolor sed. Ut venenatis tellus in metus
-                                    vulputate eu scelerisque.
-                                </p>
-                            </div>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -299,17 +183,17 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="text" name="email"
-                                                    value="{{ auth()->user()->email }}" class="form-control" disabled>
+                                                <input type="text" name="email" value="{{ auth()->user()->email }}"
+                                                    class="form-control" disabled>
 
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Tanggal</label>
-                                                <input type="datetime-local" name="created_at"
-                                                    class="form-control @error('created_at') is-invalid @enderror">
-                                                @error('created_at')
+                                                <input type="date" name="tanggal_pengaduan"
+                                                    class="form-control @error('tanggal_pengaduan') is-invalid @enderror">
+                                                @error('tanggal_pengaduan')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -356,9 +240,14 @@
 
                                     <div class="row mt-3">
                                         <div class="col-sm-12">
-                                            <label for="formFile" class="form-label">Lampirkan gambar</label>
-                                            <input class="form-control" name="files" type="file" id="formFile"
-                                                accept="image/*" multiple>
+                                            <label for="formFile" class="form-label">Lampirkan minimal 1 gambar</label>
+                                            <input class="form-control @error('files') is-invalid @enderror" name="files[]" type="file" id="formFile"
+                                                accept="image/*" multiple="" required>
+                                                @error('files')
+                                                <div class="invalid-feedback">
+                                                    Lampirkan gambar minimal 1
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mt-4 justify-content-center">
@@ -378,41 +267,159 @@
             </div>
         </section>
         <!-- End Lapor Section -->
+
+        {{-- Riwayat Pengaduan --}}
+        <section id="riwayat">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>RIWAYAT PENGADUAN!!!</h2>
+                </div>
+                @if ($riwayat->count() < 1)
+                    <h5 class="text-secondary text-center">Belum Memilki Riwayat</h5>
+                @else
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">Jenis Pengaduan</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Detail</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($riwayat as $item)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
+
+                                    <td>
+                                        @if ($item->status == 'ditinjau')
+                                            <span class="badge rounded-pill text-bg-primary py-2  fw-bold"
+                                                style="width: 70px;">{{ $item->status }}</span>
+                                        @elseif ($item->status == 'proses')
+                                            <span class="badge rounded-pill text-bg-warning py-2  fw-bold text-light"
+                                                style="width: 70px;">{{ $item->status }}</span>
+                                        @elseif ($item->status == 'selesai')
+                                            <span class="badge rounded-pill text-bg-success py-2 fw-bold"
+                                                style="width: 70px;">{{ $item->status }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="/detail/{{ $item->id }}">
+                                            <button class="btn btn-outline-info">Detail</button>
+                                        </a>
+                                        {{-- <a class="btn btn-outline-info"
+                                            onclick="tampil_modal(this,{{ $item->id }})">Detail
+                                        </a>
+                                        <a class="btn btn-outline-info"
+                                            onclick="tampil_tanggapan(this,{{ $item->id }})">Detail
+                                        </a> --}}
+
+                                    </td>
+
+                                </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                @endif
+            </div>
+        </section>
+
+        {{-- Modal Pengaduan --}}
+        {{-- <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Isi pengaduan</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="data_detail">
+                        <form>
+
+                            <div class="mb-3">
+                                <label for="kategori" class="col-form-label" id="jenis_pengaduan">Kategori</label>
+                                <input type="text" class="form-control" id="kategori" value="" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="isipengaduan" class="col-form-label" id="isi_laporan">Isi pengaduan</label>
+                                <textarea class="form-control" id="isipengaduan" disabled></textarea>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        {{-- </modal pengaduan> --}}
+
+        {{-- Modal Tanggapan --}}
+        {{-- <div class="modal fade " id="showTanggapan" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Isi Tanggapan</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="data_detail">
+                        <form>
+
+                            <div class="mb-3">
+                                <label for="isipengaduan" class="col-form-label" id="isi_laporan">Isi Tanggapan</label>
+                                <textarea class="form-control" id="isitanggapan" disabled></textarea>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        {{-- </modal tanggapan> --}}
+
+
+
     </main>
     <!-- End #main -->
 
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-        <div class="container footer-bottom clearfix">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </div>
-    </footer>
-    <!-- End Footer -->
+    {{-- <script>
+        function tampil_modal(txt, id) {
+            $('#staticBackdrop').modal('show')
+            $.ajax({
+                url: "{{ url('') }}/pengaduangetdetail/" + id,
+                type: "GET",
+                dataType: "json",
+                success: function(res) {
+                    console.log(res)
 
-    <div id="preloader"></div>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+                    $('#kategori').val(res.pengaduan.jenis_pengaduan.jenis_pengaduan)
+                    $('#isipengaduan').val(res.pengaduan.isi_laporan)
 
-    <!-- Vendor JS Files -->
-    <script src="/assetsUser/vendor/aos/aos.js"></script>
-    <script src=" /assetsUser/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src=" /assetsUser/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src=" /assetsUser/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src=" /assetsUser/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src=" /assetsUser/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src=" /assetsUser/vendor/php-email-form/validate.js"></script>
+                }
+            })
+        }
 
-    <!-- Template Main JS File -->
-    <script src=" /assetsUser/js/main.js"></script>
-</body>
-
-</html>
+        function tampil_tanggapan(txt, $id) {
+            $('#showTanggapan').modal('show')
+            $.ajax({
+                url: "{{ url('') }}/tanggapandetail/" + id,
+                type: "GET",
+                dataType: "json",
+                success: function(res) {
+                    console.log(res)
+                    $('#isitanggapan').val(res.tanggapan.isi_tanggapan)
+                }
+            })
+        }
+    </script> --}}
+@endsection

@@ -45,12 +45,12 @@
                                             alt="User profile picture">
                                     @endif
                                 </div>
-                                <h3 class="profile-username text-center">{{ $showpetugas->nama }}</h3>
+                                <h3 class="profile-username text-center fw-bold">{{ $showpetugas->nama }}</h3>
                                 <p class="text-muted text-center">{{ $showpetugas->role }}</p>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>Jenis Kelamin</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -63,7 +63,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>Username</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -77,7 +77,7 @@
 
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>Email</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -145,9 +145,12 @@
                                             <select class="form-control @error('jk') is-invalid @enderror" id="inputJK"
                                                 name="jk" required>
                                                 <option>{{ $showpetugas->jk }}</option>
-                                                <option disabled>-- Pilih Jenis Kelamin --</option>
+                                               
+                                                @if ($showpetugas->jk == 'perempuan')
                                                 <option value="laki-laki">Laki-laki</option>
+                                                @elseif ($showpetugas->jk == 'laki-laki')
                                                 <option value="perempuan">Perempuan</option>
+                                                @endif
                                             </select>
                                             @error('jk')
                                                 <div class="invalid-feedback">

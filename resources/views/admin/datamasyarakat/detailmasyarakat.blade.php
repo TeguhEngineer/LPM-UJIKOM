@@ -44,12 +44,12 @@
                                             alt="User profile picture">
                                     @endif
                                 </div>
-                                <h3 class="profile-username text-center">{{ $showmasyarakat->nama }}</h3>
+                                <h3 class="profile-username text-center fw-bold">{{ $showmasyarakat->nama }}</h3>
                                 <p class="text-muted text-center">{{ $showmasyarakat->role }}</p>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>NIK</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -63,7 +63,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>Username</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -76,7 +76,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>Jenis Kelamin</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -89,7 +89,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>Email</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -102,7 +102,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>No Telepon</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -115,7 +115,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>Alamat</b>
                                             </div>
                                             <div class="col-2 text-end">

@@ -53,57 +53,66 @@
                             </div>
 
                             <div class="card-body table-responsive p-0" style="height: 410px;">
-                                <table class="table table-head-fixed text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-
-                                            <th>Jenis Pengaduan</th>
-                                            <th>Email</th>
-                                            <th>Tanggal</th>
-                                            <th>Status</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($pengaduan as $item)
+                                @if ($pengaduan->count() > 0)
+                                    <table class="table table-head-fixed text-nowrap">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                <th>No</th>
 
-                                                <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
-                                                <td>{{ $item->users->email }}</td>
-                                                <td>{{ $item->created_at }}</td>
-                                                <td>
-                                                    @if ($item->status == 'ditinjau')
-                                                        <span class="badge rounded-pill text-bg-primary py-2  fw-bold"
-                                                            style="width: 70px;">{{ $item->status }}</span>
-                                                    @elseif ($item->status == 'proses')
-                                                        <span
-                                                            class="badge rounded-pill text-bg-warning py-2  fw-bold text-light"
-                                                            style="width: 70px;">{{ $item->status }}</span>
-                                                    @elseif ($item->status == 'selesai')
-                                                        <span class="badge rounded-pill text-bg-success py-2 fw-bold"
-                                                            style="width: 70px;">{{ $item->status }}</span>
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    <a href="/pengaduan/{{ $item->id }}/edit">
-                                                        <button class="btn btn-primary py-0 px-1"><i
-                                                                class="bi bi-eye"></i></button>
-                                                    </a>
-                                                    <form action="/pengaduan/{{ $item->id }}" method="POST"
-                                                        class="d-inline">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button class="btn btn-danger py-0 px-1" type="submit"
-                                                            onclick="return confirm('Apakah kamu yakin ? data akan dihapus secara permanen!')"><i
-                                                                class="bi bi-trash3"></i></button>
-                                                    </form>
-                                                </td>
+                                                <th>Jenis Pengaduan</th>
+                                                <th>Email</th>
+                                                <th>Tanggal</th>
+                                                <th>Status</th>
+                                                <th>Aksi</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($pengaduan as $item)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+
+                                                    <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
+                                                    <td>{{ $item->users->email }}</td>
+                                                    <td>{{ $item->tanggal_pengaduan }}</td>
+                                                    <td>
+                                                        @if ($item->status == 'ditinjau')
+                                                            <span class="badge rounded-pill text-bg-primary py-2  fw-bold"
+                                                                style="width: 70px;">{{ $item->status }}</span>
+                                                        @elseif ($item->status == 'proses')
+                                                            <span
+                                                                class="badge rounded-pill text-bg-warning py-2  fw-bold text-light"
+                                                                style="width: 70px;">{{ $item->status }}</span>
+                                                        @elseif ($item->status == 'selesai')
+                                                            <span class="badge rounded-pill text-bg-success py-2 fw-bold"
+                                                                style="width: 70px;">{{ $item->status }}</span>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        <a href="/pengaduan/{{ $item->id }}/edit">
+                                                            <button class="btn btn-primary py-0 px-1"><i
+                                                                    class="bi bi-eye"></i></button>
+                                                        </a>
+                                                        <form action="/pengaduan/{{ $item->id }}" method="POST"
+                                                            class="d-inline">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button class="btn btn-danger py-0 px-1" type="submit"
+                                                                onclick="return confirm('Apakah kamu yakin ? data akan dihapus secara permanen!')"><i
+                                                                    class="bi bi-trash3"></i></button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                @else
+                                    <div class="mt-5">
+                                        <div class="col-md-12 text-center mt-5 opacity-50">
+                                            <img src="/dist/img/datatidakditemukan.png" alt="">
+                                        </div>
+                                    </div>
+                                @endif
+
                             </div>
 
                         </div>

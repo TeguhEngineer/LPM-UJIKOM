@@ -1,7 +1,7 @@
 @extends('master.kerangkaAdmin')
 @section('container')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+        {{-- Header --}}
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -11,18 +11,18 @@
                                     class="text-decoration-none text-secondary">Data masyarakat</a></li>
                             <li class="breadcrumb-item"><a href=""> Tambah Data Masyarakat</a></li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
+        {{-- /header --}}
 
         {{-- Isi content --}}
         <div class="content">
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-sm-8">
-                        <div class="card card-info">
+                        <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title"><i class="bi bi-people"></i> Tambah data masyarakat</h3>
                             </div>
@@ -45,8 +45,8 @@
                                     @endif
 
                                     <div class="form-group row">
-                                        <label for="inputNama" class="col-sm-2 col-form-label">Nama</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputNama" class="col-sm-3 col-form-label">Nama</label>
+                                        <div class="col-sm-9">
                                             <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                                 id="inputNama" name="nama" placeholder="Nama" required
                                                 value="{{ old('nama') }}">
@@ -58,8 +58,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputJK" class="col-sm-2 col-form-label">Jenis Kelamin</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputJK" class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                        <div class="col-sm-9">
                                             <select class="form-control @error('jk') is-invalid @enderror" id="inputJK"
                                                 name="jk" required>
                                                 <option selected disabled>-- Pilih Jenis Kelamin --</option>
@@ -74,8 +74,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputUsername" class="col-sm-2 col-form-label">Userame</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputUsername" class="col-sm-3 col-form-label">Userame</label>
+                                        <div class="col-sm-9">
                                             <input type="text"
                                                 class="form-control @error('username') is-invalid @enderror" name="username"
                                                 id="inputUsername" placeholder="Username" required
@@ -88,8 +88,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+                                        <div class="col-sm-9">
                                             <input type="password"
                                                 class="form-control @error('password') is-invalid @enderror" name="password"
                                                 id="inputPassword" placeholder="Password" required
@@ -102,8 +102,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+                                        <div class="col-sm-9">
                                             <input type="email" class="form-control @error('email') is-invalid @enderror"
                                                 name="email" id="inputEmail" placeholder="Email" required
                                                 value="{{ old('email') }}">
@@ -115,8 +115,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputNomor" class="col-sm-2 col-form-label">No.Telp</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputNomor" class="col-sm-3 col-form-label">No.Telp</label>
+                                        <div class="col-sm-9">
                                             <input type="number"
                                                 class="form-control @error('telepon') is-invalid @enderror" name="telepon"
                                                 id="inputNomor" placeholder="Nomor Telepon" required
@@ -129,8 +129,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="form-nik" class="col-sm-2 col-form-label">NIK</label>
-                                        <div class="col-sm-10">
+                                        <label for="form-nik" class="col-sm-3 col-form-label">NIK</label>
+                                        <div class="col-sm-9">
                                             <input type="number" class="form-control @error('nik') is-invalid @enderror"
                                                 id="form-nik" name="nik" placeholder="NIK" required
                                                 value="{{ old('nik') }}">
@@ -142,8 +142,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputAlamat" class="col-sm-2 col-form-label">Alamat</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputAlamat" class="col-sm-3 col-form-label">Alamat</label>
+                                        <div class="col-sm-9">
                                             <textarea class="form-control @error('alamat') is-invalid @enderror" id="inputAlamat" rows="3" name="alamat"
                                                 placeholder="Alamat" required>{{ old('alamat') }}</textarea>
                                             @error('alamat')
@@ -155,7 +155,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" name="simpan" class="btn btn-info">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
                                     <a href="/datamasyarakat">
                                         <button type="button" class="btn btn-default float-right">Batal</button>
                                     </a>

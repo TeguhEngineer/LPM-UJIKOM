@@ -15,6 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
+
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -25,6 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
     {{-- Style css --}}
     <link rel="stylesheet" href="/css/style.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -41,13 +43,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Informasi</h4>
+                        <h4 class="modal-title fw-bold">Informasi</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Apakah anda yakin ingin keluar ?</p>
+                        <h5>Apakah anda yakin ingin keluar ?</h5>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -108,10 +110,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
     <script src="/dist/js/adminlte.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 
 </html>

@@ -17,9 +17,7 @@
     <link href=" /assetsUser/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;500;700&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href=" /assetsUser/vendor/aos/aos.css" rel="stylesheet" />
@@ -32,13 +30,6 @@
 
     <!-- Template Main CSS File -->
     <link href=" /assetsUser/css/style.css" rel="stylesheet" />
-
-    <!-- =======================================================
-  * Template Name: Arsha - v4.10.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -94,7 +85,7 @@
                         <h3>JUMLAH LAPORAN</h3>
                     </div>
                     <div class="col-lg-12 col-md-4 col-6 d-flex align-items-center justify-content-center fw-bold">
-                        <h1>120</h1>
+                        <h1>{{ $countPengaduan }}</h1>
                     </div>
                 </div>
             </div>
@@ -387,7 +378,7 @@
     <footer id="footer">
         <div class="container footer-bottom clearfix">
             <div class="copyright">
-                &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>UKK 2023</span></strong>
             </div>
             <div class="credits">
 

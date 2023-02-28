@@ -1,20 +1,20 @@
 @extends('master.kerangkaAdmin')
 @section('container')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+        {{-- Header --}}
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Pengaduan Masuk</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Library</li>
+                            <li class="breadcrumb-item"><a href="#">Detail Pengaduan</a></li>
+                         
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
+        {{-- /header --}}
 
         {{-- Isi Content --}}
         <div class="content">
@@ -38,15 +38,36 @@
                                     <div class="form-group">
                                         <label>Tanggal</label>
                                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                            <input type="datetime-local" value="{{ $lihatpengadu->created_at }}"
+                                            <input type="date" value="{{ $lihatpengadu->tanggal_pengaduan }}"
                                                 class="form-control datetimepicker-input" disabled />
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label>Gambar</label>
-                                        <div class="col-sm-12">
-                                            <img src="/galleryPengaduan/{{ $lihatgambar->gambar }}" class=""
-                                                alt="" style="max-height: 200px;">
+                                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                @if ($lihatgambar->count(0))
+                                                    <div class="carousel-item active">
+                                                        <img src="/galleryPengaduan/{{ $lihatgambar[0]->gambar }}"
+                                                            class="d-block w-100" alt="...">
+                                                    </div>
+                                                @endif
+                                                @foreach ($lihatgambar->skip(1) as $multi)
+                                                    <div class="carousel-item active">
+                                                        <img src="/galleryPengaduan/{{ $multi->gambar }}"
+                                                            class="d-block w-100" alt="...">
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="form-group mt-2">
@@ -82,7 +103,7 @@
                                     <div class="form-group">
                                         <label>Tanggal tanggapan</label>
                                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                            <input type="datetime-local" value="{{ $lihattanggapan->created_at }}"
+                                            <input type="date" value="{{ $lihattanggapan->tanggal_tanggapan }}"
                                                 class="form-control datetimepicker-input" disabled />
                                         </div>
                                     </div>

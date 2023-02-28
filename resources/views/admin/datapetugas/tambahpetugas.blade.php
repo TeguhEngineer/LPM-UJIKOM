@@ -1,7 +1,7 @@
 @extends('master.kerangkaAdmin')
 @section('container')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+        {{-- Header --}}
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -12,18 +12,18 @@
                             <li class="breadcrumb-item active" aria-current="page"><a href="">Tambah Data Petugas</a>
                             </li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
+        {{-- /header --}}
 
         {{-- Isi content --}}
         <div class="content">
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-sm-8">
-                        <div class="card card-info">
+                        <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title"><i class="bi bi-person"></i> Tambah data petugas</h3>
                             </div>
@@ -44,8 +44,8 @@
                                         </div>
                                     @endif
                                     <div class="form-group row">
-                                        <label for="inputNama" class="col-sm-2 col-form-label">Nama</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputNama" class="col-sm-3 col-form-label">Nama</label>
+                                        <div class="col-sm-9">
                                             <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                                 id="inputNama" name="nama" placeholder="Nama" required
                                                 value="{{ old('nama') }}">
@@ -57,8 +57,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputJK" class="col-sm-2 col-form-label">Jenis Kelamin</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputJK" class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                                        <div class="col-sm-9">
                                             <select class="form-control @error('jk') is-invalid @enderror" id="inputJK"
                                                 name="jk" required>
                                                 <option selected disabled>-- Pilih Jenis Kelamin --</option>
@@ -73,8 +73,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputUsername" class="col-sm-3 col-form-label">Username</label>
+                                        <div class="col-sm-9">
                                             <input type="text"
                                                 class="form-control @error('username') is-invalid @enderror" name="username"
                                                 id="inputUsername" placeholder="Username" required
@@ -87,8 +87,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+                                        <div class="col-sm-9">
                                             <input type="password"
                                                 class="form-control @error('password') is-invalid @enderror" name="password"
                                                 id="inputPassword" placeholder="Password" required
@@ -101,8 +101,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+                                        <div class="col-sm-9">
                                             <input type="email" class="form-control @error('email') is-invalid @enderror"
                                                 name="email" id="inputEmail" placeholder="Email" required
                                                 value="{{ old('email') }}">
@@ -115,8 +115,8 @@
                                     </div>
                                     <div class="form-group row">
 
-                                        <label for="inputLevel" class="col-sm-2 col-form-label">Level</label>
-                                        <div class="col-sm-10">
+                                        <label for="inputLevel" class="col-sm-3 col-form-label">Level</label>
+                                        <div class="col-sm-9">
                                             <select class="form-control @error('role') is-invalid @enderror" name="role"
                                                 required>
                                                 <option selected disabled>-- Pilih Level --</option>
@@ -133,7 +133,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" name="simpan" class="btn btn-info">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
                                     <a href="/datapetugas">
                                         <button type="button" class="btn btn-default float-right">Batal</button>
                                     </a>

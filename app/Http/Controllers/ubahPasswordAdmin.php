@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Redirect;
+
 
 class ubahPasswordAdmin extends Controller
 {
@@ -81,7 +81,7 @@ class ubahPasswordAdmin extends Controller
         ]);
         $ubahData['password'] = bcrypt($ubahData['password']);
         User::where('id',$id)->update($ubahData);
-        return Redirect::back()->with('informasi','Data berhasil diubah');
+        return back()->with('informasi','Password berhasil diubah');
        
         
         

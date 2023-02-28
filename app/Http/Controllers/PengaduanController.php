@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use App\Models\Gambar;
-use Redirect;
+
 
 class PengaduanController extends Controller
 {
@@ -17,15 +17,18 @@ class PengaduanController extends Controller
     public function index()
     {   
         $laporan = Pengaduan::where('status','ditinjau');
+      
 
         if(request('search')) {
             $laporan->where('id', 'like', '%' . request('search') . '%')
             ->orWhere('users_id', 'like', '%' . request('search') . '%')
             ->orWhere('status', 'like', '%' . request('search') . '%')
-            ->orWhere('created_at', 'like', '%' . request('search') . '%');
+            ->orWhere('tanggal_pengaduan', 'like', '%' . request('search') . '%');
         }
+        
         return view('admin.pengaduan.index',[
             'pengaduan'            =>$laporan->get()
+           
         ]);
     }
 
@@ -72,7 +75,7 @@ class PengaduanController extends Controller
     {
         return view('admin.pengaduan.detailpengaduan',[
             'isipengaduan'              =>Pengaduan::where('id',$id)->first(),
-            'gambar'              =>Gambar::where('pengaduan_id', $id)->first()
+            'gambar'              =>Gambar::where('pengaduan_id', $id)->get()
         ]);
     }
 

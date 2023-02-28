@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Redirect;
+
 
 class ProfileController extends Controller
 {
@@ -77,11 +77,11 @@ class ProfileController extends Controller
             'jk'           =>$request->jk,
             'username'     =>$request->username,
             'email'        =>$request->email,
-            'role'         =>$request->role,
+           
            
         ];
         User::where('id',$id)->update($ubahdata);
-        return Redirect::back()->with('informasi','Data berhasil diubah');
+        return back()->with('informasi','Data berhasil diubah');
     }
 
     /**

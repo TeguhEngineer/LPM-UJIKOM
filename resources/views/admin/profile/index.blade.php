@@ -38,12 +38,12 @@
 
 
                                 </div>
-                                <h3 class="profile-username text-center">{{ auth()->user()->nama }}</h3>
+                                <h3 class="profile-username text-center fw-bold">{{ auth()->user()->nama }}</h3>
                                 <p class="text-muted text-center">{{ auth()->user()->role }}</p>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>Jenis Kelamin</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -56,7 +56,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>Username</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -70,7 +70,7 @@
 
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-4 text-secondary">
                                                 <b>Email</b>
                                             </div>
                                             <div class="col-2 text-end">
@@ -182,7 +182,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    {{-- <div class="form-group row">
                                         <label for="inputRole" class="col-sm-2 col-form-label">Level</label>
                                         <div class="col-sm-10">
                                             <select class="form-control @error('role') is-invalid @enderror"
@@ -198,7 +198,7 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                                 <div class="card-footer">
