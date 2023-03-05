@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Gate;
 
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -15,17 +16,21 @@ class DatapetugasController extends Controller
      */
     public function index()
     {
-        $petugas = User::where('role','petugas')->orWhere('role','admin');
-
-        if(request('search')) {
-            $petugas->where('id', 'like', '%' . request('search') . '%')
-            ->orWhere('nama', 'like', '%' . request('search') . '%')
-            ->orWhere('username', 'like', '%' . request('search') . '%')
-            ->orWhere('email', 'like', '%' . request('search') . '%');
+        if (Gate::allows('admin')) {
+            
+            $petugas = User::where('role','petugas')->orWhere('role','admin');
+    
+            if(request('search')) {
+                $petugas->where('id', 'like', '%' . request('search') . '%')
+                ->orWhere('nama', 'like', '%' . request('search') . '%')
+                ->orWhere('username', 'like', '%' . request('search') . '%')
+                ->orWhere('email', 'like', '%' . request('search') . '%');
+            }
+            return view('admin.datapetugas.index',[
+                'datapetugas'           =>$petugas->get()
+            ]);
         }
-        return view('admin.datapetugas.index',[
-            'datapetugas'           =>$petugas->get()
-        ]);
+        return back();
     }
 
     /**
@@ -35,7 +40,11 @@ class DatapetugasController extends Controller
      */
     public function create()
     {
-        return view('admin.datapetugas.tambahpetugas');
+        if (Gate::allows('admin')) {
+            
+            return view('admin.datapetugas.tambahpetugas');
+        }
+        return back();
     }
 
     /**
@@ -79,9 +88,13 @@ class DatapetugasController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.datapetugas.detailpetugas',[
-            'showpetugas'        =>User::where('id',$id)->first()
-        ]);
+        if (Gate::allows('admin')) {
+            
+            return view('admin.datapetugas.detailpetugas',[
+                'showpetugas'        =>User::where('id',$id)->first()
+            ]);
+        }
+        return back();
     }
 
     /**

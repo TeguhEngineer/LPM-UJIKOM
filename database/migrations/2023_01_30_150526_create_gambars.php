@@ -15,7 +15,7 @@ class CreateGambars extends Migration
     {
         Schema::create('gambars', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pengaduan_id');
+            $table->foreignId('pengaduan_id')->nullable();
             $table->text('gambar')->nullable();
             $table->timestamps();
         });

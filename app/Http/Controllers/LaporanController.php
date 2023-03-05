@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Gate;
+
 use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use App\Models\Tanggapan;
@@ -17,39 +19,47 @@ class LaporanController extends Controller
      */
     public function index(Request $request)
     {
-        $daritanggal = $request->dari_tanggal;
-        $sampaitanggal = $request->sampai_tanggal;
-        $kategori = $request->kategori;
-        $cekstatus = $request->cekstatus;
-        
-        
-        $laporan = Pengaduan::latest();
+        if (Gate::allows('admin')) {
 
-        if(request('search')) {
-            $laporan->where('id', 'like', '%' . request('search') . '%')
-            ->orWhere('status', 'like', '%' . request('search') . '%')
-            ->orWhere('tanggal_pengaduan', 'like', '%' . request('search') . '%');
+            $daritanggal = $request->dari_tanggal;
+            $sampaitanggal = $request->sampai_tanggal;
+            $kategori = $request->kategori;
+            $cekstatus = $request->cekstatus;
+
+
+            $laporan = Pengaduan::latest();
+
+            if (request('search')) {
+                $laporan->where('id', 'like', '%' . request('search') . '%')
+                    ->orWhere('status', 'like', '%' . request('search') . '%')
+                    ->orWhere('tanggal_pengaduan', 'like', '%' . request('search') . '%');
+            }
+            if (request('kategori')) {
+                $laporan = Pengaduan::where('jenispengaduan_id', $kategori)->latest();
+            }
+            if (request('cekstatus')) {
+                $laporan = Pengaduan::where('status', $cekstatus)->latest();
+            }
+            if (request('dari_tanggal')) {
+                $laporan = Pengaduan::whereBetween('tanggal_pengaduan', [$daritanggal, $sampaitanggal])->latest();
+            }
+            return view('admin.laporan.index', [
+                'laporan'                => $laporan->get(),
+                'jenis_pengaduan'        => Jenis_pengaduan::get(),
+                'petugas'           => User::where('role', 'admin')->orWhere('role', 'petugas')->get()
+            ]);
         }
-        if (request('kategori')) {
-            $laporan = Pengaduan::where('jenispengaduan_id', $kategori)->latest();
-        }
-        if (request('cekstatus')) {
-            $laporan = Pengaduan::where('status', $cekstatus)->latest();
-        }
-        if (request('dari_tanggal')) {
-            $laporan = Pengaduan::whereBetween('tanggal_pengaduan',[$daritanggal, $sampaitanggal])->latest();
-        }
-        return view('admin.laporan.index',[
-            'laporan'                =>$laporan->get(),
-            'jenis_pengaduan'        =>Jenis_pengaduan::get(),
-            'petugas'           =>User::where('role', 'admin')->orWhere('role','petugas')->get()
-        ]);
+        return back();
     }
     public function printlaporan()
     {
-        return view('admin.laporan.printlaporan',[
-            'print'     =>Pengaduan::all()
-        ]);
+        if (Gate::allows('admin')) {
+
+            return view('admin.laporan.printlaporan', [
+                'print'     => Pengaduan::all()
+            ]);
+        }
+        return back();
     }
 
     /**
@@ -59,33 +69,37 @@ class LaporanController extends Controller
      */
     public function create(Request $request)
     {
-        
-        $daritanggal = $request->dari_tanggal;
-        $sampaitanggal = $request->sampai_tanggal;
-        $kategori = $request->kategori;
-        $cekstatus = $request->cekstatus;
-        
-        
-        $laporan = Pengaduan::latest();
-       
-        if (request('kategori')) {
-            $laporan = Pengaduan::where('jenispengaduan_id', $kategori)->latest();
+        if (Gate::allows('admin')) {
+
+
+            $daritanggal = $request->dari_tanggal;
+            $sampaitanggal = $request->sampai_tanggal;
+            $kategori = $request->kategori;
+            $cekstatus = $request->cekstatus;
+
+
+            $laporan = Pengaduan::latest();
+
+            if (request('kategori')) {
+                $laporan = Pengaduan::where('jenispengaduan_id', $kategori)->latest();
+            }
+            if (request('cekstatus')) {
+                $laporan = Pengaduan::where('status', $cekstatus)->latest();
+            }
+            if (request('dari_tanggal')) {
+                $laporan = Pengaduan::whereBetween('tanggal_pengaduan', [$daritanggal, $sampaitanggal])->latest();
+            }
+            return view('admin.laporan.printlaporan', [
+                'laporan'                => $laporan->get(),
+                'jenis_pengaduan'        => Jenis_pengaduan::get(),
+                'dari_tanggal'           => $daritanggal,
+                'sampai_tanggal'         => $sampaitanggal,
+                'kategori'               => $kategori,
+                'cekstatus'              => $cekstatus,
+                'petugas'           => User::where('role', 'admin')->orWhere('role', 'petugas')->get()
+            ]);
         }
-        if (request('cekstatus')) {
-            $laporan = Pengaduan::where('status', $cekstatus)->latest();
-        }
-        if (request('dari_tanggal')) {
-            $laporan = Pengaduan::whereBetween('tanggal_pengaduan',[$daritanggal, $sampaitanggal])->latest();
-        }
-        return view('admin.laporan.printlaporan',[
-            'laporan'                =>$laporan->get(),
-            'jenis_pengaduan'        =>Jenis_pengaduan::get(),
-            'dari_tanggal'           =>$daritanggal,
-            'sampai_tanggal'         =>$sampaitanggal,
-            'kategori'               =>$kategori,
-            'cekstatus'              =>$cekstatus,
-            'petugas'           =>User::where('role', 'admin')->orWhere('role','petugas')->get()
-        ]);
+        return back();
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Gate;
 
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -15,18 +16,21 @@ class DatamasyarakatController extends Controller
      */
     public function index(Request $request)
     {
-        
-        $masyarakat = User::where('role','masyarakat');
-        if(request('search')) {
-            $masyarakat->where('id', 'like', '%' . request('search') . '%')
-            ->orWhere('nama', 'like', '%' . request('search') . '%')
-            ->orWhere('nik', 'like', '%' . request('search') . '%')
-            ->orWhere('alamat', 'like', '%' . request('search') . '%');
+        if (Gate::allows('admin')) {
+            
+            $masyarakat = User::where('role','masyarakat');
+            if(request('search')) {
+                $masyarakat->where('id', 'like', '%' . request('search') . '%')
+                ->orWhere('nama', 'like', '%' . request('search') . '%')
+                ->orWhere('nik', 'like', '%' . request('search') . '%')
+                ->orWhere('alamat', 'like', '%' . request('search') . '%');
+            }
+            return view('admin.datamasyarakat.index',[
+                'datamasyarakat'      =>$masyarakat->get(),
+                'masyarakat'           =>User::where('id',$request->masyarakat_id)->get()
+            ]);
         }
-        return view('admin.datamasyarakat.index',[
-            'datamasyarakat'      =>$masyarakat->get(),
-            'masyarakat'           =>User::where('id',$request->masyarakat_id)->get()
-        ]);
+        return back();
     }
 
     /**
@@ -36,7 +40,11 @@ class DatamasyarakatController extends Controller
      */
     public function create()
     {
-        return view('admin.datamasyarakat.tambahmasyarakat');
+        if (Gate::allows('admin')) {
+            
+            return view('admin.datamasyarakat.tambahmasyarakat');
+        }
+        return back();
     }
 
     /**
@@ -54,7 +62,7 @@ class DatamasyarakatController extends Controller
             'password'  => 'required|min:5|max:255',
             'email'     => 'required|email:dns|unique:users',
             'telepon'   => 'required|max:13',
-            'nik'       => 'required|max:16|unique:users',
+            'nik'       => 'required|min:16|max:16|unique:users',
             'alamat'    => 'required|max:255'
         ]);
         $validateData['password'] = bcrypt($validateData['password']);
@@ -83,9 +91,13 @@ class DatamasyarakatController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.datamasyarakat.detailmasyarakat',[
-            'showmasyarakat'        =>User::where('id',$id)->first()
-        ]) ;
+        if (Gate::allows('admin')) {
+            
+            return view('admin.datamasyarakat.detailmasyarakat',[
+                'showmasyarakat'        =>User::where('id',$id)->first()
+            ]) ;
+        }
+        return back();
     }
 
     /**

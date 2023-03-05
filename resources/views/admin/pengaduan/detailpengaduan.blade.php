@@ -151,7 +151,7 @@
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-4">
-                                                                    Jenis Pengaduan
+                                                                    Kategori
                                                                 </div>
                                                                 <div class="col-1">
                                                                     :
@@ -209,104 +209,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="col-sm-3 ">
-                                    <div class="card-body border-2 ">
-                                        <div class="row">
-                                            <h5 class="card-title py-2">Nama </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">Jenis kelamin </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">Email </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">Telepon </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">Alamat </h5>
-                                        </div>
-
-
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">Jenis Pengaduan </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">Isi Pengaduan </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">Tanggal Pengaduan </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">Status </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 ">
-                                    <div class="card-body border-2">
-                                        <div class="row">
-                                            <h5 class="card-title py-2">: {{ $isipengaduan->users->nama }} </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">: {{ $isipengaduan->users->jk }} </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">: {{ $isipengaduan->users->email }} </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">: {{ $isipengaduan->users->telepon }} </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">: {{ $isipengaduan->users->alamat }} </h5>
-                                        </div>
-
-
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">:
-                                                {{ $isipengaduan->jenis_pengaduan->jenis_pengaduan }} </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">: {{ $isipengaduan->isi_laporan }} </h5>
-                                        </div>
-                                        <div class="row">
-
-                                            <h5 class="card-title py-2">: {{ $isipengaduan->tanggal_pengaduan }} </h5>
-                                        </div>
-                                        <div class="row">
-                                            <span>:
-                                                <form action="/pengaduan/{{ $isipengaduan->id }}" method="POST">
-                                                    @method('PUT')
-                                                    @csrf
-                                                    <div class="form-group">
-                                                        <select class="form-control" name="status">
-                                                            <option value="{{ $isipengaduan->status }}" selected>
-                                                                <label>Ditinjau</label>
-                                                            </option>
-                                                            <option value="proses">Diproses</option>
-
-                                                        </select>
-                                                        <button
-                                                            class="btn btn-outline-primary btn-sm mt-1 btn-block">Ubah</button>
-                                                    </div>
-                                                </form>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div> --}}
+                                
                             </div>
                         </div>
                     </div>

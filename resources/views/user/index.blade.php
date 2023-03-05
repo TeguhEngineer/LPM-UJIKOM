@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-                    <img src=" /assetsUser/img/hero-img.png" class="img-fluid animated" alt="" />
+                    <img src="/dist/img/lingkunganhidup.png" class="img-fluid animated" alt="" />
                 </div>
             </div>
         </div>
@@ -80,12 +80,14 @@
         <section id="clients" class="clients section-bg">
             <div class="container">
                 <div class="row" data-aos="zoom-in">
-                    <div class="col-lg-12 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                        {{-- <img src=" /assetsUser/img/clients/client-1.png" class="img-fluid" alt="" /> --}}
-                        <h3>JUMLAH LAPORAN</h3>
+                    <div class="col-lg-12 d-flex align-items-center justify-content-center ">
+
+                        <h3 class="fw-bold">JUMLAH SELURUH LAPORAN</h3>
                     </div>
-                    <div class="col-lg-12 col-md-4 col-6 d-flex align-items-center justify-content-center fw-bold">
-                        <h1>{{ $countPengaduan }}</h1>
+                </div>
+                <div class="row" data-aos="zoom-in">
+                    <div class="col-lg-12 d-flex align-items-center justify-content-center ">
+                        <h1 class="fw-bold">{{ $countPengaduan }}</h1>
                     </div>
                 </div>
             </div>
@@ -180,12 +182,10 @@
         <section id="faq" class="faq">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>Frequently Asked Questions</h2>
+                    <h2>Pertanyaan ?</h2>
                     <p>
-                        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
-                        sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                        ea. Quia fugiat sit in iste
-                        officiis commodi quidem hic quas.
+                        Website ini ditujukan untuk memudahkan masyarakat dalam melaporkan kerusakan alam, agar lebih mudah tanpa perlu mengunjungi kantor pusat kami.
+
                     </p>
                 </div>
 
@@ -193,79 +193,36 @@
                     <ul>
                         <li data-aos="fade-up" data-aos-delay="100">
                             <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non
-                                consectetur a erat nam at lectus urna duis? <i
-                                    class="bx bx-chevron-down icon-show"></i><i
+                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Bagaimana cara saya lapor? <i class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                                <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet
-                                    non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor
-                                    purus non.</p>
+                                <p>Masyarakat dapat membuat akun terlebih dahulu untuk bisa melaporkan agar jelas identitas pelapor</p>
                             </div>
                         </li>
 
                         <li data-aos="fade-up" data-aos-delay="200">
                             <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Feugiat
-                                scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i
+                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Jika sudah punya akun, bagaimana cara melapor? <i class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                                 <p>
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                    velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend
-                                    donec pretium. Est pellentesque elit ullamcorper
-                                    dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                                    Masyarakat dapat mengisi form laporan yang berada di halaman web dengan disertai minimal 1 bukti foto jika memang benar terdapat kerusakan alam/lingkungan
                                 </p>
                             </div>
                         </li>
 
                         <li data-aos="fade-up" data-aos-delay="300">
                             <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Dolor sit
-                                amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i
+                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Bagaimana saya tahu jika laporan saya sudah ditanggapi?<i class="bx bx-chevron-down icon-show"></i><i
                                     class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                                 <p>
-                                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                    pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit.
-                                    Rutrum tellus pellentesque eu tincidunt. Lectus urna
-                                    duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio
-                                    morbi quis
+                                    Masyarakat dapat mengecek riwayat laporan yang berada di halaman web
                                 </p>
                             </div>
                         </li>
 
-                        <li data-aos="fade-up" data-aos-delay="400">
-                            <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Tempus quam
-                                pellentesque nec nam aliquam sem et tortor consequat? <i
-                                    class="bx bx-chevron-down icon-show"></i><i
-                                    class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in
-                                    est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl
-                                    suscipit adipiscing bibendum est. Purus gravida quis
-                                    blandit turpis cursus in.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li data-aos="fade-up" data-aos-delay="500">
-                            <i class="bx bx-help-circle icon-help"></i>
-                            <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Tortor vitae
-                                purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i
-                                    class="bx bx-chevron-down icon-show"></i><i
-                                    class="bx bx-chevron-up icon-close"></i></a>
-                            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                                <p>
-                                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo
-                                    integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc
-                                    eget lorem dolor sed. Ut venenatis tellus in metus
-                                    vulputate eu scelerisque.
-                                </p>
-                            </div>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -276,7 +233,7 @@
         <section id="lapor" class="contact section-bg">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>KIRIM LAPORANMU!!!</h2>
+                    <h2>KIRIM LAPORANMU!</h2>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-sm-7">
@@ -285,13 +242,8 @@
 
                                 <div class="card-body shadow">
                                     <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="text" class="form-control" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
+                                        
+                                        <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Tanggal</label>
                                                 <input type="datetime-local" class="form-control "
@@ -354,12 +306,12 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5 " id="staticBackdropLabel"><i
+                    <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel"><i
                             class="bi bi-exclamation-triangle-fill"></i> Perhatian</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Harap masuk akun/daftar untuk mengirim pengaduan!
+                    <span>Harap masuk akun/daftar untuk mengirim pengaduan!</span>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <a href="/login">

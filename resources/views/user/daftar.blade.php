@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Daftar</title>
     {{-- Bootstrap --}}
+    <link href=" /assetsUser/img/favicon.png" rel="icon" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     {{-- css formDaftar --}}
     <link rel="stylesheet" href="formDaftarUser/style.css">

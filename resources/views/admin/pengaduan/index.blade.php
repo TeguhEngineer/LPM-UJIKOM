@@ -59,7 +59,7 @@
                                             <tr>
                                                 <th>No</th>
 
-                                                <th>Jenis Pengaduan</th>
+                                                <th>Kategori</th>
                                                 <th>Email</th>
                                                 <th>Tanggal</th>
                                                 <th>Status</th>
@@ -92,14 +92,14 @@
                                                             <button class="btn btn-primary py-0 px-1"><i
                                                                     class="bi bi-eye"></i></button>
                                                         </a>
-                                                        <form action="/pengaduan/{{ $item->id }}" method="POST"
+                                                        {{-- <form action="/pengaduan/{{ $item->id }}" method="POST"
                                                             class="d-inline">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button class="btn btn-danger py-0 px-1" type="submit"
                                                                 onclick="return confirm('Apakah kamu yakin ? data akan dihapus secara permanen!')"><i
                                                                     class="bi bi-trash3"></i></button>
-                                                        </form>
+                                                        </form> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach

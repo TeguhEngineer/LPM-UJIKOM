@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Echo_;
 use session;
+
 use App\Models\User;
 use App\Models\Pengaduan;
 use App\Models\Tanggapan;
@@ -23,9 +24,9 @@ class AdminController extends Controller
             'username'     => 'required',
             'password'     => 'required'
         ]);
-        if(Auth::attempt($credentials)){
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            $role = auth ()->user()->role;
+            $role = auth()->user()->role;
             if ($role == "admin") {
                 return redirect()->intended('/dashboard');
             } elseif ($role == "petugas") {
@@ -34,42 +35,43 @@ class AdminController extends Controller
                 return redirect()->intended('/administrator');
             }
         } else {
-            return back()->with('loginError','Masuk gagal!');
-        }       
+            return back()->with('loginError', 'Gagal masuk!');
+        }
     }
 
     public function dashboard()
     {
-        $countMasyarakat = User::where('role','masyarakat')->count();
-        $countPetugas = User::where('role','petugas')->count();
-        $countPengaduan = Pengaduan::all()->count();
-        $countPengaduanDitinjau = Pengaduan::where('status','ditinjau')->count();
-        $countPengaduanDiproses = Pengaduan::where('status','proses')->count();
-        $countPengaduanSelesai = Pengaduan::where('status','selesai')->count();
-        $countTanggapan = Tanggapan::all()->count();
+        
+            $countMasyarakat = User::where('role', 'masyarakat')->count();
+            $countPetugas = User::where('role', 'petugas')->count();
+            $countPengaduan = Pengaduan::all()->count();
+            $countPengaduanDitinjau = Pengaduan::where('status', 'ditinjau')->count();
+            $countPengaduanDiproses = Pengaduan::where('status', 'proses')->count();
+            $countPengaduanSelesai = Pengaduan::where('status', 'selesai')->count();
+            $countTanggapan = Tanggapan::all()->count();
 
-        $tinjau = Pengaduan::where('status','ditinjau');
-        $diproses = Pengaduan::where('status','proses');
-        $selesai = Tanggapan::all();
-        return view('admin.dashboard.index',[
-            'countMasyarakat' => $countMasyarakat,
-            'countPetugas'    => $countPetugas,
-            'countPengaduan'  => $countPengaduan,
-            'countPengaduanditinjau'  => $countPengaduanDitinjau,
-            'countPengaduandiproses'  => $countPengaduanDiproses,
-            'countPengaduanselesai'  => $countPengaduanSelesai,
-            'countTanggapan'  => $countTanggapan,
+            $tinjau = Pengaduan::where('status', 'ditinjau');
+            $diproses = Pengaduan::where('status', 'proses');
+            $selesai = Tanggapan::all();
+            return view('admin.dashboard.index', [
+                'countMasyarakat' => $countMasyarakat,
+                'countPetugas'    => $countPetugas,
+                'countPengaduan'  => $countPengaduan,
+                'countPengaduanditinjau'  => $countPengaduanDitinjau,
+                'countPengaduandiproses'  => $countPengaduanDiproses,
+                'countPengaduanselesai'  => $countPengaduanSelesai,
+                'countTanggapan'  => $countTanggapan,
 
-            'ditinjau'         =>$tinjau->get(),
-            'diproses'         =>$diproses->get(),
-            'pengaduanselesai' =>$selesai
-        ]);
+                'ditinjau'         => $tinjau->get(),
+                'diproses'         => $diproses->get(),
+                'pengaduanselesai' => $selesai
+            ]);
+       
     }
 
     public function logout()
     {
-        Auth::logout(); 
+        Auth::logout();
         return redirect('/administrator');
     }
-
 }

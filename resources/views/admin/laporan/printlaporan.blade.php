@@ -19,7 +19,7 @@
             <tr>
                 <th class="text-center bg-light">No</th>
                 <th class="text-center bg-light">Tanggal</th>
-                <th class="text-center bg-light">Jenis Pengaduan</th>
+                <th class="text-center bg-light">Kategori</th>
                 <th class="text-center bg-light">Isi Pengaduan</th>
                 <th class="text-center bg-light">Status</th>
             </tr>
@@ -33,16 +33,8 @@
                     <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
                     <td>{{ $item->isi_laporan }}</td>
                     <td class="text-center">
-                        @if ($item->status == 'ditinjau')
-                            <span class="badge rounded-pill text-bg-primary py-2  fw-bold"
-                                style="width: 70px;">{{ $item->status }}</span>
-                        @elseif ($item->status == 'proses')
-                            <span class="badge rounded-pill text-bg-warning py-2  fw-bold text-light"
-                                style="width: 70px;">{{ $item->status }}</span>
-                        @elseif ($item->status == 'selesai')
-                            <span class="badge rounded-pill text-bg-success py-2 fw-bold"
-                                style="width: 70px;">{{ $item->status }}</span>
-                        @endif
+                        {{ $item->status }}
+                      
 
                     </td>
                 </tr>

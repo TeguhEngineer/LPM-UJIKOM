@@ -72,7 +72,7 @@
 
                                 <div class="row mt-2">
                                     <div class="col-sm-4 fw-bold">
-                                        Jenis Pengaduan
+                                        Kategori
                                     </div>
                                     <div class="col-sm-1 fw-bold ">
                                         :

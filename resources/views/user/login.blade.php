@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="formLoginUser/style.css">
     {{-- google fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;500;700&display=swap" rel="stylesheet">
-    {{-- <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet"> --}}
-
+    <link href=" /assetsUser/img/favicon.png" rel="icon" />
 </head>
 
 <body>

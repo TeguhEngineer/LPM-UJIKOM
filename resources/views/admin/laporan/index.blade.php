@@ -24,7 +24,7 @@
 
                         <div class="card card-widget">
                             <div class="card-header">
-                                <p class="d-inline fw-bold">Generate Laporan</p>
+                                <p class="d-inline">Generate Laporan</p>
 
 
                                 <div class="card-tools">
@@ -148,7 +148,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Tanggal</th>
-                                            <th>Jenis Pengaduan</th>
+                                            <th>Kategori</th>
                                             <th>Isi Pengaduan</th>
                                             <th>Status</th>
                                         </tr>
@@ -195,7 +195,7 @@
                             <input type="hidden" name="cekstatus" value="{{ request('cekstatus') }}">
                             <input type="hidden" name="dari_tanggal" value="{{ request('dari_tanggal') }}">
                             <input type="hidden" name="sampai_tanggal" value="{{ request('sampai_tanggal') }}">
-                            <button class="btn btn-danger my-0 btn-sm" style="width: 120px"><i class="bi bi-printer"></i>
+                            <button class="btn btn-danger my-0 btn-sm"><i class="bi bi-printer"></i>
                                 Cetak Laporan</button>
                         </form>
                     </div>

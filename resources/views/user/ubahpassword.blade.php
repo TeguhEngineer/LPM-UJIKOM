@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="col-sm-1 text-end">:</div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="password">
+                                        <input type="password" class="form-control" name="password">
 
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="col-sm-1 text-end">:</div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="password_confirmation"
+                                        <input type="password" class="form-control" name="password_confirmation"
                                             required>
 
                                     </div>

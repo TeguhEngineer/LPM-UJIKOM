@@ -194,9 +194,14 @@
                                             <select class="form-control @error('role') is-invalid @enderror"
                                                 id="inputRole" name="role" required>
                                                 <option>{{ $showpetugas->role }}</option>
-                                                <option disabled>-- Pilih Level --</option>
+                                                @if ($showpetugas->role == 'admin')
+                                                <option value="petugas">petugas</option>
+                                                @elseif ($showpetugas->role == 'petugas')
+                                                <option value="admin">admin</option>
+                                                @endif
+                                                {{-- <option disabled>-- Pilih Level --</option>
                                                 <option value="admin">Admin</option>
-                                                <option value="petugas">Petugas</option>
+                                                <option value="petugas">Petugas</option> --}}
                                             </select>
                                             @error('role')
                                                 <div class="invalid-feedback">

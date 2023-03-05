@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DaftarAdmin;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\TanggapanController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\ProfileUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DetailUser;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,10 +29,12 @@ use App\Http\Controllers\DetailUser;
 */
 // USER
 Route::get('/',[UserController::class,'index'])->name('index');
-Route::get('/daftar',[UserController::class,'daftar'])->middleware('guest');
+Route::get('/daftar',[UserController::class,'daftar'])->name('daftar');
 Route::post('/daftar',[UserController::class,'store'])->name('store');
 Route::get('/login',[UserController::class,'login'])->name('login');
 Route::post('/login',[UserController::class,'autentikasi'])->name('autentikasi');
+
+// Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth', 'cekLevel:masyarakat']], function() {
     Route::get('/user',[UserController::class,'indexuser'])->name('indexuser');
@@ -49,6 +53,10 @@ Route::group(['middleware' => ['auth', 'cekLevel:masyarakat']], function() {
 // ADMIN
 Route::get('/administrator',[AdminController::class,'index']);
 Route::post('/administrator',[AdminController::class,'autentikasi'])->name('autentikasi');
+
+Route::get('/daftaradmin',[DaftarAdmin::class,'index']);
+Route::post('/daftaradmin',[DaftarAdmin::class,'daftarAdmin']);
+
 
 Route::group(['middleware' => ['auth','cekLevel:admin,petugas']], function() {
     Route::get('/logout',[AdminController::class,'logout'])->name('logout');

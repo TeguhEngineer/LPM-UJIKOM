@@ -25,8 +25,7 @@
         <nav>
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                @if (auth()->user()->role == "admin")
-                    
+                @if (auth()->user()->role == "admin")  
                 <li class="nav-item ">
                     <a href="/dashboard" class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}"
                         id="sidebar-menu">
@@ -40,8 +39,22 @@
                     </a>
                 </li>
                 @endif
-                @if (auth()->user()->role == "admin")
-                    
+                @if (auth()->user()->role == "petugas")  
+                <li class="nav-item ">
+                    <a href="/dashboard" class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}"
+                        id="sidebar-menu">
+                        <i class="nav-icon fas ">
+                            <i class="bi bi-speedometer2"></i>
+                        </i>
+                        <p class="nav-active">
+                            Dashboard
+
+                        </p>
+                    </a>
+                </li>
+                @endif
+
+                @if (auth()->user()->role == "admin")  
                 <li class="nav-item ">
                     <a href="/kategori" class="nav-link {{ Request::is('kategori*') ? 'active' : '' }}"
                         id="sidebar-menu">

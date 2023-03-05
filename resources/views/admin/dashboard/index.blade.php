@@ -8,7 +8,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                          
+
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -19,66 +19,103 @@
         {{-- Isi content --}}
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-3 col-6 ">
+                @if (auth()->user()->role == 'admin')
+                    <div class="row">
+                        <div class="col-sm-3 col-6 ">
 
-                        <div class="small-box bg-info shadow">
-                            <div class="inner">
-                                <h3>{{ $countPengaduan }}</h3>
-                                <p>Pengaduan</p>
+                            <div class="small-box bg-info shadow">
+                                <div class="inner">
+                                    <h3>{{ $countPengaduan }}</h3>
+                                    <p>Pengaduan</p>
+                                </div>
+                                <div class="icon ">
+                                    <i class="fas fa-bullhorn"></i>
+                                </div>
+                                <a href="/pengaduan" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
-                            <div class="icon ">
-                                <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="col-sm-3 col-6">
+
+                            <div class="small-box bg-success shadow">
+                                <div class="inner">
+                                    <h3>{{ $countTanggapan }}</h3>
+                                    <p>Tanggapan</p>
+                                </div>
+                                <div class="icon ">
+                                    <i class="fas fa-comment"></i>
+                                </div>
+                                <a href="/tanggapan" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
-                            <a href="/pengaduan" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+
+
+
+                        <div class="col-sm-3 col-6">
+
+                            <div class="small-box bg-warning shadow">
+                                <div class="inner">
+                                    <h3>{{ $countMasyarakat }}</h3>
+                                    <p>Data Masyarakat</p>
+                                </div>
+                                <div class="icon">
+
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <a href="/datamasyarakat" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-6">
+
+                            <div class="small-box bg-danger shadow">
+                                <div class="inner">
+                                    <h3>{{ $countPetugas }}</h3>
+                                    <p>Data Petugas</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <a href="/datapetugas" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-3 col-6">
+                @endif
 
-                        <div class="small-box bg-success shadow">
-                            <div class="inner">
-                                <h3>{{ $countTanggapan }}</h3>
-                                <p>Tanggapan</p>
+                @if (auth()->user()->role == 'petugas')
+                    <div class="row justify-content-center">
+                        <div class="col-sm-3 col-6 justify-content-center">
+
+                            <div class="small-box bg-info shadow">
+                                <div class="inner">
+                                    <h3>{{ $countPengaduan }}</h3>
+                                    <p>Pengaduan</p>
+                                </div>
+                                <div class="icon ">
+                                    <i class="fas fa-bullhorn"></i>
+                                </div>
+                                <a href="/pengaduan" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
-                            <div class="icon ">
-                                <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="col-sm-3 col-6">
+
+                            <div class="small-box bg-success shadow">
+                                <div class="inner">
+                                    <h3>{{ $countTanggapan }}</h3>
+                                    <p>Tanggapan</p>
+                                </div>
+                                <div class="icon ">
+                                    <i class="fas fa-comment"></i>
+                                </div>
+                                <a href="/tanggapan" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
-                            <a href="/tanggapan" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-sm-3 col-6">
-
-                        <div class="small-box bg-warning shadow">
-                            <div class="inner">
-                                <h3>{{ $countMasyarakat }}</h3>
-                                <p>Data Masyarakat</p>
-                            </div>
-                            <div class="icon">
-
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <a href="/datamasyarakat" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-6">
-
-                        <div class="small-box bg-warning shadow">
-                            <div class="inner">
-                                <h3>{{ $countPetugas }}</h3>
-                                <p>Data Petugas</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <a href="/datapetugas" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-
-                </div>
+                @endif
 
                 {{-- Tabs --}}
                 <div class="row mt-3">
@@ -171,7 +208,7 @@
                                                     <th scope="col">Tanggal Pengaduan</th>
                                                     <th scope="col">Tanggal Tanggapan</th>
                                                     <th scope="col">Email</th>
-                                                  
+
                                                 </tr>
                                             </thead>
                                             <tbody class="table-group-divider">
@@ -181,7 +218,7 @@
                                                         <td>{{ $selesai->pengaduan->tanggal_pengaduan }}</td>
                                                         <td>{{ $selesai->tanggal_tanggapan }}</td>
                                                         <td>{{ $selesai->pengaduan->users->email }}</td>
-                                                    
+
                                                     </tr>
                                                 @endforeach
 

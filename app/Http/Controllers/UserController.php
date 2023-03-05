@@ -50,7 +50,7 @@ class UserController extends Controller
             'password'  => 'required|min:5|max:255',
             'email'     => 'required|email|unique:users',
             'telepon'   => 'required|max:13',
-            'nik'       => 'required|max:16|unique:users',
+            'nik'       => 'required|min:16|max:16|unique:users',
             'alamat'    => 'required|max:255',
             'role'      => 'required'
         ]);
@@ -80,7 +80,7 @@ class UserController extends Controller
             }
                 
         } else {
-            return back()->with('loginError','Masuk gagal!');
+            return back()->with('loginError','Gagal masuk!');
              
         }
 

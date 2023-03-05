@@ -7,7 +7,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Detail Pengaduan</a></li>
+                            <li class="breadcrumb-item"><a href="#">Detail Pengaduan </a></li>
                          
                         </ol>
                     </div>
@@ -71,7 +71,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group mt-2">
-                                        <label>Jenis Pengaduan</label>
+                                        <label>Kategori</label>
                                         <input type="text" value="{{ $lihatpengadu->jenis_pengaduan->jenis_pengaduan }}"
                                             class="form-control datetimepicker-input" disabled />
                                         {{-- <textarea class="form-control" rows="5" disabled></textarea> --}}

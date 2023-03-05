@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Gate;
 
 use Illuminate\Http\Request;
 use App\Models\Jenis_pengaduan;
@@ -14,15 +15,17 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $jenis_pengaduan = Jenis_pengaduan::all();
+        if (Gate::allows('admin')) {
+            $jenis_pengaduan = Jenis_pengaduan::all();
 
-        if(request('search')) {
-            $jenis_pengaduan->where('jenis_pengaduan', 'like', '%' . request('search') . '%');
-            
+            if (request('search')) {
+                $jenis_pengaduan->where('jenis_pengaduan', 'like', '%' . request('search') . '%');
+            }
+            return view('admin.kategori.index', [
+                'kategori'      => $jenis_pengaduan
+            ]);
         }
-        return view('admin.kategori.index',[
-            'kategori'      => $jenis_pengaduan
-        ]);
+        return back();
     }
 
     /**
@@ -32,7 +35,11 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('admin.kategori.tambahkategori');
+        if (Gate::allows('admin')) {
+            return view('admin.kategori.tambahkategori');
+          
+        }
+        return back();
     }
 
     /**
@@ -45,12 +52,12 @@ class KategoriController extends Controller
     {
         $validateData = $request->validate([
             'jenis_pengaduan'  =>  'required',
-            
+
         ]);
-  
+
         Jenis_pengaduan::create($validateData);
-       
-        return redirect('/kategori')->with('informasi','Berhasil menambah kategori');
+
+        return redirect('/kategori')->with('informasi', 'Berhasil menambah kategori');
     }
 
     /**
@@ -72,9 +79,13 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.kategori.editkategori',[
-            'editkategori'        =>Jenis_pengaduan::where('id',$id)->first()
-        ]);
+        if (Gate::allowIf('admin')) {
+            
+            return view('admin.kategori.editkategori', [
+                'editkategori'        => Jenis_pengaduan::where('id', $id)->first()
+            ]);
+        }
+        return back();
     }
 
     /**
@@ -87,11 +98,11 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         $ubahdata = [
-            'jenis_pengaduan'         =>$request->jenis_pengaduan,
-           
+            'jenis_pengaduan'         => $request->jenis_pengaduan,
+
         ];
-        Jenis_pengaduan::where('id',$id)->update($ubahdata);
-        return redirect('/kategori')->with('informasi','Kategori berhasil diubah');
+        Jenis_pengaduan::where('id', $id)->update($ubahdata);
+        return redirect('/kategori')->with('informasi', 'Kategori berhasil diubah');
     }
 
     /**
@@ -102,7 +113,7 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        Jenis_pengaduan::where('id',$id)->delete();
-        return redirect('/kategori')->with('informasi','Kategori berhasil dihapus');
+        Jenis_pengaduan::where('id', $id)->delete();
+        return redirect('/kategori')->with('informasi', 'Kategori berhasil dihapus');
     }
 }

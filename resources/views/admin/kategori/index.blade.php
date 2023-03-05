@@ -79,14 +79,14 @@
                                                                     class="bi bi-pencil-square"></i></button>
                                                         </a>
 
-                                                        <form action="/kategori/{{ $item->id }}" method="POST"
+                                                        {{-- <form action="/kategori/{{ $item->id }}" method="POST"
                                                             class="d-inline">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button class="btn btn-danger py-0 px-1" type="submit"
                                                                 onclick="return confirm('Apakah kamu yakin ? data akan dihapus secara permanen!')"><i
                                                                     class="bi bi-trash3"></i></button>
-                                                        </form>
+                                                        </form> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach
