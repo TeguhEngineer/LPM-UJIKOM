@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Daftar</title>
     {{-- Bootstrap --}}
-    <link href=" /assetsUser/img/favicon.png" rel="icon" />
+    <link href=" /dist/img/favicon.png" rel="icon" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     {{-- css formDaftar --}}
     <link rel="stylesheet" href="formDaftarUser/style.css">
@@ -20,7 +20,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                    <img src="/dist/img/logindanregister.png" alt="Login image" class="w-100 vh-100"
+                    <img src="/dist/img/logdanreg.png" alt="Login image" class="w-100 vh-100"
                         style="object-fit: contain; object-position: left; width: 100%;">
                 </div>
                 <div class="col-sm-1"></div>

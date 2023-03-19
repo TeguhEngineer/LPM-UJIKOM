@@ -23,9 +23,9 @@ class UserController extends Controller
             'countPengaduan'    =>$countPengaduan
         ]);
     }
-    public function indexuser(Request $request)
+    public function indexuser()
     {
-       $countPengaduan = Pengaduan::all()->count();
+       $countPengaduan = Pengaduan::where('users_id',auth()->user()->id)->count();
 
         return view('user.indexuser',[
             'countPengaduan'  => $countPengaduan,
@@ -93,9 +93,8 @@ class UserController extends Controller
             'users_id'          => 'required',
             'jenispengaduan_id' => 'required',
             'isi_laporan'       => 'required',
-           
             'status'            => 'required',
-            'tanggal_pengaduan'        => 'required'
+            'tanggal_pengaduan' => 'required'
            
         ]);
         Pengaduan::create($validateData);
@@ -117,7 +116,7 @@ class UserController extends Controller
             }
         }
         
-        return redirect('/user')->with('informasi','Pengaduan anda berhasil dikirim');
+        return redirect('/user#lapor')->with('pengaduan','Pengaduan anda berhasil dikirim');
     }
 
     public function logout()
@@ -125,23 +124,6 @@ class UserController extends Controller
         Auth::logout(); 
         return redirect('/');
     }
-
-    // public function show(Request $request,$id)
-    // {
-    //     $getpengaduan = Pengaduan::with('jenis_pengaduan')->where('id',$id)->first();
-    //     // $gettanggapan = Tanggapan::where('pengaduan_id',$id)->first();
-    //     return response()->json(['pengaduan'=>$getpengaduan]);
-        
-        
-    // }
-    // public function showtanggapan(Request $request,$id)
-    // {
-    //     // $getpengaduan = Pengaduan::with('jenis_pengaduan')->where('id',$id)->first();
-    //     $gettanggapan = Tanggapan::with('pengaduan')->where('id',$id)->first();
-    //     return response()->json(['tanggapan'=>$gettanggapan]);
-        
-        
-    // }
 
     
 

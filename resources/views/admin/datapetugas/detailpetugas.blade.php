@@ -21,9 +21,9 @@
                             @endif
 
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
 
         {{-- ISI CONTENT --}}
@@ -199,9 +199,7 @@
                                                 @elseif ($showpetugas->role == 'petugas')
                                                 <option value="admin">admin</option>
                                                 @endif
-                                                {{-- <option disabled>-- Pilih Level --</option>
-                                                <option value="admin">Admin</option>
-                                                <option value="petugas">Petugas</option> --}}
+                                              
                                             </select>
                                             @error('role')
                                                 <div class="invalid-feedback">

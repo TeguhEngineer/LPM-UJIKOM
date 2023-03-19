@@ -55,7 +55,8 @@ class TanggapanController extends Controller
             'pengaduan_id'  =>  'required',
             'users_id'      =>  'required',
             'isi_tanggapan' => 'required',
-            'tanggal_tanggapan'    => 'required'
+            'created_at'    => 'required',
+            'tanggal_tanggapan' => 'required'
         ]);
         $status = ['status'=> $request->status];
         Tanggapan::create($validateData);

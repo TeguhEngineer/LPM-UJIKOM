@@ -37,6 +37,9 @@ class AppServiceProvider extends ServiceProvider
             return $user->role === 'masyarakat';
         });
 
+
+        // Local Time
+        date_default_timezone_set('Asia/Jakarta');
         
     }
 }

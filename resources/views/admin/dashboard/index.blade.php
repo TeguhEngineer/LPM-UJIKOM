@@ -1,7 +1,7 @@
 @extends('master.kerangkaAdmin')
 @section('container')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+        {{-- Header --}}
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -10,11 +10,11 @@
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
 
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
+        {{-- /header --}}
 
         {{-- Isi content --}}
         <div class="content">
@@ -54,7 +54,7 @@
 
                         <div class="col-sm-3 col-6">
 
-                            <div class="small-box bg-warning shadow">
+                            <div class="small-box bg-primary shadow">
                                 <div class="inner">
                                     <h3>{{ $countMasyarakat }}</h3>
                                     <p>Data Masyarakat</p>
@@ -69,53 +69,22 @@
                         </div>
                         <div class="col-sm-3 col-6">
 
-                            <div class="small-box bg-danger shadow">
+                            <div class="small-box bg-warning shadow">
                                 <div class="inner">
-                                    <h3>{{ $countPetugas }}</h3>
-                                    <p>Data Petugas</p>
+                                    <h3 class="text-white">{{ $countPetugas }}</h3>
+                                    <p class="text-white">Data Petugas</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-user"></i>
                                 </div>
-                                <a href="/datapetugas" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
+                                <a href="/datapetugas" class="small-box-footer"><span class="text-white">More info </span> <i
+                                        class="fas fa-arrow-circle-right text-white"></i></a>
                             </div>
                         </div>
                     </div>
                 @endif
 
-                @if (auth()->user()->role == 'petugas')
-                    <div class="row justify-content-center">
-                        <div class="col-sm-3 col-6 justify-content-center">
-
-                            <div class="small-box bg-info shadow">
-                                <div class="inner">
-                                    <h3>{{ $countPengaduan }}</h3>
-                                    <p>Pengaduan</p>
-                                </div>
-                                <div class="icon ">
-                                    <i class="fas fa-bullhorn"></i>
-                                </div>
-                                <a href="/pengaduan" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-6">
-
-                            <div class="small-box bg-success shadow">
-                                <div class="inner">
-                                    <h3>{{ $countTanggapan }}</h3>
-                                    <p>Tanggapan</p>
-                                </div>
-                                <div class="icon ">
-                                    <i class="fas fa-comment"></i>
-                                </div>
-                                <a href="/tanggapan" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                @endif
+               
 
                 {{-- Tabs --}}
                 <div class="row mt-3">

@@ -14,10 +14,8 @@
                 <span class="brand-text fw-bold mx-2 text-primary">PETUGAS
         @endif
 
-
         </span>
     </a>
-
 
     <!-- Sidebar kiri-->
     <div class="sidebar">
@@ -39,20 +37,7 @@
                     </a>
                 </li>
                 @endif
-                @if (auth()->user()->role == "petugas")  
-                <li class="nav-item ">
-                    <a href="/dashboard" class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}"
-                        id="sidebar-menu">
-                        <i class="nav-icon fas ">
-                            <i class="bi bi-speedometer2"></i>
-                        </i>
-                        <p class="nav-active">
-                            Dashboard
-
-                        </p>
-                    </a>
-                </li>
-                @endif
+              
 
                 @if (auth()->user()->role == "admin")  
                 <li class="nav-item ">
@@ -110,11 +95,11 @@
                         </i>
                         <p class="nav-active">
                             Tindaklanjut
-
                         </p>
                     </a>
                 </li>
                 @endif
+
                 @if (auth()->user()->role == "admin")
                 <li class="nav-item">
                     <a href="/tanggapan" class="nav-link {{ Request::is('tanggapan*') ? 'active' : '' }}"
@@ -124,6 +109,21 @@
                         </i>
                         <p class="nav-active">
                             Tindaklanjut
+                        </p>
+                    </a>
+                </li>
+                @endif
+
+                @if (auth()->user()->role == "admin")
+                <li class="nav-header text-sm text-secondary">Chat Masuk</li>
+                <li class="nav-item ">
+                    <a href="/chat-masuk" class="nav-link {{ Request::is('view-chat*') ? 'active' : '' }}"
+                        id="sidebar-menu">
+                        <i class="nav-icon fas">
+                            <i class="bi bi-chat-dots"></i>
+                        </i>
+                        <p class="nav-active">
+                            Chat Masuk
 
                         </p>
                     </a>
@@ -131,7 +131,6 @@
                 @endif
 
                 @if (auth()->user()->role == "admin")
-                    
                 <li class="nav-header text-sm text-secondary">Data</li>
                 <li class="nav-item ">
                     <a href="/datamasyarakat" class="nav-link {{ Request::is('datamasyarakat*') ? 'active' : '' }}"
@@ -146,6 +145,7 @@
                     </a>
                 </li>
                 @endif
+                
                 @if (auth()->user()->role == "admin")
                 <li class="nav-item ">
                     <a href="/datapetugas" class="nav-link {{ Request::is('datapetugas*') ? 'active' : '' }}"

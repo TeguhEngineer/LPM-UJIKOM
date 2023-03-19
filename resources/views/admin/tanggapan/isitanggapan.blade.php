@@ -28,7 +28,7 @@
 
                                     <span class="username"><a href="#">{{ $isitanggapan->users->nama }}</a></span>
 
-                                    <span class="description">{{ $isitanggapan->tanggal_pengaduan }}</span>
+                                    <span class="description">{{ $isitanggapan->created_at }}</span>
                                 </div>
 
                                 <div class="card-tools">
@@ -104,6 +104,7 @@
                                         <input type="hidden" name="users_id" value="{{ auth()->user()->id }}">
                                         <input type="hidden" name="pengaduan_id" value="{{ $isitanggapan->id }}">
                                         <input type="hidden" name="status" value="selesai">
+                                        <input type="hidden" name="tanggal_tanggapan" value="<?php echo date('Y-m-j'); ?>">
 
                                         <div class="form-group">
                                             @if (session()->has('informasi'))
@@ -122,7 +123,7 @@
                                             <label>Tanggal tanggapan:</label>
                                             <div class="input-group date" id="reservationdate"
                                                 data-target-input="nearest">
-                                                <input type="date" name="tanggal_tanggapan" class="form-control "
+                                                <input type="datetime-local" name="created_at" class="form-control "
                                                     data-target="#reservationdate" />
                                             </div>
                                         </div>
@@ -132,7 +133,13 @@
                                         </div>
 
                                         <input type="hidden" name="status" value="selesai">
-                                        <button type="submit" class="btn btn-primary">Kirim</button>
+                                        <div class="row justify-content-center">
+
+                                            <div class="col-3">
+    
+                                                <button type="submit" class="btn btn-primary form-control">Kirim</button>
+                                            </div>
+                                        </div>
 
                                     </div>
 

@@ -1,7 +1,7 @@
 @extends('master.kerangkaAdmin')
 @section('container')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+        {{-- Header --}}
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -11,11 +11,11 @@
                             <li class="breadcrumb-item"><a href="#">Tambah Kategori</a></li>
 
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
+        {{-- /header --}}
 
         <div class="content">
             <div class="container-fluid">
@@ -56,10 +56,10 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
                                     <a href="/kategori">
-                                        <button type="button" class="btn btn-default float-right">Batal</button>
+                                        <button type="button" class="btn btn-default ">Batal</button>
                                     </a>
+                                    <button type="submit" name="simpan" class="btn btn-primary float-end">Simpan</button>
                                 </div>
                             </form>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use PhpParser\Node\Stmt\Echo_;
 use session;
 
@@ -41,7 +42,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        
+        if (Gate::allows('admin')) {
             $countMasyarakat = User::where('role', 'masyarakat')->count();
             $countPetugas = User::where('role', 'petugas')->count();
             $countPengaduan = Pengaduan::all()->count();
@@ -66,6 +67,8 @@ class AdminController extends Controller
                 'diproses'         => $diproses->get(),
                 'pengaduanselesai' => $selesai
             ]);
+        }
+        return back();
        
     }
 

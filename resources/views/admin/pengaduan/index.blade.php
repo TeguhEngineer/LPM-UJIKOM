@@ -1,20 +1,20 @@
 @extends('master.kerangkaAdmin')
 @section('container')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+        {{-- Header --}}
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Pengaduan</a></li>
-                            {{-- <li class="breadcrumb-item active" aria-current="page">Library</li> --}}
+                            
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
+        {{-- /header --}}
 
         {{-- Isi content --}}
         <div class="content">
@@ -69,11 +69,11 @@
                                         <tbody>
                                             @foreach ($pengaduan as $item)
                                                 <tr>
-                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td><b>{{ $loop->iteration }}</b></td>
 
                                                     <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
                                                     <td>{{ $item->users->email }}</td>
-                                                    <td>{{ $item->tanggal_pengaduan }}</td>
+                                                    <td>{{ $item->created_at }}</td>
                                                     <td>
                                                         @if ($item->status == 'ditinjau')
                                                             <span class="badge rounded-pill text-bg-primary py-2  fw-bold"

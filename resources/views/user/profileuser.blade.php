@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Favicons -->
-    <link href=" /assetsUser/img/favicon.png" rel="icon" />
+    <link href=" /dist/img/favicon.png" rel="icon" />
     <link href=" /assetsUser/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -64,16 +64,6 @@
                             <img src="/dist/img/perempuan.png" alt="avatar" class="rounded-circle img-fluid"
                                 style="width: 150px;">
                             @endif
-
-                            {{-- <img src="/galleryProfile/{{ $gambar->gambar }}"
-                                                        class="d-block w-100 img-fluid rounded" alt="..."> --}}
-
-                            {{-- <span style="font-size: 12px; position: absolute; top: 130px; right: 100px;"
-                                class="m-0 p-0">
-                                <a href="/profile-user/create"><i class="bi bi-pencil-square"></i></a>
-                            </span> --}}
-                          
-
                             <h5 class="mb-3 fw-bold">{{ $profileuser->nama }}</h5>
                             <p class="text-muted mb-1 ">{{ $profileuser->role }}</p>
 
@@ -96,7 +86,7 @@
 
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Jenis Kelamin</p>
+                                    <p class="mb-0 fw-bold">Jenis Kelamin</p>
                                 </div>
                                 <div class="col-sm-1 text-end">
                                     :
@@ -110,7 +100,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">NIK</p>
+                                    <p class="mb-0 fw-bold">NIK</p>
                                 </div>
                                 <div class="col-sm-1 text-end">
                                     :
@@ -122,7 +112,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Username</p>
+                                    <p class="mb-0 fw-bold">Username</p>
                                 </div>
                                 <div class="col-sm-1 text-end">
                                     :
@@ -134,19 +124,19 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Email</p>
+                                    <p class="mb-0 fw-bold">Email</p>
                                 </div>
                                 <div class="col-sm-1 text-end">
                                     :
                                 </div>
                                 <div class="col-sm-8">
-                                    <p class="text-muted mb-0">{{ $profileuser->email }}</p>
+                                    <p class="text-muted mb-0"><a href="#" class="text-decoration-none">{{ $profileuser->email }}</a> </p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Phone</p>
+                                    <p class="mb-0 fw-bold">Phone</p>
                                 </div>
                                 <div class="col-sm-1 text-end">
                                     :
@@ -159,7 +149,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Address</p>
+                                    <p class="mb-0 fw-bold">Address</p>
                                 </div>
                                 <div class="col-sm-1 text-end">
                                     :
@@ -182,7 +172,7 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Vendor JS Files -->
+   
     <script src="/js/bootstrap.min.js"></script>
     <script src="/assetsUser/vendor/aos/aos.js"></script>
     <script src=" /assetsUser/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -192,7 +182,7 @@
     <script src=" /assetsUser/vendor/waypoints/noframework.waypoints.js"></script>
     <script src=" /assetsUser/vendor/php-email-form/validate.js"></script>
 
-    <!-- Template Main JS File -->
+   
     <script src=" /assetsUser/js/main.js"></script>
 </body>
 

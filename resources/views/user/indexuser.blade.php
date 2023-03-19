@@ -9,7 +9,7 @@
                     <h1>Laporan Pengaduan Masyarakat Dinas Lingkungan Hidup</h1>
                     <h2>Laporkan segera jika terdapat kerusakan lingkungan hidup</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="#lapor" class="btn btn-warning rounded-pill scrollto px-4 text-white shadow">Lapor
+                        <a href="#lapor" class="btn btn-warning rounded-pill scrollto px-4 text-white shadow fw-bold">Lapor
                             sekarang</a>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                 <div class="row" data-aos="zoom-in">
                     <div class="col-lg-12 d-flex align-items-center justify-content-center ">
 
-                        <h3 class="fw-bold">JUMLAH SELURUH LAPORAN</h3>
+                        <h3 class="fw-bold">JUMLAH LAPORAN SAYA</h3>
                     </div>
                 </div>
                 <div class="row" data-aos="zoom-in">
@@ -45,7 +45,7 @@
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>TENTANG KAMI</h2>
+                    <h2 >DESKRIPSI</h2>
                 </div>
 
                 <div class="row content justify-content-center">
@@ -56,7 +56,7 @@
                             lingkungan hidup yang berada di banjar, khusus menerima laporan tentang
                             kerusakan lingkungan hidup di KOTA BANJAR
                         </p>
-                        <a href="#" class="btn-learn-more">Lapor Sekarang!</a>
+                     
                     </div>
 
 
@@ -106,7 +106,7 @@
                         <div class="icon-box" style="width: 400px">
                             <div class="icon"><i class="bi bi-chat-left-text"></i></i></div>
                             <h4><a href="">Laporan Ditanggapi</a></h4>
-                            <p>Anda akan menerima notifikasi email jika laporan selesai ditanggapi</p>
+                            <p>Anda dapat mengecek status laporan pada riwayat laporan ditanggapi</p>
                         </div>
                     </div>
                 </div>
@@ -179,30 +179,39 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-sm-7">
+
                         <div class="card card-primary card-outline">
+                            @if (session()->has('pengaduan'))
+                                <div class="alert alert-success alert-dismissible fade show mx-3 mt-3 mb-0"
+                                    role="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                    {{ session('pengaduan') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
                             <form action="/user" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="status" value="ditinjau">
                                 <input type="hidden" name="users_id" value="{{ auth()->user()->id }}">
+                                <input type="hidden" name="tanggal_pengaduan" value="<?php echo date('Y-m-j'); ?>">
                                 <div class="card-body shadow">
                                     <div class="row">
 
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Tanggal</label>
-                                                <input type="date" name="tanggal_pengaduan"
-                                                    class="form-control @error('tanggal_pengaduan') is-invalid @enderror">
-                                                @error('tanggal_pengaduan')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
+                                                <input class="form-control" value="<?php echo date('Y-m-j H:i'); ?>" disabled>
+                                              
                                             </div>
                                         </div>
 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
+                                    
+                                        <div class="col-sm-8">
                                             <label for="select">Jenis pengaduan</label>
                                             <select id="select" name="jenispengaduan_id"
                                                 class="form-select @error('jenispengaduan_id') is-invalid @enderror"
@@ -221,7 +230,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="row mt-3">
+                                    <div class="row">
                                         <div class="col-sm-12">
                                             <label for="exampleFormControlTextarea1" class="form-label">Isi
                                                 Pengaduan</label>
@@ -268,19 +277,7 @@
         </section>
         <!-- End Lapor Section -->
 
-        {{-- Modal berhsil lapor --}}
-        @if (session()->has('informasi'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-check-circle-fill me-2" viewBox="0 0 16 16">
-                    <path
-                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                </svg>
-                {{ session('informasi') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-        {{-- End Modal berhasil lapor --}}
+
 
         {{-- Riwayat Pengaduan --}}
         <section id="riwayat">
@@ -297,8 +294,8 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Jenis Pengaduan</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Detail</th>
+                                <th scope="col" class="text-center">Status</th>
+                                <th scope="col" class="text-center">Detail</th>
 
                             </tr>
                         </thead>
@@ -309,7 +306,7 @@
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
 
-                                    <td>
+                                    <td class="text-center">
                                         @if ($item->status == 'ditinjau')
                                             <span class="badge rounded-pill text-bg-primary py-2  fw-bold"
                                                 style="width: 70px;">{{ $item->status }}</span>
@@ -321,7 +318,7 @@
                                                 style="width: 70px;">{{ $item->status }}</span>
                                         @endif
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="/detail/{{ $item->id }}">
                                             <button class="btn btn-outline-info">Detail</button>
                                         </a>

@@ -92,7 +92,7 @@ class PengaduanController extends Controller
             'status'         =>$request->status,
         ];
         Pengaduan::where('id',$id)->update($ubahdata);
-        return redirect('/pengaduan')->with('informasi','Status pengaduan berhasil diubah');
+        return redirect('/pengaduan')->with('informasi','Pengaduan berhasil diverifikasi');
     }
 
     /**

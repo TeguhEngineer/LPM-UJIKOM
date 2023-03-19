@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="formLoginUser/style.css">
     {{-- google fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;500;700&display=swap" rel="stylesheet">
-    <link href=" /assetsUser/img/favicon.png" rel="icon" />
+    <link href=" /dist/img/favicon.png" rel="icon" />
 </head>
 
 <body>
@@ -20,8 +20,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                    <img src="/dist/img/logindanregister.png" alt="Login image" class="w-100 vh-100"
-                        style="object-fit: contain; object-position: left; width: 100%;">
+                    <img src="/dist/img/logdanreg.png" alt="Login image" class="w-100 vh-100"
+                         >
                 </div>
                 <div class="col-sm-1"></div>
 
@@ -94,8 +94,7 @@
                             </div>
 
 
-                            {{-- <p class="small mb-5 pb-lg-2 float-end"><a class="text-muted" href="#!">Lupa
-                                    password?</a></p> --}}
+                           
                             <p class="mt-5">Belum punya akun? <a href="/daftar" class="link-info">Daftar
                                     disini!</a>
                             </p>

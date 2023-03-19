@@ -20,16 +20,16 @@
                                 <li class="breadcrumb-item"><a href=""> Detail data Masyarakat</a></li>
                             @endif
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
 
         {{-- ISI CONTENT --}}
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-5">
+                <div class="row justify-content-center">
+                    <div class="col-sm-7">
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">
                                 <div class="text-center">
@@ -132,7 +132,10 @@
 
                         </div>
                     </div>
-                    <div class="col-sm-7">
+
+                    {{-- revisi hapus edit masyarakat --}}
+
+                    {{-- <div class="col-sm-7">
                         <div class="card card-primary">
                             <div class="card-header">
                                 @if ($showmasyarakat->role == 'admin')
@@ -268,7 +271,10 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
+
+                    {{-- /revisi --}}
+
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 @extends('master.kerangkaAdmin')
 @section('container')
     <div class="content-wrapper">
+        {{-- Header --}}
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -8,13 +9,13 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item" aria-current="page"><a href="/pengaduan"
                                     class="breadcrumb-item">Profile</a></li>
-                            {{-- <li class="breadcrumb-item"><a href=""> Konfirmasi Pengaduan</a></li> --}}
+                          
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
+        {{-- /header --}}
 
 
         {{-- Isi Content --}}

@@ -10,10 +10,15 @@
 </head>
 
 <body style="font-family: 'Times New Roman','Times', serif" class="pt-5">
+    <img src="/dist/img/logo-banjar.png" width="90px;" height="90px;" alt="" style="position: absolute; left:30px;">
+   
     <h5 align="center" class="fw-bold">DATA LAPORAN PENGADUAN MASYARAKAT</h5>
     <h5 align="center" class="fw-bold">DINAS LINGKUNGAN HIDUP</h5>
     <h5 align="center" class="fw-bold">KOTA BANJAR</h5>
-    {{-- <table class="static" align="center" rules="all" border="1px;" style=" 95%;"> --}}
+    <hr class="text-dark border-1 border-dark my-0">
+    <hr class="text-dark border-3 border-dark mt-1 mb-0">
+    <hr class="text-dark border-1 border-dark mt-1">
+  
     <table align="center" class="table mt-4 table-head-fixed table table-bordered text-nowrap" style="max-width: 95%;">
         <thead>
             <tr>
@@ -28,8 +33,8 @@
         <tbody>
             @foreach ($laporan as $item)
                 <tr>
-                    <td><b>{{ $loop->iteration }}</b></td>
-                    <td>{{ $item->tanggal_pengaduan }}</td>
+                    <td class="text-center"><b>{{ $loop->iteration }}</b></td>
+                    <td>{{ $item->created_at }}</td>
                     <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
                     <td>{{ $item->isi_laporan }}</td>
                     <td class="text-center">

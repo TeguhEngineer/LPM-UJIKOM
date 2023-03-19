@@ -1,7 +1,7 @@
 @extends('master.kerangkaAdmin')
 @section('container')
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+        {{-- Header --}}
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -10,11 +10,11 @@
                             <li class="breadcrumb-item"><a href="#">Laporan</a></li>
                          
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
+        {{-- /header --}}
 
         {{-- Isi content --}}
         <div class="content">
@@ -158,7 +158,7 @@
                                         @foreach ($laporan as $item)
                                             <tr>
                                                 <td><b>{{ $loop->iteration }}</b></td>
-                                                <td>{{ $item->tanggal_pengaduan }}</td>
+                                                <td>{{ $item->created_at }}</td>
                                                 <td>{{ $item->jenis_pengaduan->jenis_pengaduan }}</td>
                                                 <td>{{ $item->isi_laporan }}</td>
                                                 <td>

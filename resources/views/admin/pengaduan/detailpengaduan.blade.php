@@ -52,7 +52,7 @@
                                             <span class="visually-hidden">Next</span>
                                         </button>
                                     </div>
-                                    {{-- <img src="/dist/img/user.png" class="img-fluid rounded-start" alt="..."> --}}
+                                  
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="row" >
@@ -81,10 +81,10 @@
                                                         <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel"
                                                             aria-labelledby="custom-tabs-four-home-tab">
                                                                 <div class="row">
-                                                                    <div class="col-3">
+                                                                    <div class="col-3 fw-bold">
                                                                         Nama
                                                                     </div>
-                                                                    <div class="col-1">
+                                                                    <div class="col-1 text-end">
                                                                         :
                                                                     </div>
                                                                     <div class="col-8">
@@ -92,10 +92,10 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <div class="col-3">
+                                                                    <div class="col-3 fw-bold">
                                                                         Jenis kelamin
                                                                     </div>
-                                                                    <div class="col-1">
+                                                                    <div class="col-1 text-end">
                                                                         :
                                                                     </div>
                                                                     <div class="col-8">
@@ -103,10 +103,10 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <div class="col-3">
+                                                                    <div class="col-3 fw-bold">
                                                                         Email
                                                                     </div>
-                                                                    <div class="col-1">
+                                                                    <div class="col-1 text-end">
                                                                         :
                                                                     </div>
                                                                     <div class="col-8">
@@ -114,10 +114,10 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <div class="col-3">
+                                                                    <div class="col-3 fw-bold">
                                                                         Telepon
                                                                     </div>
-                                                                    <div class="col-1">
+                                                                    <div class="col-1 text-end">
                                                                         :
                                                                     </div>
                                                                     <div class="col-8">
@@ -125,10 +125,10 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <div class="col-3">
+                                                                    <div class="col-3 fw-bold">
                                                                         Alamat
                                                                     </div>
-                                                                    <div class="col-1">
+                                                                    <div class="col-1 text-end">
                                                                         :
                                                                     </div>
                                                                     <div class="col-8">
@@ -139,21 +139,21 @@
                                                         <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel"
                                                             aria-labelledby="custom-tabs-four-profile-tab">
                                                             <div class="row">
-                                                                <div class="col-4">
+                                                                <div class="col-4 fw-bold">
                                                                     Tanggal Pengaduan
                                                                 </div>
-                                                                <div class="col-1">
+                                                                <div class="col-1 text-end">
                                                                     :
                                                                 </div>
                                                                 <div class="col-7">
-                                                                    {{ $isipengaduan->tanggal_pengaduan }}
+                                                                    {{ $isipengaduan->created_at }}
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-4">
+                                                                <div class="col-4 fw-bold">
                                                                     Kategori
                                                                 </div>
-                                                                <div class="col-1">
+                                                                <div class="col-1 text-end">
                                                                     :
                                                                 </div>
                                                                 <div class="col-7">
@@ -161,10 +161,10 @@
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-4">
+                                                                <div class="col-4 fw-bold">
                                                                     Isi Laporan
                                                                 </div>
-                                                                <div class="col-1">
+                                                                <div class="col-1 text-end">
                                                                     :
                                                                 </div>
                                                                 <div class="col-7">
@@ -173,10 +173,10 @@
                                                             </div>
                                                             
                                                             <div class="row">
-                                                                <div class="col-4">
+                                                                <div class="col-4 fw-bold">
                                                                     Status
                                                                 </div>
-                                                                <div class="col-1">
+                                                                <div class="col-1 text-end">
                                                                     :
                                                                 </div>
                                                                 <div class="col-7">
@@ -193,7 +193,7 @@
                     
                                                                             </select>
                                                                             <button
-                                                                                class="btn btn-outline-primary btn-sm mt-1 btn-block">Ubah</button>
+                                                                                class="btn btn-outline-primary btn-sm mt-1 btn-block">Konfirmasi</button>
                                                                         </div>
                                                                     </form>
                                                                 </div>

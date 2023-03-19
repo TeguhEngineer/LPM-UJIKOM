@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LPM</title>
+    @if (auth()->user()->role == "admin")
+    <title class="fw-bold">LPM | ADMIN</title>
+    @elseif (auth()->user()->role == "petugas")
+    <title class="fw-bold">LPM | PETUGAS</title>
+    @endif
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/dist/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
@@ -25,6 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
     {{-- Style css --}}
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/chat.css">
 
 </head>
 
@@ -42,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title fw-bold">Informasi</h4>
+                        <h4 class="modal-title fw-bold">Konfirmasi</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -75,10 +77,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         @yield('container')
         <!-- /Content-wrapper -->
 
-        <!-- Control Sidebar kanan-->
-
-        <!-- /.control-sidebar kanan-->
-
         <!-- Main Footer -->
         <footer class="main-footer">
             <!-- To the right -->
@@ -91,7 +89,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
+  
     {{-- Darkmode --}}
     <script>
         function ubahMode() {

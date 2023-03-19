@@ -133,10 +133,10 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
                                     <a href="/datapetugas">
-                                        <button type="button" class="btn btn-default float-right">Batal</button>
+                                        <button type="button" class="btn btn-default">Batal</button>
                                     </a>
+                                    <button type="submit" name="simpan" class="btn btn-primary float-end">Simpan</button>
                                 </div>
                             </form>
                         </div>

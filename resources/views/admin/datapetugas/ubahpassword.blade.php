@@ -9,15 +9,15 @@
 
                             <li class="breadcrumb-item"><a href=""> Ubah Password</a></li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
 
         {{-- ISI CONTENT --}}
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row justify-content-center">
 
                     <div class="col-sm-6">
                         <div class="card card-primary">

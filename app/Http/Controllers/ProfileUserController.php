@@ -26,7 +26,7 @@ class ProfileUserController extends Controller
      */
     public function create()
     {
-        return view('user.fotoprofile');
+        //
     }
 
     /**
@@ -37,19 +37,7 @@ class ProfileUserController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request,[
-        //     'id'        =>'required',
-        //     'files'     =>'required'
-        // ]);
-    
-        // $files = $request->file('files');
-        // $extension                  =$files->getClientOriginalExtension();
-        // $filenamesimpan             ='galleryProfile-' . time().'.'. $extension;
-        // $files->move('galleryProfile', $filenamesimpan);
-        // User::create([
-        //     'id'                =>$request->id,
-        //     'foto'              =>$filenamesimpan,
-        // ]);
+      //
     }
 
     /**
@@ -62,7 +50,7 @@ class ProfileUserController extends Controller
     {
         return view('user.profileuser',[
             'profileuser'        =>User::where('id',$id)->first(),
-            // 'gambar'                =>User::where('id', $id)->get()
+         
         ]);
     }
 
@@ -102,19 +90,7 @@ class ProfileUserController extends Controller
         return back()->with('informasi','Data berhasil diubah');
     }
 
-    // public function updategambar(Request $request, $id)
-    // {
-    //     $files = $request->file('files');
-    // if ($request->hasFile('files')) {
-    //     $extension = $files->getClientOriginalExtension();
-    //     $fileNameSave = 'galleryCategori' . time() . '.' . $extension;
-    //     $files->move(public_path('galleryCategori'), $fileNameSave);
-    //     $img = ['url' => $fileNameSave];
-    //     $filePic = public_path('galleryCategori/' . $request->picture);
-    //     File::delete($filePic);
-    //     Categoribarang::where('id', $id)->update($img); 
-    // }
-    // }
+   
 
     /**
      * Remove the specified resource from storage.

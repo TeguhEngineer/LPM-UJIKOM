@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Favicons -->
-    <link href=" /assetsUser/img/favicon.png" rel="icon" />
+    <link href=" /dist/img/favicon.png" rel="icon" />
     <link href=" /assetsUser/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -33,26 +33,25 @@
 </head>
 
 <body>
-    <!-- ======= Header ======= -->
+    {{-- Header --}}
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
             <h1 class="logo me-auto fw-bold"><a href="index.html">L P M</a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo me-auto"><img src=" /assetsUser/img/logo.png" alt="" class="img-fluid"></a>-->
+        
 
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Proses</a></li>
+                    <li><a class="nav-link scrollto" href="#about">Deskripsi</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Proses pengaduan</a></li>
                     <li><a class="getstarted scrollto" href="/login">Masuk/Daftar</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
-            <!-- .navbar -->
+           
         </div>
     </header>
-    <!-- End Header -->
+    {{-- /header --}}
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
@@ -63,7 +62,7 @@
                     <h1>Laporan Pengaduan Masyarakat Dinas Lingkungan Hidup</h1>
                     <h2>Laporkan segera jika terdapat kerusakan lingkungan hidup</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="#lapor" class="btn btn-warning rounded-pill scrollto px-4 text-white shadow">Lapor
+                        <a href="#lapor" class="btn btn-warning rounded-pill scrollto px-4 text-white shadow fw-bold">Lapor
                             sekarang</a>
                     </div>
                 </div>
@@ -98,7 +97,7 @@
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>TENTANG KAMI</h2>
+                    <h2>DESKRIPSI</h2>
                 </div>
 
                 <div class="row content justify-content-center">
@@ -109,20 +108,8 @@
                             lingkungan hidup yang berada di banjar, khusus menerima laporan tentang
                             kerusakan lingkungan hidup di KOTA BANJAR
                         </p>
-                        <a href="#" class="btn-learn-more">Lapor Sekarang!</a>
+                      
                     </div>
-                    {{-- <div class="col-lg-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        <ul>
-                            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat</li>
-                            <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in
-                                voluptate velit</li>
-                            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat</li>
-                        </ul>
-                    </div> --}}
 
                 </div>
             </div>
@@ -170,7 +157,7 @@
                         <div class="icon-box" style="width: 400px">
                             <div class="icon"><i class="bi bi-chat-left-text"></i></i></div>
                             <h4><a href="">Laporan Ditanggapi</a></h4>
-                            <p>Anda akan menerima notifikasi email jika laporan selesai ditanggapi</p>
+                            <p>Anda dapat mengecek status laporan pada riwayat laporan ditanggapi</p>
                         </div>
                     </div>
                 </div>
@@ -243,17 +230,13 @@
                                 <div class="card-body shadow">
                                     <div class="row">
                                         
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-4">
                                             <div class="form-group">
                                                 <label>Tanggal</label>
-                                                <input type="datetime-local" class="form-control "
-                                                    placeholder="Enter ...">
+                                                <input  value="<?php echo date('m/j/Y H:i'); ?>" class="form-control " disabled>
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-8">
                                             <label for="select">Jenis pengaduan</label>
                                             <select id="select" class="form-select"
                                                 aria-label="Default select example">
@@ -266,7 +249,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="row mt-3">
+                                    <div class="row">
                                         <div class="col-sm-12">
                                             <label for="exampleFormControlTextarea1" class="form-label">Isi
                                                 Pengaduan</label>

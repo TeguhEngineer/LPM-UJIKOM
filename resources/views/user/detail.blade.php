@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Favicons -->
-    <link href=" /assetsUser/img/favicon.png" rel="icon" />
+    <link href=" /dist/img/favicon.png" rel="icon" />
     <link href=" /assetsUser/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -30,13 +30,6 @@
 
     <!-- Template Main CSS File -->
     <link href=" /assetsUser/css/style.css" rel="stylesheet" />
-
-    <!-- =======================================================
-  * Template Name: Arsha - v4.10.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body style="background-color: #eee;">
@@ -44,7 +37,7 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
             <a href="/user#riwayat"><i class="bi bi-chevron-left"></i> Back</a>
-            {{-- <h1 class="logo me-auto fw-bold"><a href="index.html">L P M</a></h1> --}}
+          
 
         </div>
     </header>

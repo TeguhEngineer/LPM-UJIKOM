@@ -82,9 +82,6 @@ class ubahPasswordAdmin extends Controller
         $ubahData['password'] = bcrypt($ubahData['password']);
         User::where('id',$id)->update($ubahData);
         return back()->with('informasi','Password berhasil diubah');
-       
-        
-        
     }
 
     /**

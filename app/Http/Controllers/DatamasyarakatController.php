@@ -109,17 +109,19 @@ class DatamasyarakatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ubahdata = [
-            'nama'         =>$request->nama,
-            'jk'           =>$request->jk,
-            'username'     =>$request->username,
-            'email'        =>$request->email,
-            'telepon'      =>$request->telepon,
-            'nik'          =>$request->nik,
-            'alamat'       =>$request->alamat
-        ];
-        User::where('id',$id)->update($ubahdata);
-        return back()->with('informasi','Data berhasil diubah');
+        // revisi hapus edit masyarakat
+
+        // $ubahdata = [
+        //     'nama'         =>$request->nama,
+        //     'jk'           =>$request->jk,
+        //     'username'     =>$request->username,
+        //     'email'        =>$request->email,
+        //     'telepon'      =>$request->telepon,
+        //     'nik'          =>$request->nik,
+        //     'alamat'       =>$request->alamat
+        // ];
+        // User::where('id',$id)->update($ubahdata);
+        // return back()->with('informasi','Data berhasil diubah');
     }
 
     /**
@@ -130,7 +132,9 @@ class DatamasyarakatController extends Controller
      */
     public function destroy($id)
     {
-        User::where('id',$id)->delete();
-        return redirect('/datamasyarakat')->with('informasi','Data Masyarakat berhasil dihapus');
+        // revisi
+        
+        // User::where('id',$id)->delete();
+        // return redirect('/datamasyarakat')->with('informasi','Data Masyarakat berhasil dihapus');
     }
 }

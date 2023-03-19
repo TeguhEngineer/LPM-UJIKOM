@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                         <label>Tanggal</label>
                                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                            <input type="date" value="{{ $lihatpengadu->tanggal_pengaduan }}"
+                                            <input type="datetime-local" value="{{ $lihatpengadu->created_at }}"
                                                 class="form-control datetimepicker-input" disabled />
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                     <div class="form-group">
                                         <label>Tanggal tanggapan</label>
                                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                            <input type="date" value="{{ $lihattanggapan->tanggal_tanggapan }}"
+                                            <input type="datetime-local" value="{{ $lihattanggapan->created_at }}"
                                                 class="form-control datetimepicker-input" disabled />
                                         </div>
                                     </div>

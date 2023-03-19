@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Favicons -->
-    <link href=" /assetsUser/img/favicon.png" rel="icon" />
+    <link href=" /dist/img/favicon.png" rel="icon" />
     <link href=" /assetsUser/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -37,7 +37,7 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
             <a href="/profile-user/{{ auth()->user()->id }}" class="text-decoration-none"><i class="bi bi-chevron-left"></i> Back</a>
-            {{-- <h1 class="logo me-auto fw-bold"><a href="index.html">L P M</a></h1> --}}
+          
 
         </div>
     </header>
@@ -48,7 +48,7 @@
             <div class="row justify-content-center">
                 <div class="col-sm-6 text-center">
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-                        <h5 class="text-primary fw-bold" style="letter-spacing: 5px;">Ubah Data</h5>
+                        <h5 class="text-primary fw-bold" style="letter-spacing: 5px;">Ubah Password</h5>
                     </nav>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-5">
-                                        <p class="mb-0">Password Baru</p>
+                                        <p class="mb-0 fw-bold">Password Baru</p>
                                     </div>
                                     <div class="col-sm-1 text-end">:</div>
                                     <div class="col-sm-6">
@@ -90,7 +90,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-5">
-                                        <p class="mb-0">Konfirmasi Password</p>
+                                        <p class="mb-0 fw-bold">Konfirmasi Password</p>
                                     </div>
                                     <div class="col-sm-1 text-end">:</div>
                                     <div class="col-sm-6">
@@ -101,7 +101,7 @@
                                 </div>
                                 <hr>
 
-                                <button class="btn btn-primary btn-block " type="submit">Simpan</button>
+                                <button class="btn btn-primary btn-block fw-bold" type="submit">Simpan</button>
                             </form>
                         </div>
                     </div>
@@ -117,7 +117,8 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Vendor JS Files -->
+   
+            
     <script src="/js/bootstrap.min.js"></script>
     <script src="/assetsUser/vendor/aos/aos.js"></script>
     <script src=" /assetsUser/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -126,8 +127,6 @@
     <script src=" /assetsUser/vendor/swiper/swiper-bundle.min.js"></script>
     <script src=" /assetsUser/vendor/waypoints/noframework.waypoints.js"></script>
     <script src=" /assetsUser/vendor/php-email-form/validate.js"></script>
-
-    <!-- Template Main JS File -->
     <script src=" /assetsUser/js/main.js"></script>
 </body>
 

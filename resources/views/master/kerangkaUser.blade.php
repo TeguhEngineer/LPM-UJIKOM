@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Favicons -->
-    <link href=" /assetsUser/img/favicon.png" rel="icon" />
+    <link href=" /dist/img/favicon.png" rel="icon" />
     <link href=" /assetsUser/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -34,19 +34,12 @@
 </head>
 
 <body>
-    <!-- ======= Header ======= -->
+    {{-- Header --}}
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
-            <h1 class="logo me-auto fw-bold"><a href="index.html">L P M</a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo me-auto"><img src=" /assetsUser/img/logo.png" alt="" class="img-fluid"></a>-->
-
+            <h1 class="logo me-auto fw-bold"><a href="/user">L P M</a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    {{-- <li><a class="nav-link scrollto " href="#riwayat">Riwayat</a></li> --}}
-                    {{-- <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li> --}}
-                    {{-- <li><a class="nav-link scrollto" href="#services">Proses</a></li> --}}
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle me-5" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -54,10 +47,12 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#riwayat"><span><i
-                                            class="bi bi-clock-history"></i>&nbsp;&nbsp;Riwayat</span> </a></li>
+                                            class="bi bi-clock-history"></i>&nbsp;&nbsp;History</span> </a></li>
                             <li><a class="dropdown-item" href="/profile-user/{{ auth()->user()->id }}"><span><i
                                             class="bi bi-person"></i>&nbsp;&nbsp;Profile</span> </a>
                             </li>
+                            <li><a href="/chat-support"><span><i
+                                class="bi bi-clock-history"></i>&nbsp;&nbsp;Chat Support</span></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -69,10 +64,9 @@
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
-            <!-- .navbar -->
         </div>
     </header>
-    <!-- End Header -->
+    {{-- /header --}}
 
     {{-- Modal Logout --}}
     <div class="modal fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -99,22 +93,18 @@
 
     @yield('container')
 
-    <!-- ======= Footer ======= -->
+    {{-- Footer --}}
     <footer id="footer">
         <div class="container footer-bottom clearfix">
             <div class="copyright">
-                &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>UKK 2023</span></strong>
             </div>
             <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="https://bootstrapmade.com/">Teguh Afriansyah</a>
             </div>
         </div>
     </footer>
-    <!-- End Footer -->
+    {{-- /footer --}}
 
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
